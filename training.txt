@@ -1,0 +1,2401 @@
+S/W REQ:
+--------
+
+jdk1.8
+Mysql 5.5 or 6.0
+google chrome latest / edge
+postman---- meant webservices
+eclipse luna/mars
+notepad or notepad++/wordpad-----np7
+vs code
+NodeJS
+open office
+
+====================================================================================================================================================================================
+ipconfig---to check the configuration of sys
+infics.com--- DNS
+POC----proof of concept
+
+======================================
+
+https://github.com/kolaparthi34k/Infinite_JavaBackend
+
+=============================
+
+INTRO TO JAVA:
+-------------
+
+ejps
+jpa
+
+KINDS OF JAVA:
+-------------
+J2SE/JSE(STANDARD EDITION)-- for designing basic app or desktop app
+J2EE/JEE(ENTERPRISE EDITION)-- banking or enterprise app
+J2ME/JME(MOBILE/MICRO EDITION)-- Mobile development,embedded sys
+
+2 TYPES OF APPLICATIONS:
+-----------------------
+WEB--- accessed online by installing
+DESKTOP---accessed by downloading and installing
+          virus,ms office
+
+
+2 TYPES OF S/Ws :
+---------------
+
+SYSTEM S/W---  used for operating computer hardware.
+              OS, device drivers
+
+APP S/W---- used by user to perform specific task.
+            ms office,jdk
+==============================================
+> c is the markert leader for embedded system
+
+> c & java---used to design virus( mainly c is used)
+
+============================================================================================================================================================
+
+MySql--version-8
+MySql root password---mysql123@
+mysql port no: 3306
+=============================================================================================================================================================
+dont install any s/w from downloads
+dont use more than 32 chars while naming a folder
+copy all downloads to c drive and then run
+dont use spaces while naming a folder( use underscore)
+=============================================================================================================================================================
+
+ECLIPSE NEON:
+-------------
+we have to integrate eclipse with jdk---so that we can run java pgm
+by default we have jre
+
+PROCESS:
+-------
+**eclipse is not a installer( its a batch file)**
+
+eclipse--->window---->preferences----->search for installed------>select installed jre---->directory----->select the java version which has jdk----->finish
+
+eclipse 1.8.x version is used, where x is different versions.
+
+=========================================================
+
+MySQL WORKBENCH:
+----------------
+
+designed using python --- that's why we see py
+CUSTOM---- licensed are being accessed
+
+COMPLETE---- full access 
+
+=============================================================================================
+notepad++, MySQL is a installer
+=============================================================================================================================
+
+JAVA S/W's:
+----------
+
+oracle jdk /open jdk/ Jrocketkit /Scala-----------similar to java(CAN WORK ANYWHERE)
+most used -----Jrocketkit--OUTDATED
+drawbacks in jdk are overcomed by "Scala"
+original jdk----oracle jdk
+web logic-----Jrocketkit
+advanced jdk----Scala
+3rd party jdk--open jdk(free)
+
+============================================================================
+
+JRE is a part of JDK
+
+INTERNAL JDK-===> JDK--->JRE
+
+**NEVER DELETE "BIN FOLDER" in program files**
+
+***By default OS uses JRE***
+
+=============================================================================================================================================================
+
+JDK---JRE----JVM
+
+=================================================================================================
+
+NUTS & BOLTS: (basic terminology)
+-------------
+
+CACHE--->> temporary memory
+         it will sit on RAM
+
+MEMORY--->>RAM(temporary storage)
+
+LOADER--->> It is a utility/tool/ software
+          JOB--is to load something into memory for execution
+          something means code/class file
+          common in all s/ws (not a part of java)
+(java has seperate memory)
+
+SERVER--->> a phyical machine with server s/w--->(both s/w & h/w)
+              tomcat server---- not a h/w---only s/w
+PLATFORM-->>it is a OS
+           TYPES--->windows,linux,MAC,Sun solsris,(As 400---ATM machines)
+           instructions/commands vary from platform to platform
+INDEPENDENT / architecture neutral---->> if we are able to run our code in windows,linux and mac architectures, then it is said be independent
+ 
+UNICODE or i18n:
+---------------
+UNICODE-->>Universally acceptable code
+
+format--unicode
+feature--i18n
+ 
+i18n( i-nternationalizatio-n ) --->>for designing the different user interfaces in different languages
+
+=============================================================================================================================================================
+'A'in Tamil:
+-------------->> https://unicode.org/charts/
+
+syntax---"\u(followed by 4digit code)--for displaying
+
+i.e..,  "\uOBBO" --- "A"
+=================================================
+HTML is a server?--------->>scripting lang for designing web pages
+
+NOTE:
+----
+for storing these diff lang codes we have -- db/ cache
+use special symbols carefully, if not server will crash
+be carefull while debugging
+IPv6--->>doesn't require wires
+OS---->System s/w which makes your h/w to work
+live streaming--->>continual flow of data/data packets
+data--->>unsorted and not meangingful
+info--->>sorted and meaningful
+meta data--->data about data(anything that describes an obj)
+             eg:bottle--color,dimensions,size
+
+
+
+DAY--2
+*******
+if we see color ----- GUI
+if we see blank bg---- console----like cmd
+ATM --- Uses distributed data---means dont show old data
+appac region---across all regions i.e..,asia,malaysia..
+latest version of jdk---jdk 20
+MySQl--version 8
+
+Git--2.x version
+samsung OS----native OS--older phones
+s/w designed for internal purpose---isro,army(private and licensed)
+
+=============================================================================================================
+
+ARCHITECTURE OF JAVA:
+--------------------
+
+JDK= JRE+(DEVELOPMENT TOOLS --- present in bin)
+      JRE= JVM + LIBRARY CLASSES
+            JVM
+               JIT--Just In Time
+
+Development tools:
+-----------------
+key tool--- used for digital security
+wsgen & wsimport---used for web services
+
+javafx---used for web and app development---it is a failure--so they removed from JDK.
+
+JVISUALVM:
+----------
+monitoring the app---ie.,cpu,memory
+part of jdk
+capability is low------so these are used for small app
+
+jvisualvm--->local->visualvm-->we can monitor here like threads..
+jconsole are used for monitoring but these are used for small app
+
+
+
+MONITORING TOOLS:
+-----------------
+New Relic,App Dynamics,Data Dog, ELK Stack,Sentry(recently used)
+
+Bytecode:
+--------
+zeros ,ones, special char/symbols generated by JVM
+=======================
+
+if we want to run app----need jre
+if jre is outside----we get updates outside
+jre within jdk---------no updates but debugging,compiler would be possible
+================================================
+write code--save as .java---->JDK(COMPILE JAVA CODE TO BYTE CODE)---->JRE ENVIRONMENT(JVM INTERPRET(RUN BYTE CODE))--->MACHINE
+
+
+==========================================================================
+CAN WE CONVERT SOURCE CODE TO BYTE CODE?----------------- by using JDK
+VICE VERSA----------use java decompiler we can convert bytecode to source code---we can download it from google
+
+===============================================================================
+
+WORKING OF JVM:
+--------------
+
+write code and save as .java
+using javac tool,we are going to compile source code,finally bytecode will be generated
+if any errors--execution will stop and bytecode willn't be generated
+bytecode will be in .class format
+.class file is given as i/p to class loader subsys to check whether the class file is valid or not 
+memory allocation
+==========================================
+DOES JAVA SUPPORTS POINTERS?-------no,but interally it uses pointers for memory allocation
+becoz, pointers are not secure and machine dependent
+
+====================================================
+
+CLASS LOADER SUBSYS:
+---------------------
+
+1)types of class loders in jvm:
+----------------------
+3
+bootstrap----------responsible to load the class file to memory for execution
+
+extension----------when we are using 3rd party libraries to load the needed features --eg:apache
+
+application------ loads classes from the directories and JAR files listed in the CLASSPATH environment variable or the -classpath command-line option.
+
+
+2)LINKING:------>we will verify and link/
+-----------
+verify
+prepare
+resolve
+
+3)initialization
+
+==============================================================
+
+MEMORY ALLOCATION/ RUNTIME DATA AREA:
+-------------------------------------
+
+METHOD AREA
+
+HEAP AREA
+
+STACK AREA
+
+PC REGISTERS--memory size of pc register---8bytes
+
+NATIVE METHOD STACK
+
+===============================
+ 
+EXECUTION ENGINE:
+----------------
+3
+interpreter
+jit compiler---profiler
+garbage collection
+Native method interface
+native method library
+
+
+PROFILER---used to see,monitor
+
+native---refers it is designed in c/c++
+========================================================================
+
+https://docs.oracle.com/javase/8/docs/api/
+https://jcp.org/
+
+===============================================================================================================
+
+ECLIPSE:
+--------
+
+1)TO GET PROJECT EXPLORER:
+--------------------------
+go to window-----perspective------reset perspective
+
+2)TO CHANGE WORKSPACE:
+------------------------
+create a new folder in java backend and then
+
+FILE MENU---->SWITCH WORKSPACE---->OTHER--->BROWSE YOUR LOCATION--->OK
+
+============================================================================================================================================================================================
+
+zip file--->compressed file
+
+JSE--->.jar(java archieve)---used to integrate our code/project--------.jar consists of class files and MANIFEST.MF file
+                                  MANIFEST.MF------is a configuration file
+        .jar is desktop app
+
+
+JEE-->.ear(enterprise archieve)
+       technology evolution of JEE===>Corba---->EJB---->spring---->springboot
+      
+Web App----->.war(web archieve)-------war consists of class files,html/css/Js/servlets/jsp and web file
+
+=================================================
+
+java supports functional and oops(Object Oriented Programming Synopsis)
+JAVA---James gosling Arthar Vantoff Antimecktales
+
+=====================================================================================================================
+
+FUNCTIONAL PROGRAMMING:
+-----------------------
+
+functions
+procedures
+functional topics-------like loops,conditional stmts,datatypes & operators
+
+1)FUNCTION:
+---------
+a block/group of commands/instructions to achive a specific functionality
+
+2 types of functions:
+-----------------------
+user defined
+predefined
+
+syntax:
+------
+
+always the entry point is main----> Main functions are userdefined
+                                    main--keyword is predefined
+                                    main is basically method
+
+always logic should be within fn
+main adv of fnal prog---modularity-----divide the req in diff parts
+>>always fn return some value
+        add()
+        {
+             int a=9;
+             return a;
+        }
+
+PROCEDURES OR METHODS --- dont return any value
+         add()
+        {
+             int a=9;
+        }
+
+================================================================
+
+DATATYPES:
+----------
+
+SPECIFIES TYPE OF DATA
+
+TYPES OF DATATYPES:
+-------------------
+
+number--------4
+character-----' '
+boolean------ 0/1
+string--------- " "
+float------ 9.34
+double
+
+BYTE DATATYPE:
+---------------
+used in n/wing and socket pgming
+Eg:-- youtube,messenger
+
+2 WAYS TO TRANSMIT FROM SOURCE TO DESTINATION:
+------------------------------------------------
+byte transmission-----------faster-----1 byte----won't support i18n
+character transmission------slower----------size=2bytes---supports i18n
+
+VARIABLE:
+---------
+
+STORE DATA TEMPORARILY
+limit of var creation-----based on jvm
+
+syntax:
+-------
+
+<datatype> <var name>;
+
+eg: int a;
+--
+     int a=9;
+     int a,b,c=90;-----------a and b are not initialized --- c value becomes 90
+     a,b,c int;-------------NA
+     int char=90;----------NA---we cant use predefined ones as variable names
+     int a=90,89;----------------
+
+
+     int p= a + b;
+     int z= (2+1) +(4+3);---------no. of expressions=3
+
+
+public class Example1
+{
+    public static void main(String [] bark)
+    //any var can be written in place of args
+    {
+         s.o.pln("hi");
+    }
+}
+
+
+HOW TO SET PATH:
+----------------
+1)set PATH="C:\Program Files\Java\jdk1.8.0_121\bin"
+
+2) cd\
+   cd paste the path of java file
+   javac classname.java
+   java classname
+
+3) WITHOUT USING CMD AND USING BATCH FILE:
+------------------------------------------
+open notepad
+
+type==>set PATH="C:\Program Files\Java\jdk1.8.0_121\bin"
+javac Vasanthi.java
+java Vasanthi
+pause
+
+save file as "Nocmd.bat"
+
+open file manager ---> go to the location of "bat file" and open the "bat file"
+
+output will be displayed
+
+
+JAVA CAN BE RUN IN DIFFERENT WAYS:
+-----------------------------------
+
+1)ECLIPSE OR OTHER IDE-----used most
+
+2)THROUGH CMD
+
+3)USING BATCH FILE
+
+4)ENVIRONMENTAL VARIABLE-----used most
+
+5)FROM OTHER PROGRAMMING LANGUAGES
+
+
+ENVIRONMENTAL VARIABLE USING CMD:
+---------------------------------
+
+SEARCH FOR ENV----->ENVIRONMENTAL VARIABLES----->USER VARIABLES--->PATH--->EDIT---->NEW-->PASTE THE PATH OF JDK---->ok--->ok--->ok---->goto location of jdk-bin---->search for cmd-->and run the code i.e.., javac classname 
+                                                                                                                                                                                                             java classname ---> output
+
+we dont have control over environmental variables in projects
+
+2 types:
+--------
+user and system var
+
+**we have to restart the cmd whenever the configuration  made any changes**
+
+
+SWAPPING OF 2 NOS:
+------------------
+
+class Swap
+{
+	public static void main(String [] vs)
+	{
+		int a=90;
+		int b=190;
+		b=(a+b)-(a=b); or  a=(a+b)-(b=a);
+		System.out.println(b);
+	}
+}
+
+
+ECLIPSE:
+--------
+
+OPEN ECLIPSE-->file-->new--->project-->name:Swap
+
+Swap(right click)-->new-->package-->name: com.infinite.core--->finish
+
+com.infinite.core(right click)--->class---> name: SwapExample---->finish
+
+write the code
+
+run by right clicking in the middle of code and ---> choose run as----> java application
+
+VARIABLE ARGUMENTS:
+-------------------
+SYNTAX:-----public static void main(String...a)            
+
+
+SCOPES:
+-------
+
+LOCAL 
+
+GLOBAL
+
+BLOCK LEVEL------->
+
+   {
+   }--------UNNAMED BLOCK
+
+
+AB(){
+   }---------NAMED BLOCK
+
+Static {
+   }----static block
+
+
+
+AUTO-INTENDATION :
+----------------
+
+right click on code---->source----->format
+
+
+IF STMT:
+-------
+ SYNTAX:-------- if(condition)
+                 {
+                      //cmds
+                 }
+====================================================================================================================================================================================================================================================
+
+
+DAY-------3:
+***************
+
+
+NOTE:
+-----
+
+COMMENTS should be at method level and class level
+
+if we set the path in cmd, the path will be changed once the pop-up is closed
+
+=========================================================================================================================
+
+SONAR QUBE:  (https://www.sonarsource.com/solutions/clean-code/)
+-----------
+code quality testing tool
+we can test the security & code violations----
+We need JDK 1.8
+but in projects we use 6 and 8 versions of sonar qube
+version--5.5---easy to understand--but doesnt support salesforce
+latest version-10.0
+port no:9000--localhost
+suporsts 99% of prgming lang like java,python,salesforce,scala,JS,CSS, anaything related to java
+available in 2 ways-------(1)sonar cloud  
+                          (2)sonar on premises
+types of versions :------community edition
+----------------         enterprise -----used in projects
+                         developer 
+			 data center 
+
+CLEAN CODE:---no security issues and checks code violation
+-----------
+
+PMD:---- code quality testing tool---open source
+---
+
+JERA:--------used for tracking issues
+-----        tool which is integrated in SonarQube
+
+==============================================================================================================================
+
+
+int a=90;
+while(a>=65)
+{
+  sop((char)a);
+  a--;
+}
+
+OUTPUT:
+-------
+ZYX....A
+
+================================================================
+
+DO WHILE:
+---------
+
+INTIALISATION;
+DO{
+ //INSTRUCTIONS
+  //++
+  //--
+}WHILE(COND);
+
+
+
+======================================================
+
+
+exit();------------don't use 
+
+break;-----------instead of exit use break, it will come out of the loop ---- only can be written in loop
+
+continue;-------------------- to skip a stmt
+
+**both continue and break cant be used at a time **
+
+**anything after the break and continue stmts is not executed
+
+
+
+===========================================
+
+NOTE:
+-----
+
+while in if block---yes
+
+if in while---yes
+
+while within while---yes
+
+while within do-while--yes
+
+if within if----yes
+
+================================================================
+
+as java doesnt support pointers by default but implicitly supports-----
+
+only desktop appli have main method
+
+no main method for --------- enterprise and web app
+
+============================================================================================
+
+boolean default value ---------- false
+
+byte default value ----------------- 0
+
+Char default value----------------0
+
+==========================================================================================================================================================
+
+FINAL KEYWORD:
+-------------
+
+always constants should be initialized-Eg:final int f=9;
+
+always "final" should be initialized
+
+"final"---- can be written in main method without initialization but when we are using it throws an error i.e., final varible is not initialized
+
+
+=================================================
+
+STATIC AND NON-STATIC:
+----------------------
+
+
+STATIC:
+------
+
+static will be loaded into memory first
+
+no need to create obj for---static
+
+static doesnt know anything about non-static
+
+
+NON-STATIC:
+-----------
+
+non-static will be loaded into memory at last
+
+we need to create obj for ----non static
+
+non-static know everything about static
+
+we access through obj
+======================================================
+
+class level or global level ,we need to use obj
+
+========================================================
+
+
+DAY 4:
+**********************************************************
+
+
+SCANNER CLASS:-predefined class
+-------------
+using scanner,we can give i/p to program by user
+
+any package which starts with java is predefined
+
+in java, we are having 3 modes-------in==keyboard,out===monitor,error== System.error
+
+we can access keyboard by System class---which is predefined class
+
+
+
+
+
+var within class but outside fn----------instance var /class level var
+
+MAIN METHOD:
+-----------
+
+public ststic void main(String args[])
+
+void returns control to jvm
+
+
+only main has cmdline args----i.e., String args[]
+
+cmdline args--can be used to pass values to main method----values can be n nums
+
+in place of args in main ------we can write any thing
+
+
+
+
+void abc()
+{
+	return;------------------it is possible---Becoz, "return" will return a value and the control passes to main method
+}
+
+
+return can be wriiten in main method also-----here the control returns to jvm/
+
+
+main should be within class and that class should be public
+
+desktop app----------must have main method
+
+web and enterprise app--------server is manidatory
+
+========================================================================================================================================
+
+PRIVATE AND PUBLIC:
+-------------------
+
+
+In single pgm,we cant have more than one public class
+
+we can call one package in another another package using import------i.e., import packagename
+
+ARRAYS:
+---------
+
+non primitive / reference datatypes---groups of values of same datatype
+
+int a=10;-------->it store only one value then it is called as scalar
+
+we cant exceed the array size , once it declared
+
+we cant store hetro datatypes in arrays
+
+index ----starts with 0 in java but differ in python,js
+      -----ONLY POSITIVE number but not a char
+
+low performance
+
+Syntax:
+-------
+	<datatype> varname[size];
+
+
+AARAY INDEX OUTOFBOUND EXCEPTION:
+-------------------------------
+
+if we try access the array element beyond the arraysize, then it throws "ARRAY_INDEX_OUT_OF_BOUND_EXCEPTION"
+
+
+=================================================================
+
+
+a var name cant be reserved keyword in java
+
+default values of all reserve types is null
+
+bitwise operators are used in encryption,decryption i.e., for security
+
+a[10]----------array size is 10 which is fixed
+
+a[]----------array size is based on initialization
+
+
+
+int a[]=new int[5];
+int [] a1=new int[5];
+int b[]={1,2,3,4};
+
+
+in arrays, "length" is property but not a fn
+
+STRING API IN JAVA:
+-------------------
+
+https://docs.oracle.com/javase/8/docs/api/java/lang/String.html
+
+==============================================
+
+TRIM:
+----- It removes the white spaces either in tail or head part
+
+=========================================
+any operation on null leads to nullpoint exception
+
+if you try to perform any operation on null, then exception arraises
+
+=================================================================
+
+FOR LOOP:
+---------
+advance version of while and do-while
+
+syntax:
+-------
+
+for(initialixation;condition;++/--)
+{
+	//stmts;
+}
+
+if cond is skip,it will become infinite lop
+
+we cant skip initialization
+
+for(;;){}-------infinite loop
+
+**through scannar ,we cant give i/p to main method**
+
+==================================================================
+
+ARGUMENTS:
+-----------
+2 types
+
+VM ARGUMENTS:
+--------------
+used to passing values to vm method
+
+Eg: Heapsize setting of jvm
+
+PGM ARGUMENTS:
+--------------
+used to passing values to main method
+
+CMDLINE ARGUMENTS:
+------------------
+
+right click on project/class in eclipse---->run as ------>run config------>search CL arguments--->goto arguments---->pass arguments(vm or pgm)----->run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SWITCH:
+-------
+similar to if-else
+
+high readability, no confusion, clear visibility--is adv
+
+used for multiple conditions
+
+it has multiple cases 
+
+every case has break
+
+we can write the default in any order
+
+we can use switch without break----------but it wont have no meaning 
+
+Syntax:
+--------
+
+switch(cond)
+{
+	case1: //stmts
+	case2: //stmts
+	case3: //stmts
+}
+
+SYSTEM.EXIT();
+-------------
+WE ARE FORCEFULLY EXITING THE EXECUTION
+
+Types of exit:
+-------------
+2 types
+
+safe exit:
+---------------->System.exit(1);
+
+unsafe exit:
+-------------------->System.exit(0);
+
+**Sytem.exit()-is static**
+
+system-class
+exit----static method
+
+OOPS:
+------
+
+(1) CLASS:
+----------
+ A combination of state--property, behaviour---fnality and identity
+
+it has specifications.
+
+class comes into live when you create an obj
+
+
+
+OBJECT:
+------
+
+a real world entity which we can see and touch.
+
+memory for obj is created in heap.
+
+whenever there is a obj, there is a class----------vice versa is not possible
+
+Eg: car
+
+
+class Syntax:
+------------- 
+<access specifier> class <class name>
+{
+	//state
+	//behavior
+}
+
+======================================================================================
+
+DAY-5:
+-------
+
+PACKAGES:---->collection of methods,classes,abstract class,variables,interfaces
+
+2 types of packages:
+--------------------
+PREDEFINED-----any package which is part of jdk
+
+USER DEFINED--------what user creates
+
+**customizing the jdk and pull into market----------branding**
+
+==============================================================================================================
+
+Obj Based prgming------------>not a pure oop--->JS
+
+"System.out.println":
+----------------------
+
+System-class
+out--mode--static
+println--method
+
+Predefined:->followed by either java or sun micro system--sun
+
+METHOD TYPES:
+--------------
+Methods with body is called as concrete method
+Methods without body is called as abstract method
+
+""any no. of obj exists for a class""
+
+OBJECT SYNTAX:
+--------------
+
+<classname> reference=new <classname>();
+
+new is used for memory allocation
+
+every bit has memory addr
+
+if class has static method ----------- we have to call it by its class name in main
+
+if class has non static method ----------- we have to call it by its obj that is created
+
+
+we can create obj without reference:
+-------------------------------------
+Stat ref1= null
+ 
+always initialize references with null, when we were not allocaating memory 
+========================================================
+
+any unnamed block can be called automatically by the class whenever we create obj
+
+=======================================================================
+
+CONSTRUCTOR:
+--------------
+
+it is a member fn whose name is same as class name.
+
+it is a method----becoz it dosnt return any value
+
+constructors are always within class
+
+it is used for--
+	to initialize class level var
+	wont return any value
+	we can have "return"---returning control but not value
+	
+no 2 constructors can have same no. of parameters with same datatypes, otherwise it says duplicate constructor
+
+*** RETURN can return more than a value by using arrays***
+
+
+package com.infinite.core;
+
+ 
+
+class Stat {
+
+ 
+
+	int a;
+	String name1;
+
+ 
+
+	Stat() {//empty cconstructor
+		a = 90;
+
+		return;
+
+ 
+
+	}
+	Stat(String name) {//empty cconstructor
+		this.name1=name;
+	}
+	Stat(String uname,int q) {//empty cconstructor
+
+	}
+
+ 
+
+	// named blocks
+	public void display() {
+		System.out.println(name1);
+	}
+
+ 
+
+	// unnamed block
+	{
+		System.out.println("Unnamed Blocks");
+	}
+
+ 
+
+	// static block
+	static {
+		System.out.println("static Blocks");
+	}
+}
+
+ 
+
+public class StaticExample2 {
+
+ 
+
+	public static void main(String[] args) {
+
+ 
+
+		Stat ref = new Stat("srinivas");// object
+		ref.display();
+		Stat ref1 = new Stat();
+		System.out.println(ref1.a);
+
+ 
+
+	}
+
+ 
+
+}
+
+3 TYPES OF CONSTRUCTORS:
+-----------------------
+
+PARAMETERIZED ---
+
+EMPTY----
+
+DEFAULT---- if developer doesnt providing any constructor, jvm provides default constructor
+		
+
+"this"------will points to current class
+
+
+USES OF OBJECT CREATION:
+---------------------
+unnamed block will be called
+memory allocation
+reference will be created
+class level variables can be initialized at runtime using constructors
+
+
+===============================================
+
+Task1:
+------
+create a java program  which class varaiable as int array and display the values in that array using display method.
+
+>>>pgm on single inheritance
+
+>>can we override/overload variables and static variables?
+
+====Variables in Java do not follow polymorphism. Overriding is only applicable to methods but not to variables.
+
+>>>diamond problem in java
+
+>>>dealing with constructors in multilevel inheritance
+
+>>test collections using null
+
+>> create a pgm for user defined exceptions
+
+
+=============================================
+
+from JVM prospective every java pgm is a thread.
+
+=====================================================================
+
+OVERLOADING AND OVERRIDING:
+------------------------------
+
+OVERLOADING:
+------------	
+same fn name with diff parameters
+occurs within a class
+
+Rules for Method Overloading:
+==============================
+The overloaded method must change the argument list (number of parameters, data type, or sequence of parameters).
+The overloaded method can change the return type.
+The overloaded method can change the access modifier (the signature of the function should be different).
+A method declared final can be overloaded.
+
+OVERRIDING:
+------------
+same fn but in diff classess-----can be overridden
+
+same fn , same parameters
+
+Rules for Method Overiding:
+===========================
+>the argument list should be exactly the same as that of the overridden method.
+The return type should be the same or a subtype of the return type declared in the original overridden method in the superclass.
+The access level cannot be more restrictive than the overridden method's access level. For example: If the superclass method is declared public then the overriding method in the subclass cannot be either private or protected.
+Instance methods can be overridden only if they are inherited by the subclass.
+A method declared final cannot be overridden.
+A method declared static cannot be overridden but can be re-declared.
+If a method cannot be inherited, then it cannot be overridden.
+A subclass within the same package as the instance's superclass can override any superclass method that is not declared private or final.
+A subclass in a different package can only override the non-final methods declared public or protected.
+An overriding method can throw any uncheck exceptions, regardless of whether the overridden method throws exceptions or not. However, the overriding method should not throw checked exceptions that are new or broader than the ones declared by the overridden method. The overriding method can throw narrower or fewer exceptions than the overridden method.
+Constructors cannot be overridden.
+
+any class which is declared as final cant be inherited.
+
+a class can be public,final,default,abstract but not private
+
+INHERITANCE:
+-----------
+
+PARENT/BASE/SUPER CLASS
+
+derived/SUB/CHILD CLASS
+
+In java , by default obj is the base class for every class.
+
+"extends" can be used in class and interfaces 
+NOTE:
+-----
+>>A CLASS CAN BE PRIVATE ONLY IN INNER CLASS
+>> static contents/methods cant be overridden
+>> clone meaning---copy / duplicate
+
+use below commands in cmd:
+-------------------------
+javap java.lang.Object------"Oject.java"                               
+         
+javap java.lang.System---------"System.java"
+
+javap----->used to display the metadata about the provided class.
+
+INTERFACES:
+----------------
+
+Interface------An interface is similar like class but with (abstract methods----without body)
+
+>>We cannot create object for interface.
+
+>> memory is not allocated for interfaces becoz of absence of obj
+
+by default all methods 
+
+any class can implements interfaces
+
+by default all var in interface are "public static final" and methods are public abstract
+
+***we cant use super() in static method***
+
+
+@Override :----declare somewhere and implementing somewhere
+---------
+it is an annotation and its symbol is "@"
+it is predefined
+
+if @Override is removed it is treated as class but not interface
+
+Note:
+----
+****we have to create new packages for interfaces and their implementations***
+
+HOW TO GENERATE ELEMENT IN ECLIPSE:
+----------------------------------
+right click on code---->source--->generate element comment
+
+/**
+ * @author vasanthis
+ *
+ */
+
+ABSTRACT CLASS:
+-------------- 
+it is a method without a body
+
+we cant create obj
+
+when we have no clarity of one req but have clarity for another--go for abstract classes
+
+public,abstract---valid for abstract class
+
+2 TYPES:
+-------
+
+PURE ABSTRACT-----------only abstract methods
+
+PARTIALLY ABSTRACT-----------both abstract and (concrete methods--without static in it)
+
+
+HOW TO COMMENT LARGE CODE:
+---------------------------
+
+right click on code--->source-->toggle or block level comment(if code is selected)
+
+======================================================================================================
+
+COLLECTIONS:(by default all collections implement clonable and serializable)
+------------
+
+USED FOR HETROGRNOUS ELEMENTS
+
+Insertion,deletion is possible
+
+we can store keys and values
+
+collections can grow and shrink
+
+no duplicates in collections----collections can avoid duplications
+
+INTERFACES OF COLLECTIONS:
+---------------------------
+
+1)LIST:
+------
+
+allows duplicate 
+
+we can add/modify/delete objs 
+
+alternative to arrays
+
+all drawsbacks of arrays can be overcomed by list
+
+available in util package
+
+CLASSES OF LIST:
+---------------
+arraylist,linkedlist,....etc
+
+(https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+a)ARRAYLIST:
+----------
+it maintains insertion order
+
+to convert arraylist to array:
+------------------------------
+
+"toArray()"------------we get the array as o/p
+
+2)ITORATOR:
+------------
+
+mainly used for displaying data in collection. It was specially designed for that.
+
+FOR EACH:
+-----------
+
+SYNTAX:---> for(<target> reference:source)
+		{
+			
+		}
+
+b) VECTOR:
+---------
+It is synchronized
+
+3) SET:
+-------
+
+HASHSET AND TREESET IMPLEMENT THE SET INTERFACE
+
+HASHSET------>doesnt follow order
+
+TREESET------>follow order
+
+MAP:
+----
+we can create keys and values
+
+no two keys can be same
+=================================================================
+EXCEPTION HANDLING:
+-------------------
+any abnormal condition in pgm leads to error messaging or termination of pgm------>to deal with this we have exception handling
+
+try---->catch/finally
+try---->finally
+finally cant be nested
+
+we should not write "hiberate and db code" in catch and finally
+
+it follows order==>> try-->catch--->finally
+
+2 TYPES OF EXCEPTION HANDLING:
+-----------------------------
+
+user defined
+
+predefined--->all predefined exception extends throwable
+
+CHECKED EXCEPTIONS-------> at compile time
+
+UNCHECKED EXCEPTION------> At run time
+
+
+=============================================================================================================================================================================
+
+DAY-6:--------(JDBC,servlets,JSP)
+======
+
+<<<<<<<<<<<<<<<<<<<<<<<<<JDBC>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+HOW TO CREATE DB:
+-------------------
+
+OPEN MYSQL CMDLINE------->PASSWORD:mysql123@----->"create database training;"  (db is created)
+
+to show db------>"show databases;"
+
+to switch b/w db---->"use dbname"
+
+What is API?:
+-------------
+
+Stands for Application Program Interface
+
+it is both user and predefined
+
+it acts like mediator b/w 2 machines
+
+It is a combination of classes,methods,interfaces designed for a specific purpose.
+
+every API has set have rules defined
+
+Mainly used for connecting/communicating 2 or more diff systems/terminals/pc/machine
+
+For API development and testing, there are so many tools
+
+Now Postman is also called as OpenAPI1.2-------mostly used in the market 
+
+API are of 2 types:
+-------------------
+
+predefined(Vendor)---->
+
+userdefined------->
+
+In simple it makes "API Calls" in the backend.
+
+Eg:customer--->server--->chef
+--
+=================================================================
+
+JDBC== Java DataBase Connectivity
+
+JDBC gives us API's that can access any kind of RDBMS dbs
+
+I want to save/persist some data to backened db from frontend,then i can use JDBC.
+
+RDBMS dbs : Oracle,MySQL,Postgress,Db2..etc
+
+to design any appl using JDBC, we need to have below s/ws:
+-----------------------------------------------------------
+1)databases2
+2)datasource
+3)JDBC API
+4)database tables-----we are going to create employee table
+5)java pgming lang(java)
+
+Employee table---->fullname,idno,department
+
+How to create a table:
+-----------------------
+create table employee(fullname char(50),Idno integer, department char(80));
+
+"show tables;"----> to check whether table is created or not
+
+"desc table employee;"----->meta data of the table
+
+
+
+config tomcat server in eclipse:
+--------------------------------
+open eclipse ------->window--------->show view------>others------>search for server--->servers--------->a pop-up will araise---->click on "no servers are available.
+
+
+
+
+
+
+
+
+ODBC:(open db connectivity):
+----------------------------
+
+ODBC==>JDBC==>JPA(hibernate)-------->Journey
+
+odbc is mainly used for MS Technologies like MS access,excel,wordpad etc
+
+odbc is old tech ,which is designed using c/c++ . becoz of this ,it is platform dependent
+
+JPA internally uses jdbc.
+
+local db-->which resides in local machines 
+
+remote db--->which resides in another machine/cloud/
+
+================================================================
+***browser is also called as "user agent".  ***
+
+only browser knows how to interact with server.NO other component in the world knows how to interact with the server effectively.
+
+protocols: http/https
+
+browser will perform HTTP requests and HTTP responses
+
+without HTTP req ,there is no HTTP response
+
+Browser--->Type ur URL--->click hit button----->As soon as i click next--->http request will be created and will be forwared to DNS server--->from there request will be redirected to Microserver server---->it will check whether username is valid by interacting with microsoftdatabase---->if record is available/unavailable gives response to server---->filter----->browser
+
+webview
+
+from java app,i want to push my data to db for storing?--------JDBC/Hibernate
+
+
+DRIVER:
+--------
+
+a driver is a s/w pgm which was written in any lang, which converts one form of fn call to another form of fn call
+
+In this JDBC, we need to focus on 4 types of drivers: 
+---------------------------------------------------
+1) JDBC-ODBC bridge driver-type-1
+2) Native-API driver(pertially java driver)
+3) Netwok Protocol driver(full java)
+4) Thin driver (fully java driver)---99% this type-4 driver is used in many of the projects
+
+in jdbc we use java.sql and javax.sql packages
+
+x - stands for xtension latest package or upgraded package from oracle
+
+DB CONNECTION POOLING:
+---------------------
+DB connection object is a heavy weight. 
+
+We should know how to utilized db resources properly.Otherwise, handling more customer traffic will be difficult.
+
+DB Connection Pooling will burden on dbs. It uses the connection resources in effective 
+
+
+Heavy weight---->more memory and more CPU time
+less weight ----->less memory and less CPU time
+
+================================================
+
+<<<<<<<<<<<<<<<<<<<<DAY-7>>>>>>>>>>>>>>>>>>>>>>
+
+JDBC API:
+---------
+
+2 layers------app & driver layer
+
+APP LAYER------>Stmt, Prepared stmt, callable stmt
+
+every db has its own driver
+
+
+MySQL Server------db
+
+MySQL Workbench---IDE(RAD- Rapid Application Development tool) - We can connect to remote db.
+
+centralized db--- outdated
+
+Distributed db --mostly used--Eg: ATM machines
+
+Transactions:
+--------------
+
+phases---commit(successfull) & rollback(failure)
+
+can be done on db
+
+
+APP----------JDBC DRIVER----------DB
+
+DATASOURCE:------------>Where the data is avaliable
+
+Every connection to database is called as Session.Eg:3 apps are connecting to same db.
+
+when we are logging to db the session is started. After logging out the session will be invalidated.
+
+======================================
+
+STEPS TO CONNECT TO DB:
+-----------------------
+
+LOADING DRIVERS
+
+ESTABLISHING CONNECTION
+
+EXECUTING STMTS QUERIES
+
+HANDLE RESULT
+
+CLOSE CONNECTION
+
+======================================
+for developer----it is request
+for server----it is thread.
+
+every server/db/jsp/servlets has filters-------filters can be any no.
+
+Phising Filter:---> avaliable in chrome
+
+MySQL==> C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+alternative tool for MySQL workbench: eclipse datasource feature,(toad for mysql--mostly used)
+
+every db has toad
+
+ECLIPSE DATASOURCE FEATURE:
+------------------------------
+open eclipse->window--->show view-->other-->search for datasource-->datasource exploror->db connctions->right click on db connections-->new-->search for mysql-->select mysql-->next-->on right side we have + beside drivers-->
+
+
+**dont download from java2s**
+
+serach for mysql-connector-java-5.0.0->mysql connector-->archive->mysql 5.0->platform independent-->product version 5.0.0 (dont select alpha/beta)--> 
+
+
+GA(General avaliablity)--means for public use
+
+dont use alpha/beta/snapshot without team approval-------we can use  but fails at production time
+
+In projects, we will use coorporate repositories.
+
+IT team/DevOps places the all dependencies in common corporate repository
+
+corporate repository==any repository that we can create an organizations for internal purpose
+
+tool :
+-------
+NEXUS SONATYPE(https://www.sonatype.com/products/sonatype-nexus-repository)/Jfrog repository managers--->for creating corporate repository
+
+IT team will perform Jar scanning after downloading it s/ws from internet.
+
+N/w that we create for internal purpose of the organization is called Intranet
+
+NOTE:
+-----
+use zip 
+
+dont use jz--it is for linux
+
+
+MAVEN TOOL/depency management tool/build tool
+----------------------------------------------
+
+we dont need to download dependencies manually, it automatically downloads the dependencies
+
+GRADLE is a tough competitor for MAVEN.
+
+MAVEN is in-built in ECLIPSE.
+
+
+open eclipse-->window
+
+file-->new-->other-->search for maven-->next-->select 1.1 quickstart-->finish--->group id:com.infinite.jdbcexample-->artifact id:JdbcExample--->finish
+
+PKIX---ssl certification issue
+
+
+HOW TO OVERCOME PKIX:(by using basic trouble shooting)
+-------------------------
+
+1) Go to company portal--(spandan) and to yammer --here the whitelisting is done(idt)
+
+2) corporate repository--->best soln==>ping (ipv4 of need to be connected laptop)
+
+3) proxy server--------->need credentials--but IT team wont give n/w credentials.
+
+4) VPN----security issues
+
+5) we can convert java proj to maveen proj:
+-----------------------------------------
+right click on the java proj that is being created--->config--->convert to maven proj
+
+
+==========================================================
+
+CONNECTION META DATA OF MYSQL DB:
+---------------------------------
+default username of mysql: root
+
+pssword: mysql123@
+
+driver name:com.mysql.jdbc.Driver
+
+DB server IP addr: localhost/(127.0.0.1---loopback addr)/ipv4 addr of the sys
+
+>>IP addr is used in projects
+
+==============================================
+
+what is class in jdbc?
+class is a class in java--predefined
+
+==============================================
+
+A db url format:---"jdbc:subprotocol:subname"
+
+deprecated methods---which are no longer used
+
+Connection---->interface-->it can extend autoclosable
+
+stmt--->interface
+
+Driver Manager-->class-->it acts as an interface b/w user and drivers.
+
+2 types of sql queries---static and dynamic
+
+
+PROTOCOLS:
+----------
+every service /protocl runs on specific port no.
+
+HTTP== 80 80--->cant be changed becoz they are reserved
+HTTPS== 8443/443
+Oracle db--1521
+MySQl--3306
+
+ESTABLISHING CONNECTION:
+-------------------------
+1)FOR LOCAL :
+-------------
+Connection con =
+DriverManager.getConnection(“jdbc:mysql://canni
+ngs.org:3306/test”, "myLogin", "myPassword");
+
+2) FOR REMOTE:
+--------------
+In place of localhost use ip addr
+
+right click on project-->build path---->congigure build path--->libraries--->add external jars-->add the path of the mysql connector--->ok
+
+
+executeUpdate()----->for deletion,insertion
+
+executeQuery()--> for select
+
+ResultSet-->is mainly called as container or cursor to store the records after executing sql query stmt.
+
+
+BATCH:
+-------
+at a time we are going to run multiple queries i.e., all transactions
+
+Eg:- 3 transactions on same db-------one session is established
+
+
+PAGINATION:
+-----------
+only for displaying queries on webpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TASKS:
+------
+
+STICKY SESSION
+
+INSERT,UPDATE,DELETE-----DYNAMIC--use executeUpdate();-return type is int
+
+
+=====================================
+
+<<<<<<<<<<<<<<DAY-8>>>>>>>>>>>>>>>>>>
+
+Window-->preferences--->search font-->general
+
+
+VAULT SERVER:
+------------
+used to save sensitive data like passwords--->best approach
+
+accepts the passwords as keys and values.
+
+AWS Secret Manager---used to save sensitive data like passwords but we need to code for this process
+
+=====================================
+Drawbacks:
+----------
+1)Make the values insert at runtime.
+Solution)Use PreparedStatement
+
+ 
+
+2)connection closing shld be in final.Final will run irrespective of exceptions in the  code.
+Solution)Can be handled in code.
+
+ 
+
+3)Not portable
+Solution)USe properties or XML files.
+
+ 
+
+4)password shld not disclosed in code.
+solution1)if we need to use the password in code,encrypt the password and then use.
+solution2)Place password in VAULT server or AWS Secrets manager  and pull password from  there.(prefered).Integrate vault code with JAva code.
+solution3)USe properties file and place your encrypted password in properties or xml or YAML file.
+
+ 
+
+5)driver class,url and passwords should be dynamic.
+solution)can be achieved using 4 the step.
+
+=====================================
+
+LOB DATATYPES:
+-------------
+
+LOB stands for large objects
+
+90% dbs support this LOB.
+
+LOB is of 3 types:
+------------------
+
+Blob----Binary LOB---for storing img,audio files in backend---4gb
+
+Clob----Character LOB---to store docs in db
+
+nclob-- n no. of Char LOB---used when the size exceeds blob size
+
+NOTE:
+------
+- SQL is db dependent
+
+Eg: select * from tab;---used in oracle db.
+--
+
+PREPARED STMTS:
+---------------
+
+- This is mainly for inserting values to the queries at runtime.
+- It helps to avoid SQL Injection upto some extent i.e.,80% 
+- To use effectively prepared stmt, if u follow the stands then injection is not possible. 
+- In prepared stmts, we use '?' as a place holder.
+
+3 types of stmts:
+----------------
+>> stmts
+>> prepared stmts
+>> (callable stmts-used for calling fns/stored procedures)
+
+EVERY DB HAS:
+-------------
+SQL-- WE CANT WRITE LOGICS
+(PL/SQL==SQl+programming concepts)---for callable stmts we use this
+Forms and reports-->small  companies use this
+
+
+ORACLE ADF---->internally uses servlets---these servlets are abstracted.
+Eg:--spandan
+
+================
+PreparedStatement ps=con.prepareStatement("insert into imgtable values(?,?)");  
+ps.setString(1,"sonoo");  
+
+FileInputStream fin=new FileInputStream("d:\\g.jpg");  
+ps.setBinaryStream(2,fin,fin.available());  
+int i=ps.executeUpdate();  
+System.out.println(i+" records affected");
+
+
+
+process of creating project structure is called as SCAFFOLDING
+
+
+SERVLETS:
+----------
+
+- is a web component
+- Server side technology
+- will not have main method.
+- will have lifecycle
+- will act as a front controller in spring MVC
+
+Servlets are Not best option to design web applications
+
+js--client side 
+
+jsp--server side
+
+2 CATEGORIES OF SERVER:
+---------------------
+
+1) WEB:
+-------
+will have components like:
+
+>>http engine(s/w)
+
+>>catalina(a container that runs servlet pgms)
+
+>>jasper(container for jsp pgms)
+
+>>middleware services--->additional capabilities (min 6 should be available)
+
+>>FILTER
+
+- faster
+
+EX:tomcat,nginx,jetty
+
+
+2)APPLICATION:
+-------------
+
+
+EX:--glassfish,web logic,websphere,pramati(icici/hdfc)
+
+>>http engine(s/w)
+
+>>catalina(a container that runs servlet pgms)
+
+>>jasper(container for jsp pgms)
+
+>>middleware services--->additional capabilities (min 10 should be available)
+- these can handle lifecycle management,connection pooling,transaction mgmt,java naming & directory service
+
+>>ejb container-->container to run ejb pgm
+
+>>MessagingQueue container--> conatiner to runmq pgm
+
+-it is more capable than web
+
+JSF-->JavaServlet Faces
+
+HTTP versions--1.0,2.0,2.1,(3.x---chrome)
+- when we deal with normal data which dont need security 
+
+HTTPS -->HTTP + TLS/SSL--->SSL certification issued by CA authority like godady,paytm,verisign 
+
+certification s 2 types---->vendor provided,user created(keytool is used which is available in jdk)
+
+validation period------>min 2 months
+			max 5yrs
+
+- when we deal with sensitive data 
+
+
+LIFECYCLE OF SERVLETS:
+------------------------
+
+LOADING
+
+ININT---intialization
+
+SERVICE --logic of the codw
+
+DESTROY-- by server
+
+NOTE:
+-----
+
+https://www.sslshopper.com/ssl-checker.html#hostname=https://www.hdfcbank.com/
+
+
+TASK:
+-----
+
+SQL injection with example
+
+20th----WALLET--jdbc,servlets,jsp
+
+======================================
+
+<<<<<<<<<<<<DAY-9>>>>>>>>>>>>>>>>>>>>
+
+
+WEB SERVER:
+------------
+
+NETWORK FILTER-------b/w the user and server
+
+filter is a s/w
+ 
+2 types of filters---------n/w level and server level 
+
+
+
+any no. of applications can be in web server which is a war file.
+
+web server--->has applications
+
+web.xml-->deployment descripter/config file-->it is a registry--->it has metadata of servlets
+
+(>3.0) versions of servlets------->there is no need of web.xml->we have annotations
+
+
+
+Servlets in server--->depends on memory available in serverr
+
+
+config files -->json,bson(in case hadoop),xml,yaml,properties
+
+xml(slow)-->json--->bson(binary json)==>evolution
+
+in python we use yaml config file
+
+99% of servers use xml and json
+
+
+SCALING:
+---------
+
+it can increase and decrease the capacity of server
+
+autoscaling
+
+vertical and horizontal scaling
+
+
+At the time of servlet loading, ServletConfigObject is created ----- which is global for all servlets
+
+ServerContext--->to access common data among 2 servlets-------->it is for entire app----->global to app--->local to servlets
+
+
+=============================================
+
+HTTP SERVLET---is in our training
+
+===================================
+
+**Generic servlet is base for every servlet**
+
+**servlet comes under J2EE**
+
+=============================================
+
+>Servletconfig--is for servlet
+>servletcontext---context is for entire application.
+>Filter,filterchain?Filters advantages
+>Lifecycle of servlets---loading--init--service---destroy
+>Horizontal scalling of servers and vertical scaling of server?
+>Web.xml--deployment descriptor/config file
+>types if configuration files
+xml,json,bson,properties,YAML
+>>Http request and httpresponse
+
+============================================
+
+OCWCD-----ORACLE CERTIFIED WEB COMPONENT DEVELOPMENT EXAM
+
+=============================================
+
+GENERIC & HTTP SERVLETS ARE ABSTRACT CLASSES
+
+OBJ --CONCRETE CLASS
+
+=============================
+ 
+In eclipse , when we create servlet, it will have 2 methods---------doGet,doPost
+
+HTTP METHODS:
+-------------
+
+GET----------doGet-------default 			method-------protected---return 				type:void
+
+PUT---------doPut ---- updating existing data
+		  ----- modifying entire data
+
+POST---------doPost----creating new data
+
+DELETE------doDelete
+
+TRACE
+
+PATCH----updating partial data
+
+but in servlets we have-===>>
+>GET----------doGet
+
+PUT---------doPut 
+
+POST---------doPost
+
+DELETE------doDelete
+
+
+
+HTTP ERROR MESSAGES:
+---------------------
+
+LINK:https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
+200--->RESPONSE FROM SERVER-->success
+
+503---->SERVICE UNAVAILABLE
+
+500--->INTERNAL SERVER ERROR
+
+TYPES OF EXCEPTIONS ARRAISED IN SERVLETS:
+-----------------------------------------
+
+IOEXCEPTION
+
+SERVLET EXCEPTION
+
+
+
+
+response.getWriter():
+-------------------
+
+to display something on browser
+
+=============================================
+***NEVER USE ECLIPSE PROVIDED BROWSER**
+
+HOW TO CHANGE TO CHROME BROWSER===>>window-->web browser--->chrome
+
+if there is no option browser in window===>window--->prefernces--->search for browser--->choose chrome
+
+if the client wants safari===>install safari -->in eclipse go to window-->preferences--->click on new-->add path of safari
+
+========================================
+<url pattern>------ is used to
+
+
+
+
+
+
+
+http://localhost:8080/ServletExample/Servlet.html-------chrome browser-----safe
+
+http://localhost:8080/ServletExample/Servlet.html-----internal browser---it shows html file details also------it uses doGet method-----which is not safe
+
+
+
+any data which you push through get method is a query parameter
+
+any data which you push through post method is a payload
+
+
+response.getWriter().print(new Date());
+
+
+SendRedirect:------browser side redirecting
+
+RequestDispatcher-----server side redirecting
+
+
+getLocale()------>which lang is being used is displayed.
+
+getLocalPort()------->it will give port no. 
+
+
+
+getLocalAddr()-------->addr of the sever-- 0.0.0.0.1
+
+getMethod()-------method being used
+
+getpathInfo()-----nothing but addr
+
+getContentLength()
+
+=============================================
+
+CONFIG:
+-------
+<context-param>
+<param-name>mysql</param-name>
+<param-value>com.mysql.jdbc.Driver</param-value>
+</context-param>
+
+
+CONTEXT:
+---------
+<init-param>
+<param-name>Mysql</param-name>
+<param-value>com.mysql.java.Driver</param-value>
+</init-param>
+<init-param>
+<param-name>Oracle</param-name>
+<param-value>com.oracle.java.Driver</param-value>
+</init-param>
+
+
+TASK:
+-----
+1) Explore horizontal and vertical scaling of servers
+
+2) Write a Servlet program to display records from Employee table using Servletconfig object.
+
+3)register and clear button
+
+
+=================================================================================================
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<DAY-10>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+how to clean the server:
+-------------------------
+go to server---->tomact->right click on tomcat--->clean
+
+RULES:
+---------
+
+1)Check your web.xml file for syntax issues and servlet names and url patterns are matching.
+2)Metadata is case sensitive.
+3)Format your code or web.xml when needed.
+4)If more no of apps are deployed to server,better to clean your tomcat directories more frequently.
+5)Stop your server before you shutdown your machine.
+port conflict issues.
+6)Check all your servlets and jsp metadata properly in code and web.xml.
+7)Always Servlets shld be resided in packages.Dont use default packages.
+8)Html and jsp file shld reside in Webcontent folder or
+create a folder in webcontent and place your files there.We always developers to create folders separetly
+for html,css,js,jsp,image and fonts.
+9)Even after performing above steps,if you are still facing issues,pls restart your IDE.
+
+
+
+portConflictIssues:
+------------------
+when 2 servers work on same port no.
+eg: 8080--tomcatserver
+--
+
+spring,hiberante,xml,servlets------are case sensitive
+
+
+we shouldn't see web inf in url,if it seen:
+-------------------------------------------->copy all the files and paste it in web.xml
+
+>>js,python,jquery------we see blockages
+
+debugging can be done by "log tool"
+
+
+always server will have logs
+
+==========================================================================================================================================================
+
+JAVA BEAN / POJO:
+------------------
+
+It is also called as POJO(Plain Old Java Obj) 
+Used in layered architecture.
+we can see POJO in hiberate,spring
+- through setters and getters, constructors we can initialize private variables in other class
+
+A POJO class is a class which follows below rules:
+------------------------------------------------
+
+- Class should be public. 
+- No main method.
+- POJO classes should be in diff package but not in default package.
+- variables should be private.
+- Method should be public
+- For every variable we need to have Setter & Getter--(public)
+- POJO class shouldn't implement any interface
+- POJO class can extend only obj.
+- No abstract methods.
+- Dont write db code in POJO.
+- We can have user defined methods with little logic.(we can create methods)--Eg:overriding
+
+
+=========================================================================================================================================================
+
+DAO (Data Access Object):
+---------------------------
+
+- design pattern-->related to best practice to follow to achieve smthing
+- it is related to backend(db)
+- designed by industry experts
+- create,update,select,delete,insert,insertall,selectall,dbConnection helper methods are available--(public)
+- business logic i.e., db related logic can written
+- always make sure, your connection objs are resuable.
+- DAO related files should be in diff packages.
+
+==========================================================================================================================================================
+
+JSP:
+-----
+
+server side pgming
+
+every jsp will convert into servlet--->after loading and initializing will occur---------->at the end we will have byte code
+
+jasor take the reponsibility of jsp
+
+jsp--- we  write in js
+
+web development & backend 
+
+=====================================
+
+SESSION MANAGEMENT:
+--------------------
+
+In web sessions play 
+
+- once the connection is established a session id is genereated.
+- no 2 sessions can have same id
+- any data which we store in session are temporary.
+- cookie is predefinedc
+- accepts only string
+- key and value should be string only
+- works at client side
+- stores at clientside and understood by server.
+- only meant for session mgmt
+- how to know if the cookie is transfered or not==>inpect the browser
+- setMaxAge(0)--deletes the cookie
+
+
+
+>>>"include" is used in "tiles concept" in web------web development
+- include is static
+- 
+
+
+<hr>-------horizontal ruler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TASK:
+------
+1) sending SMS/Email from java APP
+
+>>Task1:
+-------
+>Display current date using java program
+>Explore date class in sql and util package.
+>Display current day,day in week and current month using date class.
+>Display Italy  cusrrent date and time.
+>Write a program to find diffrence between 2 dates in days and minutes.
+
+
+date class api java8
+ 
+
+TAsk2:
+=========
+>i/p:123456 o/p : one lakh Twenty Three Thousand Four Hundred and fifty Six only
+>>i/p:123456 o/p : 1,23,456
+>>optional:Display random number using Java.
+Rule: Shld not use Random class.
+
+"SecureRandomClass"---salt, seed

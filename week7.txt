@@ -1,0 +1,830 @@
+SpringBoot ====> v2.7.16
+
+STEPS:
+-----
+1) goto browser ==> https://start.spring.io/
+2) choose maven,java,v2.7.16 for spring boot
+3) click on add dependencies and search for web-->click on spring web
+4) click on generate==> a zip will be downloaded
+5) copy and paste it in D-drive and unzip it. Open that unzipped file and copy the path of that
+6) goto eclipse-->click on file menu--> import--> search for maven-->existing project-->paste the path that is being copied--> click on finish
+7) remove the properties from pom.xml
+8) do clean install and update the project
+9) later open the src/main/java and the run the java code
+10) open browser and type localhost:8080 ===> will get the below error==> which means our springboot application is working.
+
+Whitelabel Error Page
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+ 
+Mon Oct 16 16:01:29 IST 2023
+There was an unexpected error (type=Not Found, status=404).
+
+
+============================================================================================================================================================
+
+ISSUE:
+-------
+- If the build path is not available 
+	- then delete the project and create new maven project without arche type-->using remote catlog it may work
+	- or we need to use infinite lan or wifi
+
+HOW TO ADD JARS MANUALLY:
+-------------------------
+1)create dynamic web project(no maven)-->finish
+2)create new package--->com.infinite.boot
+3)create a new class--> SpringBootDemo and TestClass
+4)Add the below code
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class Day2SpringBootMvcApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(Day2SpringBootMvcApplication.class, args);
+	}
+}
+
+5) Goto browser and type mvn repository-->search for springboot-->starter-web(2.7.16)--> download dependencies by clicking on jar and spring boot starter/spring boot-->v2.7.16 ====> then add these to build path.
+6) Import the necessary packages
+7) Click on config build path-->if it is showing error then remove spring boot jar.
+8) Download the below file (given by sir) 
+
+============================================================================================================================================================
+
+application.properties ==> config we use in this springboot
+
+http://repo.spring.io/milestone/org/springframework/boot/spring-boot-cli/1.3.0.M1/spring-boot-cli-1.3.0.M1-bin.zip ===> download this
+
+
+ISSUES THAT WE FACED FREQUENTLY IN SPRING CORE/MVC:
+----------------------------------------------------
+1) Mapping Issues--- with proper handson
+2) SSL Issuess-->fixed with proper n/w or corporate repo
+3) Child Dependencies issues---> fixed with proper n/w or corporate repo
+4) No Archetype available-->
+5) Mojo Failures--->
+6) dependencies version issues--> can be handled using Uber ar architecyures
+7) Tomcat not working or throwing error---> can be fixed if framework is giving inbuilt server.
+
+
+SPRINGBOOT:
+------------
+- Supports-- Uber jar architecture
+	- Uber jar means jar within jar.
+	- In main jar , all child jars will be appended and downloaded into our m2 repository. This will avoid 90% of the maven dependency issues.
+- By using SpringBoot,We don't need to download tomcat and configure in eclipse ==> becoz , server is inbuilt in springboot.
+- no xml configuration is needed.
+- Mainly used for designing cloud bases applications and microservice app development.
+(SPRING BOOT+SPRING CLOUD)
+- To design a webservice , we need to write atleast 50loc==> but if we use springboot, within 5loc we can complete.
+- To design a Springboot app, below are the ways:
+	- Using Eclipse--using maven/graddle build tool--recommended
+	- Using Spring Initiliazer--- https://start.spring.i.o/
+	- Using Sprinboot CLI
+	- Uisng manual approach
+	- Using Spring tool4 / Spring Tool Suite----https://spring.io/tools --- we need to use jdk version min 11 or 12
+- Use static folder for placing static assets like image,fonts..etc
+- testcases can written in SpringBoot.
+- Templates file---> to place template engine related files.--Eg:-Freemarker
+- @Respository, @Service, @RestController, @ComponentScanning===> mostly used in SpringBoot.
+
+============================================================================================================================================================
+
+https://www.h2database.com/ =======> db
+
+http://www.h2database.com/html/main.html
+
+https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei ==> livechrome 
+
+https://labs.play-with-docker.com/ ===> Docker
+
+- Springboot is replacement for Spring?==>no
+
+- Springboot is built based on Spring/ on the top of Spring.
+
+************************************************************************************************************************************************************
+
+
+- Layered architecture/approach in Spring/Springboot.
+
+- 3 layers (@Component)
+	- Presentation--interacts with Business logic--> related to view--> @Controller
+	- Service/Business logic-- interacts with Persistent layer--> @Service
+	- Persistent Layer--- interact with db-- DAO design pattern is used.--->@Repository
+
+
+STEREOTYPE:
+----------
+@Controller -> Classes annotated with this, are intended to receive a request from the client side. The first request comes to the Dispatcher Servlet, from where it passes the request to the particular controller using the value of @RequestMapping annotation.
+
+@Service -> Classes annotated with this, are intended to manipulate data, that we receive from the client or fetch from the database. All the manipulation with data should be done in this layer.
+
+@Repository -> Classes annotated with this, are intended to connect with database. It can also be considered as DAO(Data Access Object) layer. This layer should be restricted to CRUD (create, retrieve, update, delete) operations only. If any manipulation is required, data should be sent be send back to @Service layer.(dao+jdbcTemplate, dao+jdbc, dao+hibernate)
+
+
+JAVA CONFIG APPROACH OF SPRING:
+------------------------------
+-  We write Config in classes and methods.--> @Configuration
+- We will write config through oops concepts
+- We use annotations
+
+
+- For Spring MVC , we use web.xml even we use annotations.
+================================
+
+
+- when there is ni index.jsp page---> we will get 404 error--> in Springboot it display as "whitelabel error"
+
+- Once we run the class in springboot, it will register as a default class, which will be executed every time we run the application
+- We dont have two @SpringBootApplication in one project.
+- process of loading the class into main memory.==>bootstrap
+
+
+Struts--Spring--Huge demand in market but old technology
+Struts--Springboot
+Spring-- Springboot
+
+https://docs.spring.io/spring-boot/docs/2.7.0/reference/pdf/spring-boot-reference.pdf====> documentation of springboot
+
+- In Springboot,Spring application class will bootstrap the current class as per the loading strategy(lazy--nonstatic,early--static classes) 
+- Springboot use early loading strategy.
+
+PROFILING:
+----------
+abcd()--development
+bbcd()--preprod
+ddcd()--production
+
+if these methods are sent to dev, then only dev should work and if these are sent to preprod then only preprod should work -- this process is called profiling.
+- @Profile
+
+DEPRECATED METHODS:
+--------------------
+- These are methods which are no longer in use or dont use for production environments.
+- display(-)--> these methods are failed in testing, but still work upto some extent.--> but for production,it will fail.
+- we have seen in hibernate sessions
+- these can be used in dev environment i.e., testing.
+
+
+SringBootApplication:
+--------------------
+- @SringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan - xml files
+
+SPRING WITH LAYERED ARCHITECTURE:
+-----------------------------
+1) simple maven project
+2) Add dependencies
+
+<properties>
+		<spring.version>3.0.5.RELEASE</spring.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	</dependencies>
+
+
+3) create a package with name com.infinite.dao-- DaoExample
+com.infinite.service--- @Service
+com.infinite.interface---Create Interface
+com.infinite.test
+
+4) write the necessary code in those classes and interface
+
+
+
+AUTOWIRED:
+----------
+- In case of spring we need to create the bean tags based on the properties we have.--> which is a tidious job. and difficult to make any modifications
+- Not supported in primitive classes.
+- Autowired will reduced the no. files in the xml files.
+- In layered approach, we have this Autowired concept.
+
+MODES OF AUTOWIRING IN SPRING:
+------------------------------
+1)	no-----> It is the default autowiring mode. It means no autowiring bydefault.
+2)	byName--> The byName mode injects the object dependency according to name of the bean. In such case, property name and bean name must be same. It internally calls setter method.
+3)	byType---> The byType mode injects the object dependency according to type. So property name and bean name can be different. It internally calls setter method.
+4)	constructor--> The constructor mode injects the dependency by calling the constructor of the class. It calls the constructor having large number of parameters.
+5)	autodetect--> It is deprecated since Spring 3.
+
+
+TASK:
+------
+1) Spring mvc to Spring boot mvc
+2) Multi module project
+============================================================================================================================================================
+ISSUE:
+-------
+1) if we get loc header error
+	- Always dont need to remove .m2 file
+	- Instead goto to .m2 ---> repository---> org--> remove spring framework (C:\Users\vasanthis\.m2\repository\org)
+	 goto to eclipse--->close all the tabs and refresh the project, do maven build and update project.
+============================================================================================================================================================
+- @Transactional ===> used in spring
+- begin Transaction ===> used in hibernate
+
+
+FAVICONS IN HTML:
+-----------------
+used to add logo or anything in the tab left corner
+
+
+MULTI-MODULE PROJECT:
+---------------------
+- Multi Module project can be created in 2 ways
+	- Maven
+	- Graddle
+- Maven Approach:---one parent project and any no. of child project
+- pom level inheritance is there
+- Change the packaging to pom--- becoz, pom level inheritance is there
+
+
+NOTE:
+------
+- Spring boot uses jar packaging for web application.
+- jvm understands jar
+- war to jar project?--depends on the situation
+- 307-Temporaray Redirect
+
+
+********************************************************************************************************************************
+
+ONLINE SHOPPING PORTAL:
+=======================
+1) CREATE MAVEN WEB PROJECT
+
+2) ADD DEPENDENCIES:
+--------------------
+<properties>
+		<junit>4.11</junit>
+		<javax.servlet>3.1.0</javax.servlet>
+		<javax.servlet.jsp>2.2</javax.servlet.jsp>
+		<spring.version>4.2.5.RELEASE</spring.version>
+		<spring.security.version>4.0.4.RELEASE</spring.security.version>
+		<hibernate.version>4.3.5.Final</hibernate.version>
+		<mysql.connector>5.1.34</mysql.connector>
+		<commons.validator>1.5.0</commons.validator>
+		<log4j.version>1.2.17</log4j.version>
+		<jdk.version>1.8</jdk.version>
+		<test.version>3.1.2.RELEASE</test.version>
+		<jstl>1.2</jstl>
+	</properties>
+	<dependencies>
+		<!-- Junit API -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>hamcrest-core</artifactId>
+					<groupId>org.hamcrest</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.2.3.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl}</version>
+		</dependency>
+		<!-- Servlet API -->
+		<!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- JSP API -->
+		<!-- http://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${javax.servlet.jsp}</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Spring dependencies -->
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.springframework/spring-orm -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring Security Artifacts - START -->
+		<!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<!-- Spring Security Artifacts - END -->
+		<!-- Hibernate -->
+		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- MySQL JDBC driver -->
+		<!-- http://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector}</version>
+		</dependency>
+		<!-- Email validator,... -->
+		<!-- http://mvnrepository.com/artifact/commons-validator/commons-validator -->
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>${commons.validator}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies> 
+
+3) PACKAGES:
+-------------
+
+org.onlineshoppingportal.authentication
+org.onlineshoppingportal.config
+org.onlineshoppingportal.controller
+org.onlineshoppingportal.dao
+org.onlineshoppingportal.entity
+org.onlineshoppingportal.exceptions
+org.onlineshoppingportal.model
+org.onlineshoppingportal.validator
+
+4) CREATE FOLDERS IN SRC/MAIN/RESOURCES:
+------------------------------------------
+Create data and messages folders.
+
+5) CREATE ds-hibernate-cfg.properties:
+----------------------------------------
+# DataSource
+ds.database-driver=com.mysql.jdbc.Driver
+ds.url=jdbc:mysql://localhost:3306/onlineshopping
+ds.username=root
+ds.password=mysql123@
+
+# Hibernate Config
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.show_sql=false
+current_session_context_class=thread
+hibernate.hbm2ddl.auto=update
+
+6) CREATE validator.properties in messages of src/main/resources:
+-------------------------------------------------------------------
+
+7) CREATE data.sql file under data:
+------------------------------------
+Create tables for Account,Order,Product,Role
+
+8) POJO CLASSES:
+-----------------
+- Account.java
+	public static final String ROLE_USER = "USER";
+    public static final String ROLE_ADMIN = "ADMIN";
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
+    private String userName;
+    private String password;
+    private String confirmPassword;
+    private boolean active;
+    private Set<Role> roles;
+
+- Order.java
+	private Integer id;
+    private Date orderDate;
+    private int orderNum;
+    private double amount;
+    private int quantity;
+    private Product product;
+    private Account account;
+
+- Product.java
+	private String code;
+    private String name;
+    private double price;
+    private int quantity;
+	
+- Role.java
+	private Long id;
+    private String name;
+    private Set<Account> accounts;
+
+9) CONTROLLERS:
+----------------
+- MainController
+	import java.util.List;
+	import javax.servlet.http.HttpServletRequest;
+	import org.apache.log4j.Logger;
+	import org.onlineshoppingportal.dao.AccountDao;
+	import org.onlineshoppingportal.dao.OrderDao;
+	import org.onlineshoppingportal.dao.ProductDao;
+	import org.onlineshoppingportal.entity.Account;
+	import org.onlineshoppingportal.entity.Order;
+	import org.onlineshoppingportal.entity.Product;
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Controller;
+	import org.springframework.transaction.annotation.Propagation;
+	import org.springframework.transaction.annotation.Transactional;
+	import org.springframework.ui.Model;
+	import org.springframework.validation.BindingResult;
+	import org.springframework.validation.annotation.Validated;
+	import org.springframework.web.bind.WebDataBinder;
+	import org.springframework.web.bind.annotation.InitBinder;
+	import org.springframework.web.bind.annotation.RequestMapping;
+	import org.springframework.web.bind.annotation.RequestMethod;
+	import org.springframework.web.bind.annotation.RequestParam;
+	import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+10) EXCEPTIONS:
+---------------
+-AlreadyLoginException
+-NoOrderFoundException
+-ProductOutOfStockException
+
+11) CONFIGURATIONS:
+-------------------
+Add the configuration files to the respective package.
+
+
+
+Technologies Used in OnlineShoppingPortal(Pure Spring mvc + Hibernate application):
+------------------------------------------------------------------------------------
+Spring mvc
+HashSet
+List
+HibernateSpring mvc validations
+Properties
+C3PO
+POJO
+jsp
+DAO 
+POJO
+Setter Injection
+OOPS Concepts
+Layered ARCHITECTURE
+Spring Security
+User defined exceptions
+Pagination Using Hibernate
+Log4j
+Transaction Management
+DB
+
+
+IF SRC/MAIN/RESOURCES IS NOT AVAILABLE:
+----------------------------------------
+1)CREATE MANUALLY
+
+RIGHT CLICK ON JAVA RESOURCES--> NEW--> SOURCE FOLDER--> select the project and paste the "src/main/resources"
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes  ========> error codes
+
+******************************************************************************************************************************************
+
+SPRINGBOOT:
+-----------
+- Came up with some solutions	
+	- Starter
+		- Starter is like jar, but it contains group of jars and supporting dependencies.
+		- jar= (.class file + .MANIFEST.MF)
+		- No need to add child dependencies in pom.xml===> Becoz, starter helps to add dependencies in springboot.
+		
+	- AutoConfigurations
+	
+- Follows Layered Architecture.
+- Springboot directly supports h2 db ==> NoSQL db
+	- H2 db is a db, used for POC or training but not for production.
+	- By default h2 will be disabled state==>By using "spring.h2.console.enabled=true" in "application.properties" we can enable the h2 db.
+	- h2 is Open Source
+	
+
+
+
+BYTE BUDDY VERSION= 1.12.23
+
+
+****************************************************************************************************************************************
+
+
+- Uber jars also called as "fati-jar"
+- Spring MVC doesnt follow Uber architecture.
+- In Springboot we have Controller--> ie., @RestController----2 services==> restfull and soupfull services are available.
+
+HOW TO CHECK FOR THE H2DB:
+--------------------------
+- After running the main method.
+- go to browser and type "localhost:8080/api/employee" and we will get white label error ---> which means our springboot application is working
+- later type http://localhost:8080/h2-console on browser
+	- Database "C:/Users/vasanthis/test" not found, either pre-create it or allow remote database creation 
+	(not recommended in secure environments) [90149-214] 90149/90149 (Help)
+		- this error is raised when the connection is not secure i.e, SSL issues.
+			- we gave the "spring.datasource.url=jdbc:h2:mem:training"
+			- then we gave password and click on connect
+			- there we will get the connection to h2db
+			
+- @RequestBody ===> used to create a service.
+- The annotations @RequestBody and @ResponseBody in Spring were used to bind these HTTP requests and responses.
+- For RestController----> we use Postman to test.
+- Goto Postman, and get the connection
+- later, create table===> create table employee(Eemp_Id int auto_increment primary key,first_name char(50),last_name char(50));
+- insert into employee values(1,'Vasanthi','Sirikonda');
+
+
+POSTMAN:
+---------
+- It is a Software
+- We are using opensource
+- Postman is also called as Agent/Web Agent/Rest Agent.
+- In SpringBoot, we have similary like Postman==> "HAL Browser"--> alternative to Postman
+- We have recording feature in licensed/commercial version but not in free Version.
+- Beautify==> used to refresh the JSON 
+- Code Beautify Tool ==> "https://codebeautify.org/jsonviewer"======> In projects it will be blocked==> instead of this, they provide pluggins
+
+
+PROFILING:
+----------
+- Running the same program in different environments.
+
+@RestController:
+----------------
+- RestController allows to handle all REST APIs such as GET, POST, Delete, PUT requests.
+- @Controller is used to declare common web controllers which can return HTTP response.
+- @RestController is used to create controllers for REST APIs which can return JSON.
+
+
+
+Issues:
+-------
+1) If we are getting issues related to saving	
+	- then restart your eclipse.
+
+2) TomactServletWebServiceFactory issue
+	- Force Update
+	- remove .m2 and do build and force update the project , then run the code
+	- Check for the servers that are runnibg in the background
+	
+3) In POSTMAN(an API platform for building and using APIs)==> "connect ECONNREFUSED 127.0.0.1:8080"
+	- embedded server issue
+		- we need to check if the program is in running state or not.
+		- if it is not in running state, no request is sent in postman--->So, we need to keep it in running state.
+
+4) In springboot, if we didnt follow package structure i.e., com.infinite==parent, com.infinite.*==> child
+	- we will get 404 error in the browser.
+		- that means one of reason==> repository,service and controller are not getting recognizing by springboot
+	- In that case, recreate the project.
+	- We can also use @ComponentScan and add the packages manually ===> but it is not recommended.
+	
+5) In Postman, if we see these types of error, then that means in our JSON code there are whitespaces, or invalid JSON formatting.
+	{
+    "timestamp": "2023-10-19T11:34:02.922+00:00",
+    "status": 405,
+    "error": "Method Not Allowed",
+    "path": "/api/v1/reademployees"
+	}
+	- Try to give the names of the pojo class
+	- it will set all the issues.
+	
+6)  Failed to determine a suitable driver class
+	- here we are using mysql, so we need to add the hibernate related properties to "application.properties".
+	-  hibernate related properties are:
+		hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+		hibernate.show_sql: true
+		hibernate.hbm2ddl.auto: create
+		entitymanager.packagesToScan: com
+		spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
+
+7) Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+Reason: Failed to determine a suitable driver class
+	- It is unable to find the db driver.
+		- one of the reason, we are adding the mysql connector manually ( springboot internally has mysql)
+			- dont add  mysql connector dependencies manually 
+		-  add @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class }), as it has been asked by user as well. 
+			You need to add it to the main Application class which is under src>main>java. 
+	
+	
+8) <properties>
+		<java.version>1.8</java.version>
+	</properties>
+	- If we use 1.11 instead 1.8 we will get the " .class file as version .55 instead .52"
+	
+9) Description:
+	- The bean 'customerservice' could not be injected as a 'com.infinite.service.CustomerServiceImpl'
+	because it is a JDK dynamic proxy that implements:
+	com.infinite.service.ICustomerService
+   Action:
+	- Consider injecting the bean as one of its interfaces or forcing the use of CGLib-based proxies 
+	by setting proxyTargetClass=true on @EnableAsync and/or @EnableCaching.
+
+
+NOTE:
+------
+- Payment gateway is not a project--> it is a module==> becoz, we have different banks like sbi,union and banks integration
+- Thread also called as agent
+- If we get any ticket regarding the error, first we need to replicate( we should face same error when we are trying to access that particular ticket) that error and then we need to analyze the ticket--> do respective solution.
+- Bootstrapping===> springapplication.run will do bootstrapping of beans.
+- Apache Tomcat/9.0.80===> embedded server version in springboot.
+- We dont have same configuration in productions environments---> dev, prepod, prod
+
+
+LOMBOK (https://projectlombok.org/features/) :
+-----------------------------------------------
+- It is the tool/ library which is used instead of setters and getters in pojo/beans class
+- becoz every time, when we want to modify the property, it tidious to generate again the setters and getters.
+- https://projectlombok.org/features/GetterSetter
+- While developing a project in Java, we tend to repeat the similar kind of code for each class we create.
+	-Such kind of repetitive code is generally called boilerplate code.
+- We can avoid BoilerPlate Code by using LOMBOK.
+- <dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.30</version>
+		<scope>provided</scope>
+	</dependency>
+
+@SpringBootApplication :
+------------------------
+- will do component scan also
+- follows package structure 
+- ComponentScan is part of SpringBootApplication
+
+*************************************************************************************************************************************************************************************************************************************************************************
+
+SPRING MVC + SPRINGBOOT:
+--------------------------
+1) Create a SpringBoot project===> start.spring.io
+2) Create packages by following "package structure"
+	- com.infinite.SpringBootMVC.model
+	- com.infinite.SpringBootMVC.service
+	- com.infinite.SpringBootMVC.repository
+	- com.infinite.SpringBootMVC.controller
+3) Here we are using mysql, so we need to add the hibernate related properties to "application.properties".
+	- hibernate related properties are:
+		hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+		hibernate.show_sql: true
+		hibernate.hbm2ddl.auto: create
+		entitymanager.packagesToScan: com
+		spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
+
+	- For mysql :
+		- db.driver:com.mysql.jdbc.Driver
+		  db.url: jdbc:mysql://localhost:3306/springboot
+		  db.username: root
+		  db.password: mysql123@
+
+	- For springmvc configuration
+		- spring.mvc.view.prefix: /WEB-INF/
+		  spring.mvc.view.suffix: .jsp
+4)
+
+
+
+
+
+
+
+NOTE:
+------
+- SPRING-BOOT-STARTER-TEST ==> Used to test the springboot application.
+- If we want integrate the "springboot + python" ==> instead of "application.properties" we use "yaml".
+- We expression language to pull data from properties file.
+- Devops tools===> MQ,Active MQ,Kafka
+
+
+
+TASKS :( FRIDAY )
+-----------------
+1) Springboot+ stripe ( paymentgateway)
+2) Springboot + Captcha + Login form
+3) Billig( Contains bid(auto generation of bid),ammount, amount in words ,date, submit-- infinite logo with bill info,cancel)---Invoice should be downloaded.
+4) Generate 3 types of charts ( bar, pie , histograms using springboot)---Use JFree charts
+
+
+SonarCloud Tesing:
+-------------------
+1)right click on project>>team>>share project>>enable checkbox
+and press on create repository>>finish
+2)right click on project>>team>>commit>>move all files from unstaged to 
+staged changes >> write commit messages>> commit annd push
+3)open github and create new repository>>copy the link of repository and paste 
+in url box of destination git repository in eclipse>>give ur username and password
+>>next>>next>> give username and passkey generate passkey in tokens of github
+https://github.com/settings/tokens>>okay>>finish>>username and passkey
+4)open sonar cloud and click on analyze new project>>import file from github>>
+select repository to test>>select no of days as 30>>create project>>setup.
+
+
+
+ASSESSMENT-7:
+-------------
+- SPRINGBOOT
+- MVC
+- Layered Architecture
+- Log4j
+- MySQL
+- Profiling - Optional
+- Dev Tools
+	-feature in springboot, which is used for faster development of project.

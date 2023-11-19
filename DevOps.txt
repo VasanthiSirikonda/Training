@@ -1,0 +1,1171 @@
+- Create a folder in D-drive with name "DevOps"
+- Choose right jdk
+	- ours is jdk 1.8
+
+JENKINS INSTALLATION:(2.361.2)
+******************************
+- ON PRIMISES	
+	- To download Jenkins
+	- https://www.jenkins.io/
+		- click on download
+		- Past releases
+		- https://get.jenkins.io/war-stable/1.480.1/
+			- click on jenkins.war
+			- a file will be downloaded automatically
+				- OPen cmd from the DevOps location in D-drive
+					- Signature verification failed in the update center &#039 
+					(due to security issue it doent work)
+					(It is supported for jdk 1.8, but laptop environment is not supported)
+				
+		- https://get.jenkins.io/war-stable/2.361.1/
+			- click on jenkins.war
+			- a file will be downloaded automatically
+			- OPen cmd from the DevOps location in D-drive
+				- java -jar jenkins.war --httpPort=9000
+				- It say in our laptops-->it is supported by jdk 1.7
+				(It is supported for jdk 1.8, but laptop environment is not supported)
+				
+		- https://get.jenkins.io/war-stable/2.60.3/
+			- click on jenkins.war
+			- a file will be downloaded automatically
+			- OPen cmd from the DevOps location in D-drive
+			- java -jar jenkins.war -httpPort=9001
+				(It is supported for jdk 1.8, but laptop environment is not supported)
+				
+		- https://get.jenkins.io/war-stable/2.346.3/
+			- click on jenkins.war
+			- a file will be downloaded automatically
+			- OPen cmd from the DevOps location in D-drive
+				- java -jar jenkins.war --httpPort=9090
+					(this is working)
+			- Password
+				- 7f9c1f43f1e54a10a101ccd13d2ccf63
+			- open chrome
+				- localhost:9090
+				- enter the password that you copied from cmd
+				- click on enter
+				- install suggested pluggins
+				- it will download automatically
+				- continue
+					- Username: Vasanthi_Sirikonda11
+					- Password: Chinnammu4
+				- save and continue
+				- finish
+				- refresh the browser
+				- manage jenkins
+					- manage pluggins
+						- available 
+							- search for Maven
+							- check/select the Maven Integration
+							- click on install without restart.
+								(it is not working--maven integration is failed)
+				- Manual installation of pluggins
+					(https://github.com/kolaparthisrini/Jenkinsskillwisebeginer/blob/main/skip-certificate-check.hpi)
+					- download the file 
+					- open localhost:9090
+						- manage jenkins
+							- manage pluggins
+								- advanced
+									- choose the file that you downloaded
+										- deploy
+							- available	
+								- search for Maven
+									- check/select the Maven Integration
+									- click on install without restart.
+										( maven integration is failed)
+						(we are not using this)
+				- https://get.jenkins.io/war-stable/2.361.2/
+					- https://jenkinssrini.s3.ap-south-1.amazonaws.com/jdk-17.rar
+						- extract the jdk 17 rar file 
+							- right click on the var file
+								- 7 zip
+									- extract jdk17
+					- copy the path of the jdk 17/bin
+						- ie., D:\DevOps\jdk-17\bin
+					- open cmd from the DevOps location
+						- set the path
+							- ie., set PATH="D:\DevOps\jdk-17\bin"
+						- java -version
+							- we will have 17 version
+						- java -jar jenkins.war --httpPort=9094
+						- Password
+							- eddf5b3191db4894b9107b75bf2e1283
+						- open chrome
+							- localhost:9094
+							- enter the password that you copied from cmd
+							- click on enter
+							- install suggested pluggins
+							- it will download automatically
+							- continue
+							- Username: admin
+							- Password: admin
+							- save and continue
+							- finish
+							- refresh the browser
+							- manage jenkins
+								- manage pluggins
+								- available 
+									- search for Maven
+									- check/select the Maven Integration
+									- click on install without restart.
+						
+						
+			
+
+- Needed Pluggins to be installed 
+	- Maven Integration
+	- SonarQube Scanner
+	- Delivery Pipeline
+	- Docker
+	- Github
+	- Matrix Authorization Startegy
+		- for security
+	- Git
+	- Monitoring
+		- this will isntall "java melody" on the top of jenkins.
+	- Artifact Deployer
+
+- To know whether the maven is installed or not
+	- Goto dashboard
+		- New item
+			- We will have Maven Project, which means installation is successfull
+			
+
+- ON CLOUD
+	- Open AWS account
+	- Create an EC2 instance
+		- jenkins
+		- free tier 
+		- generate key pair
+			- srinivas
+		- allow all http traffic
+		- anywhere 
+		- launch instance
+		- goto instance
+
+
+- Jenkins have a server internally called
+	- Winstone
+- Jenkins power lies pluggins
+	- to make jenkins to work, we need pluggins
+- Our pluggins are failing due to below reasons:
+	- firewall
+	- SSL issues
+- Jenkins have a feature called "trigger"
+	- we can run the code for time intervals.
+
+HOW MANY WAYS CAN JENKIN BE DOWNLOADED:
+-----------------------------------
+- Using War file
+- Using Docker
+	- Best approach in market
+- Using any web/application servers
+- Using VM 
+- On cloud
+- Using jenkins installer
+	- not recommended for pure developments
+	- recommended for training or reseach purpose
+
+
+- GIT 
+	- goto cmd 
+		- type "git"
+		- we already have in our laptops
+		
+- DOCKER
+	- https://www.docker.com/products/docker-desktop/
+	- Click on download for windows
+	- A file will be downloaded
+	
+
+- SPRING STS
+	- 4
+
+- APACHE MAVEN
+	- 3.9
+
+- APACHE TOMCAT
+	- 8.5
+	
+- PYTHON/GROOVY 
+	- we should be aware of these languages.
+	
+===================================================================================================================================================
+	
+PREREQUISITES OF JENKINS:
+-------------------------
+- JDK 1.8 or higher versions
+- Notepad++
+
+Generic Java Package(.war):
+----------------------------
+- Used for demonstration purpose
+- By default, jenkins have 8080 port no.
+- To override the port no, jst include "--" in the command
+	- i.e., Flag variable--> "--httpPort=8989"==> port no is your wish
+- If you want to take default port no. i.e., 8080
+	- "java -jar jenkins.war" is enough, no need of flag variable
+- whenever we press enter, the jenkins will extract the files that are required.
+- Default server in Eclipse is "Jetty"
+- Default server in Jenkins is "Winstone" 
+
+==================================================================================================================================================
+
+DevOps:
+---------
+- Development and operation team
+- DevOps is a culture, where 2 set of people work together collaborately to acheive a particular task
+- Operation team--Also called as IT/Support team
+- Development Team
+	- Code
+	- Test
+	- Plan
+	- Build
+- Operation Team
+	- Deploy
+	- Operate
+	- Monitor
+	- Release
+- Official website for DevOps
+	- Splunk
+	- MuleSoft Blogs 
+- All servers has a feature called "Self Healing"
+	- this came into picture becoz of AI and Automation 
+	- Solves the problem to some extent only but not completely
+
+- DevOps LifeCycle
+	- Continuous Development(CD)
+	- Continuous Integration(CI)
+	- Continuous Testing
+	- Continuous Monitoring(CM)
+	- Virtualization and Containerization
+
+- Configuration Management
+	- To install the same s/ws in different machines of different location
+		- We use Automation
+			- i.e, Configuration Management Automation Tools
+				- Puppet
+				- Ansible-- leader in the market
+				- Chef
+- Used for large scale projects
+- Not recommended for waterfall model
+- Used for Agile or Scrum 
+		
+==========================================================================================================================================================================
+
+HOW TO PUSH AND RUN THE JAVA PROJECT IN JENKINS:
+**************************************************
+
+Eclipse--->Git--->GitHub--->Build
+
+- https://github.com/kolaparthisrini/React/blob/main/SpringMVCMultipleController.zip
+	- download the project and unzip it
+		- push it to eclipse
+			- I pushed it to SpringBoot workspace
+
+- Pushing the project to Git:
+	- right click on project
+		- team
+			- share project
+			- check the checkbox
+			- create repository 
+			- finish
+		
+	- right click on project
+		- commit
+			- git staging
+				- move all the files to staged changes
+					- and give commit message and click on commit
+
+- goto jenkins
+	- dashboard
+		- manage jenkins
+			- configure system
+		- Global Tool Configuration
+			- jdk 
+				- add jdk
+					- give name as "jdk1.8"-- user choice
+					- uncheck the "install automatically"
+					- give the path of the jdk
+						- C:\Program Files\Java\jdk1.8.0_121
+						(place your mouse pointer outside the text box and check if it is throwing any errors)
+			- Git
+				- If you are facing "There's no such executable git.exe in PATH: D:/DevOps/jdk-17/bin."
+					- goto C-drive
+						- Program Files
+							- Git
+								- bin
+								- copy the path and paste it in "manage jenkin--->global tools configuration-->git home"
+								- ie., C:\Program Files\Git\bin\git.exe
+				- even you dont find the git files, then
+					- If the git file is not found
+						- goto environment variables
+							- edit
+								- copy the path of the git
+								- find the location of the that path 
+									- and copy that location and paste it in jenkins git
+	
+			- Maven
+				- add maven
+					- uncheck the "install automatically"
+					- give name as "maven"-- user choice
+					- give the path of the maven
+						- C:\Java_Backend\JAVA Training for Trainee\JAVA Training for Trainee\apache-maven-3.9.4-bin\apache-maven-3.9.4
+	- save
+	
+- How to create a maven project in JENKINS
+	- Dashboard
+		- new item
+			- give the name of the project in textbox
+			- select maven 
+				- ok
+				- In description 
+					- we write about the project
+				- In Source Code Management
+					- Select Git
+						- Give the path of our maven project in Repository URL
+							- goto eclipse
+								- right on project
+									- properties
+										- copy the location
+											- D:\SpringBoot\SpringMVCMultipleController\SpringMVCMultipleController
+										- paste it in Repository URL
+				- In Build 
+					- Goals and options
+						- type "clean install"
+	- save
+
+- goto github account
+	- create new repoaitory with name "Jenkins1"
+		- copy the quick setup link
+			- https://github.com/VasanthiSirikonda/Jenkins1.git
+		- goto eclipse
+			- make some changes in the code and save it 
+			- move the unstaged files to staged files in git staging
+				- commit msg="commit2"
+					- commit and push
+		- goto the below link to generate the key
+			- https://github.com/settings/tokens
+			- generate classic key
+				- note="jenkin"---user choice
+					- Select Scopes
+						- repo
+						- write:packages
+						- admin:org_hook
+						- project
+					- generate token
+					- copy the key
+						- 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
+		- goto eclipse
+			- give the username: "vasanthi.sirikonda11@gmail.com"
+				- Password: "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"
+			- next
+			- next
+			- give the username and password again
+				- click on ok
+		- goto jenkins
+			- dashboard
+				- springbootapp
+					- congigure
+					- git
+						- git-repository URL="replce with git-repository that you created "
+							- save
+						- click on build now
+						- In "build now"-- a dropdown list will be there
+							- click on "Console output"
+								- there we will see the output for the required action we performed
+									- i.e., build success
+	
+	
+	
+Note:
+------
+- If we are trying to push the code to same github location
+	- then it throws an errors
+	- then, goto eclipse
+		- right click on project
+			- team
+				- remote
+					- configure push to upstream
+					- paste the location of the git repository
+					- save and push.
+	
+HOW TO MONITOR JENKINS:
+---------------------------------
+- Manage Jenkins
+	- Status Info
+		- Monitoring of Jenkins instance
+		
+*******************************************************************************************************************************************************
+
+Steps:
+=====
+BootDocker
+BootDockerPreprod
+BootDockerprod
+>as code is same for above 3, change the pom.xml
+>import the above 3 projects to eclipse
+>create 3 new repositories in git
+>in eclipse --right click on dockerdemoprod--team--remote-configure push to upstream--change--give the path of git repo
+>right click on dockerdemoprod--team--commit--commit
+- Dashboard
+		- new item
+			- give the name of the project in textbox(jenkinsprod,jenkinspreprod)
+			- select maven 
+				- ok
+				- In description 
+					- we write about the project
+				- In Source Code Management
+					- Select Git
+						- Give the path of our maven project in Repository URL
+							- goto eclipse
+								- right on project
+									- properties
+										- copy the location
+											- C:\java_backend\SpringMVCMultipleController\SpringMVCMultipleController
+										- paste it in Repository URL
+				- In Build 
+					- Goals and options
+						- type "clean install"
+	- save
+>goto github account
+	- create new repoaitory with name "Jenkins1"
+		- copy the quick setup link
+			- https://github.com/SindhujaKatepalli/Jenkins1.git
+		- goto eclipse
+			- make some changes in the code and save it 
+			- move the unstaged files to staged files in git staging
+				- commit msg="commit2"
+					- commit and push
+		- goto the below link to generate the key
+			- https://github.com/settings/tokens
+			- generate classic key
+				- note="jenkin"---user choice
+					- Select Scopes
+						- repo
+						- write:packages
+						- admin:org_hook
+						- project
+					- generate token(https://github.com/settings/tokens)
+					- copy the key
+						- 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
+		- goto eclipse
+			- give the username: "SindhujaKatepalli"
+				- Password: "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"
+			- ok
+			- ok
+ 
+>dashboard--click plus symbol--name:infinite--select delivery pipeline--create
+enable(
+ 
+>goto jenkinspreprod--configure--select git--paste the url from github in repository url
+                      --in build triggers--select build afeter other project--in projects to watch--give jenkins2--save
+ 
+>goto jenkinsprod----configure--select git--paste the url from github in repository url
+                      --in build triggers--select build afeter other project--in projects to watch--give jenkinspreprod--save
+>in dashboard--click on multienv(which is present after All)--view full screen--buildnow
+>we can see three will run successfully one after other
+
+************************************************************************************************************************************************
+
+GIT:
+****
+- Version controlling sys used for code repository
+- In projects, we should create local repository and commit our code
+	- Once commited, we need to push our code to github repository.
+- local repository
+	- Git--- Distributed VCM tool
+	- Mercury
+	- Tortoise---centralized VCM tool
+- Cloud repository
+	- GitLab
+	- AWS
+	- Bit Bucket
+	- Github
+- To Initialize the file/project in git
+	- git init
+- Git 
+	- Working Directory(Intialize the file/project)
+		- git add *
+	- Staging area(We are add the code to staging area)
+		- git commit
+	- Git Repository(Pushing the code from staging area to git repository)
+- Branches
+	- 2 types
+		- main 
+		- master 
+			- whenever we commit the code, the code wil be pushed to master
+- https://www.zentao.pm/file.php?f=zentaopm/202207/f_5e492e60f68296c0f027cabe26f1c96a&t=jpg&o=&s=&v=1658827385
+
+GitTask:
+-------
+- create a folder in d-drive
+- create a file with name "first" in that folder
+- open cmd from that location
+- issue "git init"
+- issue "git add *"
+- issue "git commit -m "commit1" "
+- issue "git status"
+	- to know the status of the file
+- "git log"
+	- to know how many times we have committed
+- git branch vasanthi
+	- to create new branch
+- git branch
+	- to know the what branches are present 
+- git checkout vasanthi
+	- to switch from one branch to another branch
+
+
+Microsoft Windows [Version 10.0.19045.3570]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\GitTask>git status
+On branch vasanthi
+nothing to commit, working tree clean
+
+D:\GitTask>git init
+Reinitialized existing Git repository in D:/GitTask/.git/
+
+D:\GitTask>git add *
+
+D:\GitTask>git commit -m "commit1"
+On branch vasanthi
+nothing to commit, working tree clean
+
+D:\GitTask>git commit -m "commit2"
+On branch vasanthi
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Second.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+D:\GitTask>git add *
+
+D:\GitTask>git status
+On branch vasanthi
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Second.txt
+
+
+D:\GitTask>git log
+commit a96b0fa57f54ca44989f5ff6f4ed8c5394137d90 (HEAD -> vasanthi, master)
+Author: Vasanthi Sirikonda <vasanthis@infinite.com>
+Date:   Wed Nov 15 17:22:45 2023 +0530
+
+    commit1
+
+D:\GitTask>git commit -m "commit2"
+[vasanthi 87318bd] commit2
+ Committer: Vasanthi Sirikonda <vasanthis@infinite.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Second.txt
+
+D:\GitTask>git log
+commit 87318bd7bcbba442fb81ace2b01fcf784feef325 (HEAD -> vasanthi)
+Author: Vasanthi Sirikonda <vasanthis@infinite.com>
+Date:   Wed Nov 15 17:38:28 2023 +0530
+
+    commit2
+
+commit a96b0fa57f54ca44989f5ff6f4ed8c5394137d90 (master)
+Author: Vasanthi Sirikonda <vasanthis@infinite.com>
+Date:   Wed Nov 15 17:22:45 2023 +0530
+
+    commit1
+
+D:\GitTask>git branch vasanthi
+fatal: a branch named 'vasanthi' already exists
+
+D:\GitTask>git branch sirikonda
+
+D:\GitTask>git branch
+  master
+  sirikonda
+* vasanthi
+
+D:\GitTask>git checkout sirikonda
+Switched to branch 'sirikonda'
+
+D:\GitTask>git branch
+  master
+* sirikonda
+  vasanthi
+
+D:\GitTask>git status
+On branch sirikonda
+nothing to commit, working tree clean
+
+D:\GitTask>git status
+On branch sirikonda
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Second.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+D:\GitTask>git add *
+
+D:\GitTask>git status
+On branch sirikonda
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   Second.txt
+
+
+D:\GitTask>git commit -m "pop"
+[sirikonda 597ac6e] pop
+ Committer: Vasanthi Sirikonda <vasanthis@infinite.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+
+
+D:\GitTask>git diff
+
+D:\GitTask>git diff vasanthi
+diff --git a/Second.txt b/Second.txt
+index e69de29..d583548 100644
+--- a/Second.txt
++++ b/Second.txt
+@@ -0,0 +1 @@
++tyguhijok
+\ No newline at end of file
+
+****************************************************************************************************************************************************************
+Expectation:
+===========
+	IDE-->git--->github--->Quality gate(SonarQube)--->pass(success)---->Build(requries Maven)--->Packaging--->Tomcat Server/AWS/Azure
+	^										|
+	|										|
+	|										|
+	|<------jira<------fail(failure)--------|
+		
+*****************************************************************************************************************************************************
+SONARQUBE:
+----------
+- Open your Jenkins	
+	- Manage Jenkins
+		- Global Tool Configuration
+			- SonarQube Scanner
+				- Add SonarQube Scanner
+					-If you are not having SonarQube, then enable "Install Automatically"
+						- If available disable the checkbox
+					- 
+		
+
+		
+Note:
+------
+- To check for logs of the server
+	- C:\Users\vasanthis\.jenkins\logs\tasks
+- Master key
+	- Only admins will have master key
+	- If you forget your password 
+	- C:\Users\vasanthis\.jenkins\secrets
+- Drawbacks of JENKINS
+	- We cant create roles directly
+	- We cant create bulk users at a time
+	- As above 2 are not possible, we cant assign permissions to users
+	- If we want to acheive above points, we need to relay on security pluggins in Jenkins like Matrix Authorization Strategy.
+- LDAP + JENKINS
+	- LDAP
+		- Created by DevOpsEngineer
+		- Consists of all employee details
+		- It is a Server, which is maintained by IT team
+	- This inetegration is maintain by DevOps
+- SSO(Single Sign On)
+	-  Same credentials to access multiple portals.
+		- Eg: our laptop
+	- We will have a token, which acts as authenticator(checks whether we are having permissions to access) b/w applications
+	- Every token will have expire time
+	- Once if the token expires, we cant continue with the same token, we need to fetch new token from issuer
+	- To design an app using SSO, we need use below tools
+		- Oakta Framework--> for tight security
+		- Oauth 1.0/2.0
+		- SAML---->complicated but more secure and costly
+		- Kerberos
+		- JSON token--> used in infinite (https://jwt.io/)
+- How to create a new user in jenkins
+	- Dashboard
+		- Manage Jenkins
+			- Manage Users
+				- Click on settings of already created user
+					- API token
+						(we need to provide the token)
+					- For this we need SAML----
+			- Create user(To create another user credentials)
+				- Give the details(we can delete the created user but we cannot delete the root user)
+					- save
+			-If you want to change the password of child
+				- Click on settings of created user
+					- change the password here
+			- Pluggin Manager
+				- available--search Role-based Authorization Strategy--enable it
+- To know the passwords for the users you created in jenkins
+	- C:\Users\vasanthis\.jenkins\users
+- When you try to delete any project in the workspace(ie., C:\Users\vasanthis\.jenkins\workspace)
+	- It doent reflect in the jenkins website
+		- when you build that project, it will again create in the workspace(filemanager)
+		- vice-versa 
+			- deleting the project in jenkins
+			- restart the server, to reflect the changes that we have done
+		- i.e., by default  jenkins will act as master node
+	- In projects, DevOps Engineer creates a cluster for jenkins
+		- cluster means, it is agroup of machine/servers/terminals/node.
+	- To create a cluster, we need to have atleast one machine.
+	
+*********************************************************************************************************************************************
+
+Cloud:
+-----
+- google cloud,aws,azure,alibaba,cloud foundary,pcf
+- 99.99% backup(secure)--we u lost ur data they will pay
+- SLA bond blw aws and client
+- pay as u go/use
+- aws data stored in datacenter--coastal areas,business,geographical locn,climate
+- *Bank of America is having their own cloud
+- AWS 
+	- gives Cloud Computing capabilities
+	- It is a Cloud provider but not a cloud
+	- Estimation of CLOUD as per the requirement
+		- https://calculator.aws/#/
+		
+- AWS IAM
+	- Identity Access Management
+	- Consists of policies
+	- create/delete users,create policies,assign polices,delete,role creation,assigning roles,
+		Password rules creation,passsword settings,aws user creation reports
+	
+- AWS Console
+	- EC2(Elastic Cloud Computing)
+		- To work on virtual clouds
+	- AMI(Amazon Machine Image)
+		- Aws had modified existing opensource OS and released into the market as AMI
+		- AMI is a OS
+		- AWS Linux AMI
+			- Means modified version of Linux
+- To access VM, we need
+	- IP address
+	- Port No.
+	- Network
+	- Internet
+	- Storage
+	- Security
+- To perform any operations on cloud, we need to have atleast 1 VPC(Virtual Private cloud)
+	- VPC gives
+		- IP address assigning
+		- Port no.
+		- Subnet address
+		- Routing to write node
+		- Security rules-------firewall rules
+	- By default, every cloud has 1 VPC
+	- Without VPC, we can't connect to internet/datacenters
+- Inbound---incoming
+- Outbound---outgoing
+- Every protocol in n/wing will have port no.
+	- http= 8080
+	- https= 8843
+	- FTP= 20--data port & 21--controlled port
+	- SMTP=
+	- AFTP=
+	- POP=
+- To access any VM from any AWS, we can follow below ways:
+	- Using browser
+	- Using Putty/Puttygen Tools--- in case of projects
+	- Using AWS API
+	- Using AWS CLI
+- Free Tier
+	- https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all
+
+- AWS Console
+	- EC2
+		- Instance(Running)
+			- Launch Instance
+				- Name the instance
+				- select OS(dont use Mac--it is not free tier)
+				- generate key pair
+					- .ppk--for putty
+					- a .ppk file will be downloaded
+				- enable SSH -- provides secuirty--block hackers from accessing the account
+				- enable HTTPS
+				- Network settings
+					- Subnet
+						- select first one
+			- Launch instance
+			- select the instance and connect 
+				- we will get egal
+			- To clear the screen
+				- clear
+			- To install anything in Amazon Linux OS
+				- we use yum
+			- Type "sudo yum install"
+			- sudo yum install java
+			- java -version
+			(here we are using java21 but we need java17)
+			- To delete the existing java21
+				- sudo yum remove java
+			- sudo dnf install java-17-amazon-corretto -y
+			- sudo yum install jenkins -y
+			- sudo wget -O /etc/yum.repos.d/jenkins.repo \		https://pkg.jenkins.io/redhat-stable/jenkins.repo
+			- sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+			- sudo yum upgrade
+			- sudo dnf install java-17-amazon-corretto -y
+			- sudo yum install jenkins -y
+			- sudo systemctl enable jenkins
+			- sudo systemctl start jenkins
+			(for the above cmds go through
+				https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/)
+			- copy the instance IP address 
+			- In new tab, search for "Ipaddress:8080"
+				- ie., 13.127.56.188:8080
+
+An SpringBoot Application Delpoyment in EBS:
+--------------------------------------------
+step1:
+	- Applicationname:Springwebapp
+	- Platform:Tomcat
+	- Application code:Upload ur code
+	- version label:0.0.1
+	- local file:choosefile
+       - paste C:\java_backend\Springboot1\EbsExample\target\EbsExample-0.0.1-SNAPSHOT.war
+	- Next
+Step2:
+	- select use an existing service role
+	- Ec2 key pair:keypair5
+	- next
+step3:
+	- Vpc:select the vpc
+	- enable public ip address
+	- instance subnets--select ap-south-1c
+	- next
+step4:
+	- Ec2 security groups:select default
+	- next
+step5:
+	- next
+step6:
+	- submit
+
+
+EIP--Elastic IP:
+------------------
+- Every server instance will have an IP
+- When we restart the server instance, IP address will change automatically in Cloud.
+- For permenant IP Address-- we need to use Elastic IPs
+	- Elastic IPs will never change even if we restart server.
+- Elastic IPs are chargable
+	- Min= 2$/day
+	- Max= 2000$
+
+
+An Sample Application Delpoyment in EBS:
+-----------------------------------------
+- Open Aws 
+	- Create an EBS environment
+	- giev App name
+	- Choose platform---Tomcat
+	- next
+	- Create a EC2 role 
+		- Duplicate the browser tab
+			- right click on exixting tab---duplicate
+			- Open IAM
+			- Create roles
+				- create role
+				- choose service--EC2
+				- choose Permission policies
+					- AWSElasticBeanstalkCustomPlatformforEC2Role
+					- AWSElasticBeanstalkWorkerTier
+				- give the role name
+				- choose create role
+			- Create a EC2 Instance role
+				- same as above but choose below policies
+				- Choose Permission policies
+					- EBS MultiDockerContainer
+					- EBS Web Tier
+					- EBS Worker Tier
+				- choose Create role
+		- In EBS tab
+			- Choose existing service role
+			- choose EC2 role,key pair,EC2 Instance role that you created before
+			- next
+			- Choose VPC
+			- Public---activated
+			- Instance Subnets---choose any two
+			- next
+			- In EC2 Security groups 
+				- Select the launch-wizard that you created recently
+			- next-->next-->submit
+			- Click on domian--- output of the app wil be displayed
+			
+To Delete the EBS Env:
+----------------------
+- EBS
+	- In Applications
+		- select the env you created, actions-->delete 
+		- got to environments--> here we can check whether the env is deleted or not
+		- goto EC2
+			- Elastic IPs
+				- Select the env-->actions-->disassociate
+										  ---> release
+		
+MFA(Multi Factor Autentication):
+--------------------------------
+- To add MFA:
+	- Secuirty Credentials
+	- Assign MFA device
+	- give Device name
+	- scan the QRCode
+	- Signout the account
+	- Login again, it asks for MFA code
+- To delete MFA
+	- Security Credentials
+		- Select the MFA you added
+		- delete
+Issues:
+-------
+1) Launch Wizard issue
+- No 2 launch wizard have same name and the name should be meaningfull
+
+
+DOCKER INSTALLATION:
+---------------------
+>ec2
+>create new instance(docker)-->new keypair-->enable all traffic-->launch-->connect
+>clear
+>sudo yum update---sudo yum search docker---sudo yum install docker---y---
+---sudo systemctl enable docker.service---sudo systemctl start docker.service---
+---sudo systemctl status docker.service.
+>duplicate the window to check status--->clear--->sudo systemctl status docker.service
+-->ctrl+c-->docker -v(24.0.5)
+
+******************************************************************************************************************************************************************
+
+Docker Application deployment:
+------------------------------
+- mkdir DocExample
+- cd DocExample
+- sudo yum install git
+- sudo yum install maven
+- sudo yum install java-1.8.0
+- y
+- git clone https://github.com/kolaparthisrini/spring-boot-docker
+- ls---who am i---ifconfig(display ip address in linux)
+- pwd(present working directory)---touch(to create file) a.java---ls
+- hostname---time
+- sudo yum install nano(writing some data into a file)
+- nano a.java(write some java code snippet)---click insert on keyboard
+- ctrl+x(to come out from file)
+- cat a.java(to show the code)
+- mv lastname newname---ls
+- javac A.java
+- java A 
+- git init
+- git add *
+- git commit -m "message"---ls---cd appname---ls---mvn clean install---ls---mvn clean install.
+--->sudo docker build -t spring-boot-docker:spring-docker . (docker will check for docker file in code)
+--->sudo docker run -p 8080:8080 spring-boot-docker:spring-docker . (app will run in container, where p is portno.)
+--->In Browser type=>"copy id adddress/hostname of ec2 instance : 8080"
+
+------------------------------------------------------------- clear process ----------------------------------------------------------------------
+
+[ec2-user@ip-172-31-15-60 ~]$ sudo yum update
+[ec2-user@ip-172-31-15-60 ~]$ sudo yum search docker
+[ec2-user@ip-172-31-15-60 ~]$ sudo yum install docker
+>>mkdir DockerExample
+>>cd DockerExample
+>>sudo yum install git
+>>sudo yum install maven
+[ec2-user@ip-172-31-15-60 DockerExample]$ sudo yum install java-1.8.0
+[ec2-user@ip-172-31-15-60 DockerExample]$ git clone https://github.com/kolaparthisrini/spring-boot-docker
+[ec2-user@ip-172-31-15-60 DockerExample]$ ls
+spring-boot-docker
+[ec2-user@ip-172-31-15-60 DockerExample]$ who am i
+ec2-user pts/3        2023-11-17 05:46 (13.233.177.5)
+[ec2-user@ip-172-31-15-60 DockerExample]$ ifconfig
+[ec2-user@ip-172-31-15-60 DockerExample]$ ifconfig
+[ec2-user@ip-172-31-15-60 DockerExample]$ ping
+ping: usage error: Destination address required
+[ec2-user@ip-172-31-15-60 DockerExample]$ sudo yum install nano
+[ec2-user@ip-172-31-15-60 DockerExample]$ nano a.java
+[ec2-user@ip-172-31-15-60 DockerExample]$ cat a.java
+public  class abc{
+public static void main(String args[]){
+System.out.println("hello");
+}
+}
+[ec2-user@ip-172-31-15-60 DockerExample]$ javac a.java
+a.java:1: error: class abc is public, should be declared in a file named abc.java
+public  class abc{
+        ^
+1 error
+[ec2-user@ip-172-31-15-60 DockerExample]$ nano a.java
+[ec2-user@ip-172-31-15-60 DockerExample]$ mv a.java abc.java
+[ec2-user@ip-172-31-15-60 DockerExample]$ ls
+abc.java  spring-boot-docker
+[ec2-user@ip-172-31-15-60 DockerExample]$ javac abc.java
+[ec2-user@ip-172-31-15-60 DockerExample]$ java abc
+hello
+[ec2-user@ip-172-31-15-60 DockerExample]$ git init
+[ec2-user@ip-172-31-15-60 DockerExample]$ git add *
+[ec2-user@ip-172-31-15-60 DockerExample]$ git commit -m "message"
+[ec2-user@ip-172-31-15-60 spring-boot-docker]$ cd spring-boot-app
+[ec2-user@ip-172-31-15-60 spring-boot-app]$ ls
+Dockerfile  mvnw  mvnw.cmd  pom.xml  src
+[ec2-user@ip-172-31-15-60 spring-boot-app]$ mvn clean install
+[ec2-user@ip-172-31-15-60 spring-boot-app]$ sudo docker build -t spring-boot-docker:spring-docker .
+[ec2-user@ip-172-31-15-60 spring-boot-app]$ sudo docker run -p 9090:9090 spring-boot-docker:spring-docker .
+
+
+**************************************************************************************************************************************************
+
+AWS Container Service:
+-----------------------
+- Docker is inbuilt in AWS Container Service
+- But it is paid service
+	- So we installed docker using EC2 instance/virtual server
+- To work on VMs
+	- we need to install Oracle vm s/w or VMWare or Virtual Box
+		- but these consume more time to execute small java app, heavy weight and more costly 
+		- need highend processor to execute the codes
+		- these are slow becoz of Hypervisor layer
+			- Hypervisor acts as a communicator b/w h/w and VM
+	- to overcome these, we have Continers which are light weight
+	- In VMs , every application will have different OS
+- Container
+	- Only one OS
+		- Uses linux, doesnt support windows OS
+- Using Docker, running our app in container
+- Container is a env, where we can run app in isolation mode.
+- Container Engine is responsible for creating containers
+- Container service is given by Mesos/Rancher/Docker/Kubernates
+- Docker Hub
+	- https://hub.docker.com/
+	- dependencies will be in image format
+	
+	
+- sudo docker ps (present status--to view current running containers)
+- cat Dockerfile 
+- sudo docker pull sonarqube (to install sonarqube image)
+- sudo docker images (to know how many images are present)
+	- every image will have 
+		- creation time,size,repossitory etc
+- sudo docker stop <container_id>
+	- to stop the particular container.
+- Docker file consists of instructions that shld be executed by your docker engine before converting to image.
+- Containers uses VM concepts on backend.
+	- To install docker s/w on laptops or computers, we need to first install VM.
+- To install docker, we need to enable virtualization at OS level.
+	- or we need to enabe "hyper-v" at OS level
+
+
+>VM are heavy weight because of Hypervisor and evry app will have its own o/s.
+>In docker,we dint have hypervisor,we do have "Container engine.
+>Container enginer is responsible for controlling the lifecycle of container.
+>In docker ,Container engine is main component that is responsible to run ur app.
+>Docker uses "Dockerfile" to run java app.SO,evry java app shld be embedded with Docker file.
+>When we use docker,first we need to convert your code to image(like jar).To do this we need to build project first using docker build.
+>Once converted,we need to run the image,so that that image will be executed in container.Other wise without run we cann view the output.(docker run <> <>)
+ 
+docker ps---to view current running containers
+docker images---to view current images in docker
+docker run--to run an image to container
+docker build---will convert ur code to image
+ 
+>>In docker any app shld run in container i.e., whether it is .net,python,java.....
+>Like Maven repo,for docker,we have docker hub.
+>We can also push our own userdefined images to docker hub using docker push.
+>Docker file will not have any extension.
+file shld be like below:
+Dockerfile
+>docker stop <containerid> ---> will stop ur running container.
+
+- Code Committ-- Github
+- Code Build-- same as Maven build
+- Code Deployment
+	- Uses EC2 in the backend
+- Github--code repository
+- In AWS, we have "CodeGuru"---For pure developemnt in Aws/code quality
+- To store code or any files , we can also use AWS S3
+- AWS had comeup with AWS ToolKit for developers
+	- Using this we can push/deploy/modify/write code directly from IDE like Eclipse,VsCode,Intellij.
+	- https://docs.aws.amazon.com/toolkit-for-eclipse/v1/user-guide/welcome.html
+- Code Artifact
+	- similarlly like JFrog/SonaType Nexus
+
+>Maven---build
+github--code repositoty
+AWS--is giving u code commit for github
+   --is giving u code build like maven build
+   --is giving u code deployment like ec2
+   --is giving u code artifact like JFrog/Sonatype Nexus
+   --is giving u code pipeline
+   --is giving u codeguru(use AI) like sonarqube
+   --To store code or any files,we can also use--Aws s3 bucket
+
+Note:
+----
+- In Windows, we have feature called "WSLT"
+	- With this we dont need to install linux seperately.
+
+
+DOCKER COMMANDS:
+----------------
+- [ec2-user@ip-172-31-14-34 spring-boot-app]$ docker version
+Client:
+ Version:           24.0.5
+ API version:       1.43
+ Go version:        go1.20.10
+ Git commit:        ced0996
+ Built:             Fri Oct 13 00:00:00 2023
+ OS/Arch:           linux/amd64
+ Context:           default
+permission denied while trying to connect to the Docker daemon socket at 
+unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/version": 
+dial unix /var/run/docker.sock: connect: permission denied
+
+
+*****************************************************************************************************************************************************
+
+CODECOMMIT:
+------------
+>It is similarly like Github
+>Aws--in search--type--code commit--Repositoryname:MyRepository--create--cloneurl--http--it is asking credential
+goto d-drive --devops folder clone the repository
+>goto deveops --create folder with the name Codecommit--open cmd
+>goto Iam--user--create user--username:devops,custompwd: ---disable--next--permissionpolicies--select--admin--retuen to users list
+>click on devops--security credentials--http git credentials for aws---generate credentials--cpy user name and pwd and paste in get credentials popup
+>open--D:\DevOps\spring-boot-docker\spring-boot-app--init copy the all files--paste in myrepository---open cmd--git init--git add *---git 
+>open vscode--file--new --open folder--MyRepository--version control--
+>in deveops--codecommit--MyRepository(is created)
+ 
+Code Build:
+==========
+>go to code commit--add file--create file--filename:buildspec.yml--author:Sindhuja,emaildreess:urwish--commit changes
+>>aws--codebuild--build projects--create build project--project config:springbootbuild--Repository:select--branch(master)--os:amazon linux--standard--image:select1st standard2.0--create build project--start build
+>tail logs(we can see wt is gng on backend)

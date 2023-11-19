@@ -1,0 +1,2635 @@
+
+IBM twillo
+
+sendgrid
+
+======================================
+
+log4j:(given by apache)
+-------
+>> It is a framework(semi developed application is called framework).
+
+imp of log4j:
+-------------
+when we write a java appli , we want to know 
+- know exact o/p or not
+- connection established or not
+
+
+
+extension--> (.log)
+
+DISADVANTAGES OF SOP():
+--------------------------
+effectiveness will be missing.
+time taking process.
+
+>> SOP's will be impact the processor which will slowdown your machine
+
+>> SOP's are not allowed for prod and pre-pod environments.(A preproduction environment is a copy of your production environment)
+
+>> In place of SOP's we use logging-----it works as central mechanism.
+
+>> log4j saves time, money & business
+
+>> log4j supports file appenders.
+i.e., it creates log files with time stamps.
+
+>> can be used for desktop,mobile,enterprise app.
+
+>> cant be used to html,css.
+
+>> For log4j we need---Log4j.properties or Log4j.xml 
+
+IMPORTANT POINTS ABOUT LOG4J:
+------------------------------
+
+>> log4j is a reliable, fast and flexible logging framework (APIs) written in Java, which is distributed under the Apache Software License.
+
+>> log4j has been ported to the C, C++, C#, Perl, Python, Ruby, and Eiffel languages.
+
+>> log4j is highly configurable through external configuration files at runtime.
+
+>> we can control the usage of log4j by control flags---OFF and ALL 
+
+>> The log4j.properties file is a log4j configuration file which keeps properties in key-value pairs.
+
+>> By default, the LogManager looks for a file named log4j.properties in the CLASSPATH.
+
+>> WARN level− Designates potentially harmful situations.
+
+>>  purpose of r character used in the conversionPattern of PatternLayout object?
+Used to output the number of milliseconds elapsed from the construction of the layout until the creation of the logging event.
+
+>> x − Used to output the NDC (nested diagnostic context) associated with the thread that generated the logging event.
+
+>> '.' yyyy-MM-dd-a ===> DatePattern configuration of DailyRollingFileAppender rolls over the logs at midday and midnight of each day
+
+>>  The Level object defines the granularity and priority of any logging information.
+
+MODES of Log4j:
+----------------
+
+INFO----  logger.info()
+
+WARNING---- logger.warn()
+
+ERROR---  logger.error()
+
+CRITICAL--- no method for critical
+
+FATAL---  logger.fatal()
+
+
+jira is a tool
+
+jira cant work alone
+
+jira has n no. of connectors
+
+jira + connectors(ServiceNow/zendesk/sonar)
+
+
+IF THE LOGS ARE DELETED:
+------------------------
+>>  We have backup concept.
+
+backup 1===> one duplicate will created
+
+backup 2===> 2 duplicate files will created
+
+>> we can also use these tools --- Loggly,ELK Stack,Splunk,Sentry
+
+
+
+
+
+ELK Stack:
+-----------
+
+E -- elastic
+L --logstack
+K ---Kibana
+
+ ELK stack gives you the ability to aggregate logs from all your systems and applications, analyze these logs, and create visualizations for application and infrastructure monitoring, faster troubleshooting, security analytics, and more.
+
+
+PATTERN LAYOUTS/MATCHES:
+------------------------
+> Error msgs with timestamps can be displayed using pattern layouts/matches.
+
+> everything can be controlled in pattern layouts.
+
+
+WAYS TO PUSH ERROR MSGS:
+--------------------------
+> error msg to console
+
+> error msg to log file
+
+> error msg to db
+
+> error msg to webservices
+
+
+MULESOFT:
+---------- 
+>> provides connectors.
+
+>> using with we can connect to multiple apps.
+
+>> no code is required.
+
+
+log4j.properties:
+----------------
+
+//log4j.appender.FILE.File=${log}/log.out
+log4j.rootLogger=DEBUG,FILE,console
+// Set the appender named X to be a File appender
+log4j.appender.FILE=org.apache.log4j.FileAppender
+log4j.appender.FILE.File=D:\\logs\\jbackend.log
+//log4j.appender.FILE.File=${log}/log.out
+log4j.appender.file.MaxFileSize=1MB
+log4j.appender.file.MaxBackupIndex=1
+// Define the layout for X appender
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE.layout.conversionPattern=%m%n
+
+ 
+
+log4j.appender.console=org.apache.log4j.ConsoleAppender
+log4j.appender.console.layout=org.apache.log4j.PatternLayout
+log4j.appender.console.layout.ConversionPattern=[%t] %-5p %c %x - %m%n
+
+
+PropertyConfigurator.configure("log4j.properties");-----paste it in java file
+
+private static final Logger logger
+     = Logger.getLogger(Log4jTesting.class);--------written in class
+
+
+"[%t] %-5p %c %x - %m%n"-------->we will get error msg along with package
+
+
+
+"%L [%t] %-5p %c %x - %m%n"----->at which line we get that error msg
+
+
+"%L %d [%t] %-5p %c %x - %m%n"------>to get time and date
+
+
+%d--date and time
+%L-->line no.
+
+
+
+
+
+
+============================================================================================================================================================
+
+how to know hostname=>cmd-->hostname
+
+when you made modifications to code but not reflected on server:
+----------------------------------------------------------------
+
+1) restart the server-------->not recommended in projects = becoz it takes more time ==>in some cases only restart is the option
+
+2) right click on server--->choose properties-->switch loc-->
+
+
+
+
+TO know which location the server is working:
+--------------------------------------------
+
+double click on server--->we will get overview of server
+
+
+
+AJP:
+----
+
+>> It is a protocol which is used by tomcat server to do communication b/w catalina and jasper.
+
+>> In higher versions , we cant see this tool (seen in v8.0)
+
+
+NOTE:
+-----
+>> For corejava , the connector should be in build path of ur proj
+
+>> For web app, the external jars should be in server lib directory.
+
+>> Tomcat uses juli as a logging mechanism tool.
+
+>> Tomcat related 
+
+>> whenever you create a server in root directory(eclipse) , we will have copy of server in workspace(only part of server i.e.,configurations is copied)=>same approach is followed by beans and other etc. 
+
+>> always encrypt username and password in jdbc. i.e., sensitive data shoulb be encrypted
+
+>> always encryption and decryption should be done in same OS/ JVM.
+
+>> JVM---platform dependent
+   java and Bytecode--->platform independent
+
+>> same algo should be used for both encryption and decryption.
+
+>> For pattern layouts uses format specifiers.
+
+NIO:
+------
+
+Non Blocking IO------ doing the multiple tasks simultaneously/ lly
+
+
+If you get any config issues:
+------------------------------
+
+goto workspace-->servers--->delete server--> and recreate the server from eclipse
+
+
+
+FileAppender:
+------------
+2 types
+
+RollingFileAppender--------->after the completion of 1MB, it will extends its file size to another 1MB based on the MaxFileSize
+
+DailyrollingFileAppender--------->everyday a new file is generated.
+
+FILEREADER:
+----------->>is a java i/o operation
+
+
+TASK:
+-----
+
+1) Write a servlet program to read data from properties file using Servlets.
+
+InputStream st=getServletConext().getResourceAsStream("");
+
+
+
+=================================================================================================================
+
+JDBC
+
+ODBC--->for pushing the excel,doc files in db
+
+MS Access--------> it is a db, but not purely RDBMS
+
+textfiles / flatfiles >> DBase2 >>> Dbase3 >>> Access >> oracle >> sybase
+
+
+textfiles---->it cant perform transactions
+		huge data ant be stored
+		prone virus attacks
+
+Excel------->it cant perform business and fund transactions
+		limit for storage is there
+
+
+
+MySql:
+------
+
+>> It has MySql Server / engine(s/w pgm)---->understands the queries
+
+>> MySql Workbench needs MySql db
+
+>> Community License(open source) and Enterprise License(recommended in projects) are Types of MySql WorkBench
+
+>> LAMP:
+--------
+	L---linux
+
+	A---apac
+
+	M--- MySql
+	
+	P---- pearl
+
+NOTE:
+-----
+
+>> we cant perform transactions on ROM memory.
+
+
+>> if the below features/factors are avilable , we can use db:	
+---------------------------------------------------------------
+	data should be accessible 24/7 
+	data retrival should be easy
+	licensed support should be less cost.
+	IDE support
+	db backups & admin tools
+	should support i18n
+	data integrity and availability
+	consistency
+	no duplicates
+	security
+	durability
+
+>> Schema--->design/plan of db
+
+>> A db can exist without table but a table cant exist without db
+
+>>  (Schema->db->tables)--------> RDBMS DB
+
+
+
+
+
+
+
+
+=========================================
+
+
+<<<<<<<<<<<<<DAY 13>>>>>>>>>>>>>>>>>
+
+MySQL:
+------
+
+Another name for Enterprise Edition of MySQL---->Proprietory(own design server) Enterprise Server
+
+
+>> Every row in table has a row number and row id-->given by sql server
+
+>> row number and row id combiney called as "Pseudo coulumns"
+
+>> DB server will create Pseudo colums automatically when we create a table.
+
+>> we cant exceed the 20 colums in projects while creating tables.
+
+
+DBA Responsibilities:
+------------------------
+
+1) Schema creation and required integrity constraints creation
+2) Admisntration tasks
+3) Backup of data on daily basis.
+4) he hould know how to use db tools effectively
+5) Restore the data on failure.
+6) security
+7) User creation and previleges to the team should be provided by DBA.
+8) He alos involve designing of db for projects. 
+9) Maintainace of db 
+10) performance tunning 
+11) If any issues , he should focus on root causes.
+12) Report generation about db.
+13) Data analytics
+14) Debugging
+
+Senior DBA->Associate DBA
+
+NOTE:
+----
+
+>> Row-->tuple/record
+>> Domain->set of permited values for an attribute in a table--->eg: calander==>jan,feb,...,Dec
+>> Default Limit size of mysql--->4gb
+>> we can extend to 8 million terabytes(TB)
+
+
+>> Mysql has 2 engines
+	InnoDB-----> v>5.5
+
+	MyISAM-----> default storage engine for mysql prior v5.5
+			adv over InnoDB--->high performance
+
+
+>> mysql datatypes:
+-------------------
+    char(0-255)
+    text(0-65535)
+
+>> utf8---->by default we have this
+
+utf16-----> to store diff languages
+
+>> dont alter the table or db after inserting the data or if data exists in the data=> becoz, it effects the integrity of table.
+
+
+
+SQL CMD:
+--------
+
+
+mysql> create database infinite;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> drop infinite;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'infinite' at line 1
+mysql> drop database infinite;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> create database infinite character set utf8;
+Query OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_training |
++--------------------+
+| aadhar             |
+| company            |
+| employee           |
+| imgtable           |
+| register           |
+| users              |
++--------------------+
+6 rows in set (0.03 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| infinite           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| training           |
++--------------------+
+6 rows in set (0.04 sec)
+
+mysql> use trining;
+ERROR 1049 (42000): Unknown database 'trining'
+mysql> use training;
+Database changed
+mysql> create table mobiltab( mobilename char(50),mobilenumber bigint);
+Query OK, 0 rows affected (0.05 sec)
+ 
+
+mysql> show fields from mobiltab;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| mobilename   | char(50) | YES  |     | NULL    |       |
+| mobilenumber | bigint   | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+2 rows in set (0.04 s
+
+TO CLEAR THE SCREEN IN MYSQL V8.0:
+----------------------------------
+system cls;
+
+
+
+NOTE:
+----
+>> Never use * while displaying table data
+      
+mysql> select mobilename,mobilenumber from mobiltab;
++------------+--------------+
+| mobilename | mobilenumber |
++------------+--------------+
+| LG         |   7993328292 |
++------------+--------------+
+1 row in set (0.00 sec)
+
+>> if it predefined we can use " * "
+
+>> if it is userdefined we cant use "*"
+
+
+>> The below syntax only works in oracle  
+
+
+mysql> insert into mobiltab ('&mobilename','&mobilenumber');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''&mobilename','&mobilenumber')' at line 1
+
+
+
+use training;
+use mobiltab;
+insert into mobiltab values('us',000001);
+select mobilename,mobilenumber from mobiltab;
+
+>> FOR DIAPLAYING THE ALIAS NAME OF THE COLUMNS:
+=================================================
+ select mobilename as manufacturer, mobilenumber from mobiltab;
++--------------+--------------+
+| manufacturer | mobilenumber |
++--------------+--------------+
+| LG           |   7993328292 |
+| us           |            1 |
++--------------+--------------+
+
+
+>> FOR COUNTING THE RECORDS:
+================================
+
+1) 
+select count(*) from mobiltab;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.04 sec)
+
+
+
+2) for better understanding
+
+ select count(*) as recordcount from mobiltab;
++-------------+
+| recordcount |
++-------------+
+|           3 |
++-------------+
+1 row in set (0.00 sec)
+
+
+RENAMING THE TABLE:
+--------------------
+syntax==>  alter table <tablename> rename <newtablename>
+
+
+mysql> alter table mobiltab rename mobiletab;
+Query OK, 0 rows affected (0.01 sec)
+
+
+TRUNCATE:
+---------
+Removes/deletes records from table
+
+syntax:==> truncate table <tablename>;
+
+mysql> truncate table mobiletab;
+Query OK, 0 rows affected (0.02 sec)
+
+
+
+DROP:
+----- 
+Removes entire table from db
+
+Syntax:==>  drop table <tablename>;
+
+mysql> drop table mobiletab;
+Query OK, 0 rows affected (0.01 sec)
+
+
+
+PREDEFINED TABLE IS mysql.user:
+--------------------------------
+
+Syntax:===>   select * from mysql.user;
+
+
+
+ show fields from mysql.user; 
+
+
+select host.user from mysql.user;----------> works in < v5.5
+                                                                        }---> these shows the username and encrypted form of password.
+select host.password from mysql.user;-----------> works in < v5.5
+
+
+
+
+TYPES OF BINS IN DB:
+--------------------
+
+2 TYPES
+
+RECYCLE BIN----> If we drop the table from db, the table moves to recycle bin
+
+PURGEBIN-----> If we drop the table from db, it will delete permenantly and automatically after some time.==> same like shift+delete
+
+>>mysql has both bins 
+
+Q: can i rollback a dropped table from database?==>yes, we can
+
+
+UPDATE:
+-------
+
+Syntax:==> update <dbname>.<tablename> set col='' where condition';
+
+update training.employee1 set dept='training' where name='mahalakshmi';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select name,dept,designation from employee1;
++-------------+----------+-----------------------------+
+| name        | dept     | designation                 |
++-------------+----------+-----------------------------+
+| vasanthi    | cse      | associate software engineer |
+| chakri      | it       | deveoper                    |
+| raviabau    | it       | deveoper                    |
+| mahalakshmi | training | analayst                    |
++-------------+----------+-----------------------------+
+
+
+DELETE:
+-------
+
+Syntax:==> delete from <tablename> where condition;
+
+delete from employee1 where name='vasanthi';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,dept,designation from employee1;
++-------------+----------+-------------+
+| name        | dept     | designation |
++-------------+----------+-------------+
+| chakri      | it       | deveoper    |
+| raviabau    | it       | deveoper    |
+| mahalakshmi | training | analayst    |
++-------------+----------+-------------+
+
+NOTE:
+----
+
+>> we cant have "where" class for truncate.
+
+>> we can have "where" class for delete.
+
+>> rollback is possible only for objects i.e., tables 
+
+
+HOW TO CREATE NEW USER:
+----------------------
+
+SYNTAX:===>  create user <USERNAME>;
+
+Eg:
+----
+>> create user vasanthi;
+
+>> select host,user from mysql.user;
++-----------+------------------+
+| host      | user             |
++-----------+------------------+
+| %         | vasanthi         |
+| localhost | mysql.infoschema |
+| localhost | mysql.session    |
+| localhost | mysql.sys        |
+| localhost | root             |
++-----------+------------------+
+
+
+NOT NULL========> it is a constraint
+
+CHECK=============>integrity constraint
+
+
+CREATING A TABLE WITH CONDITION:
+---------------------------------
+create table infinite1(name char(50), salary integer NOT NULL CHECK(salary>0));
+
+>>> insert into infinite1 values("vasanthi",0);  
+    ERROR 3819 (HY000): Check constraint 'infinite1_chk_1' is violated.
+
+>>>> insert into infinite1 value("vasanthi",1);
+     Query OK, 1 row affected (0.00 sec)
+
+
+
+
+
+>>>> create table infinite2(name char(40),salary integer NULL check(salary>0));
+     Query OK, 0 rows affected (0.03 sec)
+
+	>>>> mysql> insert into infinite2 value("vasanthi",null);
+     	     Query OK, 1 row affected (0.00 sec)
+
+
+>>>>>   insert into infinite2 value("vasanthi",'');
+	ERROR 1366 (HY000): Incorrect integer value: '' for column 'salary' at row 1
+
+>>>>>>   insert into infinite2 value('',868214);
+	 Query OK, 1 row affected (0.00 sec)
+
+>>>>>>  insert into infinite2 value(,868214);
+	ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',868214)' at line 1
+
+
+
+>>>>    insert into infinite2 (salary) values(9631946);
+Query OK, 1 row affected (0.00 sec)
+
+>>>> select name,salary from infinite2;
++----------+---------+
+| name     | salary  |
++----------+---------+
+| vasanthi |    NULL |
+|          |  868214 |
+| NULL     | 9631946 |
++----------+---------+
+
+EXAMPLE2:
+---------
+
+
+ select Ename,ProjectName,Eid,Designation,doj from ProjectResourceInfo;
++----------+-------------+------+-------------+------------+
+| Ename    | ProjectName | Eid  | Designation | doj        |
++----------+-------------+------+-------------+------------+
+| vasanthi | Verizon     | 3474 | Developer   | 2023-08-22 |
++----------+-------------+------+-------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select Ename,ProjectName,Eid,Designation,(doj) from ProjectResourceInfo;
++----------+-------------+------+-------------+------------+
+| Ename    | ProjectName | Eid  | Designation | doj        |
++----------+-------------+------+-------------+------------+
+| vasanthi | Verizon     | 3474 | Developer   | 2023-08-22 |
++----------+-------------+------+-------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select Ename,ProjectName,Eid,Designation,doj+1 from ProjectResourceInfo;
++----------+-------------+------+-------------+----------+
+| Ename    | ProjectName | Eid  | Designation | doj+1    |
++----------+-------------+------+-------------+----------+   ===========> sql injection may happen when we give date as a string 
+| vasanthi | Verizon     | 3474 | Developer   | 20230823 |
++----------+-------------+------+-------------+----------+
+1 row in set (0.00 sec)
+
+NOTE:======> dont use symbols in select, it leads to sql injection
+
+
+
+ select Ename,ProjectName,Eid,Designation+1,doj from ProjectResourceInfo;
++----------+-------------+------+---------------+------------+
+| Ename    | ProjectName | Eid  | Designation+1 | doj        |
++----------+-------------+------+---------------+------------+   ==============>
+| vasanthi | Verizon     | 3474 |             1 | 2023-08-22 |
++----------+-------------+------+---------------+------------+
+1 row in set, 1 warning (0.00 sec)
+
+
+ select Ename,ProjectName,Eid,Designation,doj-1 from ProjectResourceInfo;
++----------+-------------+------+-------------+----------+
+| Ename    | ProjectName | Eid  | Designation | doj-1    |
++----------+-------------+------+-------------+----------+
+| vasanthi | Verizon     | 3474 | Developer   | 20230821 |
++----------+-------------+------+-------------+----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+select Ename,ProjectName,Eid,str(Designation)+1,doj from ProjectResourceInfo;
+ERROR 1305 (42000): FUNCTION training.str does not exist
+
+
+
+
+NOTE:
+----- 
+There is no Check constraint in mysql v5.5====> even we try to use check constraint , there is no effect.
+
+
+INSERTING DATE:
+----------------
+
+ insert into ProjectResourceInfo values("vasanthi","Verizon",3474,"Developer",'2023-08-22');
+Query OK, 1 row affected (0.00 sec)
+
+
+
+UPPER CASE:
+------------
+ select upper(location) from dtable;
++-----------------+
+| upper(location) |
++-----------------+
+| CHENNAI         |
++-----------------+
+1 row in set (0.00 sec)
+
+
+REVERSE:
+--------
+mysql> select reverse(location) from dtable;
++-------------------+
+| reverse(location) |
++-------------------+
+| iannehc           |
++-------------------+
+1 row in set (0.00 sec)
+
+
+CURRENT DATE:
+----------------
+
+ create table dtable(cdat date,location char(30) default 'chennai');
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select cdat,location from dtable;
+Empty set (0.00 sec)
+
+mysql> insert into dtable(cdat) values(curdate());
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select cdat,location from dtable;
++------------+----------+
+| cdat       | location |
++------------+----------+
+| 2023-09-21 | chennai  |
++------------+----------+
+1 row in set (0.00 sec)
+
+
+
+ select day(curdate());
++----------------+
+| day(curdate()) |
++----------------+
+|             21 |
++----------------+
+1 row in set (0.00 sec)
+
+
+select dayofmonth(curdate());
++-----------------------+
+| dayofmonth(curdate()) |
++-----------------------+
+|                    21 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql> select dayofyear(curdate());
++----------------------+
+| dayofyear(curdate()) |
++----------------------+
+|                  264 |
++----------------------+
+1 row in set (0.00 sec)
+
+
+DATE & TIME FUNCTIONS:
+------------------------
+
+ADDDATE():
+-------
+
+ SELECT ADDDATE('2023-09-21', INTERVAL 31 DAY);
++----------------------------------------+
+| ADDDATE('2023-09-21', INTERVAL 31 DAY) |
++----------------------------------------+   ==============> the day after 31 days will be displayed.
+| 2023-10-22                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+
+select adddate('2023-09-21',31);
++--------------------------+
+| adddate('2023-09-21',31) |
++--------------------------+
+| 2023-10-22               |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select adddate('',31);
++----------------+
+| adddate('',31) |
++----------------+
+| NULL           |
++----------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select adddate('2023-09-21',);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> select adddate('2023-09-21','');
++--------------------------+
+| adddate('2023-09-21','') |
++--------------------------+
+| 2023-09-21               |
++--------------------------+
+1 row in set, 1 warning (0.00 sec)
+
+
+ADDTIME():
+----------
+
+ select addtime('2023-09-21 11:11:11:11',' 01:22:22:32');
++--------------------------------------------------+
+| addtime('2023-09-21 11:11:11:11',' 01:22:22:32') |
++--------------------------------------------------+   ==============> It adds the time 
+| 2023-09-21 12:33:33                              |
++--------------------------------------------------+
+1 row in set, 3 warnings (0.02 sec)
+
+
+HOW TO CHECK THE TIME ZONE OF THE SYSTEM:
+-----------------------------------------
+
+select @@session.TIME_ZONE;
++---------------------+
+| @@session.TIME_ZONE |
++---------------------+
+| SYSTEM              |
++---------------------+
+1 row in set (0.00 sec)
+
+
+ select @@GLOBAL.time_zone, @@SESSION.time_zone;
++--------------------+---------------------+
+| @@GLOBAL.time_zone | @@SESSION.time_zone |
++--------------------+---------------------+
+| SYSTEM             | SYSTEM              |
++--------------------+---------------------+
+1 row in set (0.00 sec)
+
+
+select @@SYSTEM_TIME_ZONE;
++-----------------------+
+| @@SYSTEM_TIME_ZONE    |
++-----------------------+
+| Pacific Daylight Time |
++-----------------------+
+1 row in set (0.00 sec)
+
+
+CURTIME():
+----------
+
+ select curtime();
++-----------+
+| curtime() |
++-----------+   ================>Displays current time.
+| 23:04:20  |
++-----------+
+1 row in set (0.03 sec)
+
+
+ select curtime()+0;
++-------------+
+| curtime()+0 |
++-------------+
+|      230525 |
++-------------+
+1 row in set (0.03 sec)
+
+mysql> select curtime()+3;
++-------------+
+| curtime()+3 |
++-------------+
+|      230539 |
++-------------+
+1 row in set (0.00 sec)
+
+DATE():
+--------
+select date('2002-01-11 11:22:01');
++-----------------------------+
+| date('2002-01-11 11:22:01') |
++-----------------------------+   ===========> Displays only date from given date and time
+| 2002-01-11                  |
++-----------------------------+
+1 row in set (0.00 sec)
+
+DATEDIFF():
+-------------
+
+select datediff('2002-01-11 11:22:01','2002-01-12 11:22:01');
++-------------------------------------------------------+
+| datediff('2002-01-11 11:22:01','2002-01-12 11:22:01') |
++-------------------------------------------------------+   =========> It shows the difference b/w the dates
+|                                                    -1 |
++-------------------------------------------------------+
+1 row in set (0.03 sec)
+
+mysql> select datediff('2002-01-11 11:22:01','2002-01-10 11:22:01');
++-------------------------------------------------------+
+| datediff('2002-01-11 11:22:01','2002-01-10 11:22:01') |
++-------------------------------------------------------+
+|                                                     1 |
++-------------------------------------------------------+
+1 row in set (0.00 sec)
+
+DATE_ADD():
+-----------
+
+mysql> select DATE_ADD('2002-01-11', INTERVAL 1 DAY);
++----------------------------------------+
+| DATE_ADD('2002-01-11', INTERVAL 1 DAY) |
++----------------------------------------+
+| 2002-01-12                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+DATE_SUB():
+-----------
+
+mysql> select DATE_SUB('2002-01-11', INTERVAL 1 DAY);
++----------------------------------------+
+| DATE_SUB('2002-01-11', INTERVAL 1 DAY) |
++----------------------------------------+
+| 2002-01-10                             |
++----------------------------------------+
+1 row in set (0.00 sec)
+
+DATE_FORMAT():
+--------------
+
+ select date_format('2002-01-11 11:23:32','%W,%M,%Y');
++-----------------------------------------------+
+| date_format('2002-01-11 11:23:32','%W,%M,%Y') |
++-----------------------------------------------+ ==========> Gives the data format based on the given condition.
+| Friday,January,2002                           |
++-----------------------------------------------+
+1 row in set (0.04 sec)
+
+mysql> select date_format('2002-01-11 11:23:32','%w,%m,%y');
++-----------------------------------------------+
+| date_format('2002-01-11 11:23:32','%w,%m,%y') |
++-----------------------------------------------+
+| 5,01,02                                       |
++-----------------------------------------------+
+1 row in set (0.00 sec)
+
+
+DAY():
+-------
+
+ select day('2001-08-02');
++-------------------+
+| day('2001-08-02') |
++-------------------+
+|                 2 |
++-------------------+
+1 row in set (0.00 sec)
+
+
+DAYNAME():
+----------
+
+ select dayname('2001-08-02');
++-----------------------+
+| dayname('2001-08-02') |
++-----------------------+
+| Thursday              |
++-----------------------+
+1 row in set (0.00 sec)
+
+DAYOFMONTH():
+-------------
+
+ select dayofmonth('2001-08-02');
++--------------------------+
+| dayofmonth('2001-08-02') |
++--------------------------+
+|                        2 |
++--------------------------+
+1 row in set (0.00 sec)
+
+DAYOFWEEK():
+-------------
+
+mysql> select dayofweek('2001-08-02');
++-------------------------+
+| dayofweek('2001-08-02') |
++-------------------------+
+|                       5 |
++-------------------------+
+1 row in set (0.04 sec)
+
+
+DAYOFYEAR():
+-------------
+
+select dayofyear('2001-08-02');
++-------------------------+
+| dayofyear('2001-08-02') |
++-------------------------+
+|                     214 |
++-------------------------+
+1 row in set (0.00 sec)
+
+EXTRACT():
+----------
+
+ select extract(year from '2001-08-02');
++---------------------------------+
+| extract(year from '2001-08-02') |
++---------------------------------+
+|                            2001 |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select extract(day from '2001-08-02');
++--------------------------------+
+| extract(day from '2001-08-02') |
++--------------------------------+
+|                              2 |
++--------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select extract(month from '2001-08-02');
++----------------------------------+
+| extract(month from '2001-08-02') |
++----------------------------------+
+|                                8 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+
+FROM_DAYS():
+------------
+
+ select from_days(572164);
++-------------------+
+| from_days(572164) |
++-------------------+   ============>Given a day number N, returns a DATE value.
+| 1566-07-14        |
++-------------------+
+1 row in set (0.00 sec)
+
+
+FROM_UNIXTIME():
+------------------
+
+SELECT FROM_UNIXTIME(1447430881);
++---------------------------+
+| FROM_UNIXTIME(1447430881) |
++---------------------------+
+| 2015-11-13 21:38:01       |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql> select from_unixtime(1447430881,'%m %w %d');
++--------------------------------------+
+| from_unixtime(1447430881,'%m %w %d') |
++--------------------------------------+
+| 11 5 13                              |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+GET_FORMAT():
+-------------
+
+ select date_format('2001-02-07', get_format( date,'USA'));
++----------------------------------------------------+
+| date_format('2001-02-07', get_format( date,'USA')) |
++----------------------------------------------------+
+| 02.07.2001                                         |
++----------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_format('2001-02-07', get_format( date,'EUR'));
++----------------------------------------------------+
+| date_format('2001-02-07', get_format( date,'EUR')) |
++----------------------------------------------------+
+| 07.02.2001                                         |
++----------------------------------------------------+
+1 row in set (0.00 sec)
+
+HOUR():
+--------
+
+ select hour('33:34:07');
++------------------+
+| hour('33:34:07') |
++------------------+
+|               33 |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> select hour('3:34:07');
++-----------------+
+| hour('3:34:07') |
++-----------------+
+|               3 |
++-----------------+
+1 row in set (0.00 sec)
+
+
+LAST_DAY():
+------------
+
+ select last_day('2016-02-1');
++-----------------------+
+| last_day('2016-02-1') |
++-----------------------+ ============> displays the lastday of the month.
+| 2016-02-29            |
++-----------------------+
+1 row in set (0.00 sec)
+
+
+
+
+AGGREGATE FUNCTIONS:
+--------------------
+
+
+select count(distinct maths) from student;
++-----------------------+
+| count(distinct maths) |
++-----------------------+
+|                     2 |
++-----------------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+https://dev.mysql.com/doc/refman/8.0/en/==========reference link
+
+TASK:
+-------
+
+1) write a java pgm to display a calander.
+
+2) decimal and double datatypes
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<QUESTION>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+name	continent	area	population	gdp
+Afghanistan	Asia	652230	25500100	20343000000
+Albania	Europe	28748	2831741	12960000000
+Algeria	Africa	2381741	37100000	188681000000
+Andorra	Europe	468	78115	3712000000
+Angola	Africa	1246700	20609294	100990000000
+...
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<SOLUTION>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ use training;
+Database changed
+mysql> create table world(name char(50),continent char(50),area char(40),population bigint,gdp bigint);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into world values('Afghanistan','Asia',652230,25500100,20343000000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into world values('Albania','Europe',28748,2831741,12960000000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into world values('Algeria','Africa',2381741,37100000,188681000000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into world values('Andorra','Europe',468,78115,3712000000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into world values('Angola','Africa',1246700,20609294,100990000000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,continent,area,population,gdp from world;
++-------------+-----------+---------+------------+--------------+
+| name        | continent | area    | population | gdp          |
++-------------+-----------+---------+------------+--------------+
+| Afghanistan | Asia      | 652230  |   25500100 |  20343000000 |
+| Albania     | Europe    | 28748   |    2831741 |  12960000000 |
+| Algeria     | Africa    | 2381741 |   37100000 | 188681000000 |
+| Andorra     | Europe    | 468     |      78115 |   3712000000 |
+| Angola      | Africa    | 1246700 |   20609294 | 100990000000 |
++-------------+-----------+---------+------------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(population) from world;
++-----------------+
+| sum(population) |
++-----------------+
+|        86119250 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select distinct continent from world;
++-----------+
+| continent |
++-----------+
+| Asia      |
+| Europe    |
+| Africa    |
++-----------+
+3 rows in set (0.00 sec)
+
+ select sum(gdp) from world where continent='Africa';
++--------------+
+| sum(gdp)     |
++--------------+
+| 289671000000 |
++--------------+
+1 row in set (0.04 sec)
+
+mysql> select count(area) from world where area=1000000;
++-------------+
+| count(area) |
++-------------+
+|           0 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(area) from world where area=2381741;
++-------------+
+| count(area) |
++-------------+
+|           1 |
++-------------+
+1 row in set (0.00 sec)
+
+===========================================================================================================================================================
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<DAY-14>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+setAutoCommit():--> available in jdbc
+----------------
+
+con.setAutoCommit();------> we enable like this
+
+SetAutoCommit(True);  ========> the data  is saved in db
+
+SetAutoCommit(False);  =========> until we issue autocommit is true manully, till that time data will not be persisted in db.
+				This method is used for transaction 
+
+
+COMMIT & ROLLBACK:-----it has either true/false.drop 
+-------------------
+
+COMMIT;-------->to commit the data 
+
+rollback;-------->to rollback
+
+
+ set autocommit=false;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into infinite1 values("ravibabu",2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
+| ravibabu |      2 |
++----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
++----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
++----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> insert into infinite1 values("ravibabu",2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
+| ravibabu |      2 |
++----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> insert into infinite1 values("laxmi",2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
++----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> insert into infinite1 values("ravibabu",2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into infinite1 values("laxmi",4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into infinite1 values("chakri",3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
+| ravibabu |      2 |
+| laxmi    |      4 |
+| chakri   |      3 |
++----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
++----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> insert into infinite1 values("chakri",3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into infinite1 values("laxmi",4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into infinite1 values("ravibabu",2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
+| chakri   |      3 |
+| laxmi    |      4 |
+| ravibabu |      2 |
++----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> commit
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into infinite1 values("ravibabu1",4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++-----------+--------+
+| name      | salary |
++-----------+--------+
+| vasanthi  |      1 |
+| ravi      |      2 |
+| chakri    |      3 |
+| laxmi     |      4 |
+| ravibabu  |      2 |
+| ravibabu1 |      4 |
++-----------+--------+
+6 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
+| chakri   |      3 |
+| laxmi    |      4 |
+| ravibabu |      2 |
++----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> set autocommit=true;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++----------+--------+
+| name     | salary |
++----------+--------+
+| vasanthi |      1 |
+| ravi     |      2 |
+| chakri   |      3 |
+| laxmi    |      4 |
+| ravibabu |      2 |
++----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> insert into infinite1 values("ravibabu2",4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
++-----------+--------+
+| name      | salary |
++-----------+--------+
+| vasanthi  |      1 |
+| ravi      |      2 |
+| chakri    |      3 |
+| laxmi     |      4 |
+| ravibabu  |      2 |
+| ravibabu2 |      4 |
++-----------+--------+
+6 rows in set (0.00 sec)
+
+
+NOTE:
+------ Rollback is only for records not for tables
+
+even we set autocommit =false , we dont get the table back
+
+
+
+ set autocommit=false;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> drop table infinte1;
+ERROR 1051 (42S02): Unknown table 'training.infinte1'
+mysql> drop table infinite1;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select name,salary from infinite1;
+ERROR 1146 (42S02): Table 'training.infinite1' doesn't exist
+
+>>> FOR CLOSING THE MYSQL TERMINAL----------> use exit;-------> dont force shutdown the terminal.
+
+
+select name,salary from infinite1;
+ERROR 1146 (42S02): Table 'training.infinite1' doesn't exist
+mysql> use training;
+Database changed
+mysql> create table laptop(ltname char(40),origin char(40),price integer,pincode integer,ltmodel varchar(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into laptop values('LG','Japan',36700,232173,'ACE3');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into laptop values('Apple','India',190700,31233,'MAC4');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into laptop values('lenova','India',978700,476533,'ABC4');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from laptop;
++--------+--------+--------+---------+---------+
+| ltname | origin | price  | pincode | ltmodel |
++--------+--------+--------+---------+---------+
+| LG     | Japan  |  36700 |  232173 | ACE3    |
+| Apple  | India  | 190700 |   31233 | MAC4    |
+| lenova | India  | 978700 |  476533 | ABC4    |
++--------+--------+--------+---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> create table product(price integer,ltmodel varchar(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into laptop values(863476,'BCD2');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into product values(863476,'BCD2');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into product values(739847,'NJNI6');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into product values(8830300,'IINIM23');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from product;
++---------+---------+
+| price   | ltmodel |
++---------+---------+
+|  863476 | BCD2    |
+|  739847 | NJNI6   |
+| 8830300 | IINIM23 |
++---------+---------+
+3 rows in set (0.00 sec)
+
+mysql> insert into product values(764883,'IHYFB');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from product;
++---------+---------+
+| price   | ltmodel |
++---------+---------+
+|  863476 | BCD2    |
+|  739847 | NJNI6   |
+| 8830300 | IINIM23 |
+|  764883 | IHYFB   |
++---------+---------+
+4 rows in set (0.00 sec)
+
+mysql> commit
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into laptop(price,ltmodel) select price, ltmodel from laptop;
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from laptop;
++--------+--------+--------+---------+---------+
+| ltname | origin | price  | pincode | ltmodel |
++--------+--------+--------+---------+---------+
+| LG     | Japan  |  36700 |  232173 | ACE3    |
+| Apple  | India  | 190700 |   31233 | MAC4    |
+| lenova | India  | 978700 |  476533 | ABC4    |
+| NULL   | NULL   |  36700 |    NULL | ACE3    |
+| NULL   | NULL   | 190700 |    NULL | MAC4    |
+| NULL   | NULL   | 978700 |    NULL | ABC4    |
++--------+--------+--------+---------+---------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+ for temporary change in db ---> we use select stmt--> it doesnt effect the db.
+
+IF NULL------> a function, used in select stmt
+
+NOT NULL------> a constraint, used in table creation.
+
+======================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ifnull,coalesc,case are used for null.
+
+NOTE:
+-----
+
+>> to establish a relation between tables,we need a common column. and there should exist primary key and forign key.
+
+>> a primary key in one table acts as forign key in another table.
+
+>> AutoIncrement==> by default it increments the value by 1.
+
+>>> In db, we have enabling and desabling of contraints .
+
+>> https://fromdual.com/mysql-error-codes-and-messages-1450-1499
+
+>> memory willnt be allocated for views
+
+>> views are only meant for selection stmt.
+
+CASCADING RULES:
+-----------------
+
+
+
+
+
+
+
+
+create table orders(orderNo int not null,orderDate date,requiredDate date,status char(40),comments text,customer_no int not null,CONSTRAINT fk foreign key(customer_no) references customers(customer_no),CONSTRAINT PK PRIMARY KEY (orderNo));
+Query OK, 0 rows affected (0.07 sec)
+
+
+
+
+
+
+mysql> use training;
+Database changed
+mysql> create table customers(customer_no int not null,customer_name char(50),contactLastName char(60),contactFirstName char(50),phone bigint,addressLine1 char(70),addressline2 char(70),city char(40),state char(60),postalcode integer,country char(70),salesRepEmployeeNo integer,creditLimit integer,  CONSTRAINT PK_Person PRIMARY KEY (customer_no));
+Query OK, 0 rows affected (0.06 sec)
+
+
+
+
+ select name,uname from infinite2,Users;
+
+
+
+
+
+
+
+
+
+COALESC and CASE:
+-----------------
+
+
+COALESC----------> it is like if-else
+
+
+
+
+
+
+
+===================================================================================================================================================
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SQLZOO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+
+
+1) SUM AND COUNT:-
+-------------------
+
+name	continent	area	population	gdp
+Afghanistan	Asia	652230	25500100	20343000000
+Albania	Europe	28748	2831741	12960000000
+Algeria	Africa	2381741	37100000	188681000000
+Andorra	Europe	468	78115	3712000000
+Angola	Africa	1246700	20609294	100990000000
+...
+
+
+
+>> SELECT SUM(population)
+FROM world
+
+Correct answer
+SUM(populatio..
+7830500887
+
+
+>>> select distinct continent from world;
+
+Correct answer
+continent
+Asia
+Europe
+Africa
+North America
+South America
+Insular Oceania
+
+
+>>>  select sum(gdp) from world where continent='Africa'; 
+
+Correct answer
+sum(gdp)
+2994342000000
+
+
+>>>>  select count(name) from world where area>=1000000
+
+Correct answer
+count(name)
+28
+
+
+>>> select sum(population) from world where name in ('Estonia', 'Latvia', 'Lithuania');
+
+Correct answer
+sum(populatio..
+6115449
+
+
+>>>  select continent,count(name) from world group by continent;
+
+Correct answer
+continent	count(name)
+Africa	54
+Asia	47
+Europe	44
+Insular Oceania	14
+North America	23
+South America	12
+
+
+>>>  select continent, COUNT(*) from world where population>10000000 group by continent;
+
+Correct answer
+continent	COUNT(*)
+Africa	32
+Asia	28
+Europe	16
+Insular Oceania	2
+North America	7
+South America	8
+
+>>>  select distinct continent from world group by continent having 
+sum(population)>100000000;
+
+Correct answer
+continent
+Africa
+Asia
+Europe
+North America
+South America
+
+
+
+
+
+SELECT from WORLD:
+-----------------
+
+name	continent	area	population	gdp
+Afghanistan	Asia	652230	25500100	20343000000
+Albania	Europe	28748	2831741	12960000000
+Algeria	Africa	2381741	37100000	188681000000
+Andorra	Europe	468	78115	3712000000
+Angola	Africa	1246700	20609294	100990000000
+...
+
+
+>>> Observe the result of running this SQL command to show the name, continent and population of all countries.
+
+SELECT name, continent, population FROM world
+
+Submit SQLrestore default
+Correct answer
+
+SELECT name, continent, population FROM world
+
+
+Correct answer
+name	continent	population
+Afghanistan	Asia	34262840
+Albania	Europe	2761785
+Algeria	Africa	45400000
+Andorra	Europe	83523
+Angola	Africa	33086278
+Antigua and Barbuda	North America	100772
+Argentina	South America	46044703
+Armenia	Asia	2981200
+Australia	Insular Oceania	26708900
+Austria	Europe	9129652
+Azerbaijan	Asia	10135373
+Bahrain	Asia	1504365
+Bangladesh	Asia	169828911
+Barbados	North America	267800
+Belarus	Europe	9200617
+Belgium	Europe	11765225
+Belize	North America	441471
+Benin	Africa	12606998
+Bhutan	Asia	763200
+Bolivia	South America	12006031
+Bosnia and Herzegovina	Europe	3277082
+Botswana	Africa	2410338
+Brazil	South America	203062512
+Brunei	Asia	440715
+Bulgaria	Europe	6447710
+Burkina Faso	Africa	22185654
+Burundi	Africa	12837740
+Cambodia	Asia	15552211
+Cameroon	Africa	24348251
+Canada	North America	40282200
+Cape Verde	Africa	569509
+Central African Republic	Africa	5633412
+Chad	Africa	16818391
+Chile	South America	19960889
+China	Asia	1411750000
+Colombia	South America	52215503
+Comoros	Africa	758316
+Costa Rica	North America	5044197
+Croatia	Europe	3888529
+Cuba	North America	11089511
+Cyprus	Asia	918100
+Czech Republic	Europe	10827529
+Democratic Republic of the Congo	Africa	95370000
+Denmark	Europe	5944145
+Djibouti	Africa	1001454
+Dominica	North America	67408
+Dominican Republic	North America	10535535
+East Timor	Asia	1354662
+Ecuador	South America	18355800
+Egypt	Africa	105231000
+
+
+
+>>>  Show the name for the countries that have a population of at least 200 million. 200 million is 200000000, there are eight zeros.
+
+select name from world where population>200000000
+
+Correct answer
+name
+Brazil
+China
+India
+Indonesia
+Nigeria
+Pakistan
+United States
+Per capita GDP
+
+
+>>> Give the name and the per capita GDP for those countries with a population of at least 200 million.
+
+HELP:How to calculate per capita GDP
+per capita GDP is the GDP divided by the population GDP/population
+
+select name,gdp/population from world where population>200000000;
+
+Correct answer
+name	gdp/population
+Brazil	10249.2330
+China	13723.0997
+India	2683.9073
+Indonesia	5010.9045
+Nigeria	2336.8994
+Pakistan	1559.1465
+United States	80087.1981
+
+
+>>>> Show the name and population in millions for the countries of the continent 'South America'. Divide the population by 1000000 to get population in millions.
+
+select name, population/1000000 from world where continent='South America';
+
+Correct answer
+name	population/10..
+Argentina	46.0447
+Bolivia	12.0060
+Brazil	203.0625
+Chile	19.9609
+Colombia	52.2155
+Ecuador	18.3558
+Guyana	0.7437
+Paraguay	7.4537
+Peru	33.3967
+Suriname	0.6165
+Uruguay	3.5666
+Venezuela	28.3020
+
+
+>>>> Show the name and population for France, Germany, Italy
+
+select name,population from world where name in( 'France','Germany','Italy');
+
+Correct answer
+name	population
+France	68128000
+Germany	84432670
+Italy	58784790
+
+>>> Show the countries which have a name that includes the word 'United'
+
+select name from world where name like '%United%'   =========> FOR DISPLAYING THE WORD THAT IS IN THE NAME 
+
+Correct answer
+name
+United Arab Emirates
+United Kingdom
+United States
+
+
+>>>  Two ways to be big: A country is big if it has an area of more than 3 million sq km or it has a population of more than 250 million.
+
+Show the countries that are big by area or big by population. Show name, population and area.
+
+select name,population,area from world where area>3000000 or population>250000000;
+
+Correct answer
+name	population	area
+Australia	26708900	7633565
+Brazil	203062512	8460415
+Canada	40282200	9093507
+China	1411750000	9326410
+India	1392329000	2973190
+Indonesia	277749853	1811569
+Russia	146424729	16378410
+United States	335317000	9147593
+
+
+>>>> Exclusive OR (XOR). Show the countries that are big by area (more than 3 million) or big by population (more than 250 million) but not both. Show name, population and area.
+
+Australia has a big area but a small population, it should be included.
+Indonesia has a big population but a small area, it should be included.
+China has a big population and big area, it should be excluded.
+United Kingdom has a small population and a small area, it should be excluded.
+select name,population,area from world where area>3000000 xor population>250000000;
+
+Correct answer
+name	population	area
+Australia	26708900	7633565
+Brazil	203062512	8460415
+Canada	40282200	9093507
+India	1392329000	2973190
+Indonesia	277749853	1811569
+Russia	146424729	16378410
+
+>>> Show the name and population in millions and the GDP in billions for the countries of the continent 'South America'. Use the ROUND function to show the values to two decimal places.
+
+For Americas show population in millions and GDP in billions both to 2 decimal places.
+Millions and billions
+Missing decimals
+For some version of SQL the division of an integer by an integer will be an integer. One way to prevent this is to divide by a floating point number such as 1000000.0.
+select name,round(population/1000000,2),round(gdp/1000000000,2) from world where continent='South America';
+
+Correct answer
+name	round(populat..	round(gdp/100..
+Argentina	46.04	641.10
+Bolivia	12.01	46.10
+Brazil	203.06	2081.24
+Chile	19.96	358.56
+Colombia	52.22	334.69
+Ecuador	18.36	121.29
+Guyana	0.74	16.31
+Paraguay	7.45	42.82
+Peru	33.40	268.24
+Suriname	0.62	3.47
+Uruguay	3.57	77.31
+Venezuela	28.30	96.63
+
+
+>>>  Show the name and per-capita GDP for those countries with a GDP of at least one trillion (1000000000000; that is 12 zeros). Round this value to the nearest 1000.
+
+Show per-capita GDP for the trillion dollar countries to the nearest $1000.
+
+select name, round(gdp/population,-3) from world where gdp>1000000000000;
+
+Correct answer
+name	round(gdp/pop..
+Australia	64000
+Brazil	10000
+Canada	52000
+China	14000
+France	43000
+Germany	51000
+India	3000
+Indonesia	5000
+Italy	37000
+Japan	35000
+Mexico	13000
+Netherlands	60000
+Russia	14000
+Saudi Arabia	33000
+South Korea	33000
+Spain	31000
+Turkey	12000
+United Kingdom	47000
+United States	80000
+Name and capital have the same length
+
+>> Greece has capital Athens.
+
+Each of the strings 'Greece', and 'Athens' has 6 characters.
+
+Show the name and capital where the name and the capital have the same number of characters.
+
+You can use the LENGTH function to find the number of characters in a string
+SELECT name,capital FROM world WHERE LENGTH(name)=LENGTH(capital)
+
+Correct answer
+name	capital
+Algeria	Algiers
+Angola	Luanda
+Armenia	Yerevan
+Botswana	Gaborone
+Canada	Ottawa
+Djibouti	Djibouti
+Egypt	Cairo
+Estonia	Tallinn
+Fiji	Suva
+Georgia	Tbilisi
+Ghana	Accra
+Greece	Athens
+Japan	Tokyo
+Luxembourg	Luxembourg
+Mauritania	Nouakchott
+Peru	Lima
+Poland	Warsaw
+Russia	Moscow
+Rwanda	Kigali
+San Marino	San Marino
+Singapore	Singapore
+Taiwan	Taipei
+Turkey	Ankara
+Yemen	Sanaa
+Zambia	Lusaka
+
+
+>>> The capital of Sweden is Stockholm. Both words start with the letter 'S'.
+
+Show the name and the capital where the first letters of each match. Don't include countries where the name and the capital are the same word.
+You can use the function LEFT to isolate the first character.
+You can use <> as the NOT EQUALS operator.
+SELECT name,capital from world where left(name,1)=left(capital,1) and name<>capital;
+
+Correct answer
+name	capital
+Algeria	Algiers
+Andorra	Andorra la Vella
+Barbados	Bridgetown
+Belize	Belmopan
+Brazil	BrasÃ­lia
+Brunei	Bandar Seri Begawan
+Guatemala	Guatemala City
+Guyana	Georgetown
+Kuwait	Kuwait City
+Maldives	MalÃ©
+Marshall Islands	Majuro
+Mexico	Mexico City
+Monaco	Monaco City
+Mozambique	Maputo
+Niger	Niamey
+Panama	Panama City
+Papua New Guinea	Port Moresby
+SÃ£o TomÃ© and PrÃ­ncipe	SÃ£o TomÃ©
+South Korea	Seoul
+Sri Lanka	Sri Jayawardenepura Kotte
+Sweden	Stockholm
+Taiwan	Taipei
+Tunisia	Tunis
+All the vowels
+
+
+>>>  Equatorial Guinea and Dominican Republic have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name.
+
+Find the country that has all the vowels and no spaces in its name.
+
+You can use the phrase name NOT LIKE '%a%' to exclude characters from your results.
+The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'
+SELECT name FROM world WHERE 
+name LIKE '%a%'
+AND name LIKE '%e%'
+AND name LIKE '%i%'
+AND name LIKE '%o%'
+AND name LIKE '%u%'
+AND name NOT LIKE '% %'
+
+
+Correct answer
+name
+Mozambique
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  NULL   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+teacher
+id	dept	name	phone	mobile
+101	1	Shrivell	2753	07986 555 1234
+102	1	Throd	2754	07122 555 1920
+103	1	Splint	2293	
+104		Spiregrain	3287	
+105	2	Cutflower	3212	07996 555 6574
+106		Deadyawn	3345	
+...
+dept
+id	name
+1	Computing
+2	Design
+3	Engineering
+...
+
+
+
+
+
+
+
+1.
+List the teachers who have NULL for their department.
+
+Why we cannot use =
+You might think that the phrase dept=NULL would work here but it doesn't - you can use the phrase dept IS NULL
+
+That's not a proper explanation.
+select name from teacher where dept is null;
+
+Correct answer
+name
+Spiregrain
+Deadyawn
+
+
+2.
+Note the INNER JOIN misses the teachers with no department and the departments with no teacher.
+
+SELECT teacher.name, dept.name
+ FROM teacher INNER JOIN dept
+           ON (teacher.dept=dept.id)
+
+Correct answer
+name	name
+Shrivell	Computing
+Throd	Computing
+Splint	Computing
+Cutflower	Design
+
+
+3.
+Use a different JOIN so that all teachers are listed.
+
+SELECT teacher.name, dept.name
+FROM teacher LEFT JOIN dept
+          ON (teacher.dept=dept.id)
+
+Correct answer
+name	name
+Shrivell	Computing
+Throd	Computing
+Splint	Computing
+Spiregrain	
+Cutflower	Design
+Deadyawn	
+
+
+4.
+Use a different JOIN so that all departments are listed.
+
+select teacher.name, dept.name from teacher right join dept on (teacher.dept=dept.id); 
+
+Correct answer
+name	name
+Shrivell	Computing
+Throd	Computing
+Splint	Computing
+Cutflower	Design
+Engineering
+
+5.
+Use COALESCE to print the mobile number. Use the number '07986 444 2266' if there is no number given. Show teacher name and mobile number or '07986 444 2266'
+
+select teacher.name,coalesce(mobile,'07986 444 2266') from teacher ;
+
+Correct answer
+name	coalesce(mobi..
+Shrivell	07986 555 1234
+Throd	07122 555 1920
+Splint	07986 444 2266
+Spiregrain	07986 444 2266
+Cutflower	07996 555 6574
+Deadyawn	07986 444 2266
+
+6.
+Use the COALESCE function and a LEFT JOIN to print the teacher name and department name. Use the string 'None' where there is no department.
+
+select coalesce(teacher.name,'None'),coalesce(dept.name,'None') from teacher left join dept on (teacher.dept=dept.id);
+
+Correct answer
+coalesce(teac..	coalesce(dept..
+Shrivell	Computing
+Throd	Computing
+Splint	Computing
+Spiregrain	None
+Cutflower	Design
+Deadyawn	None
+
+7.
+Use COUNT to show the number of teachers and the number of mobile phones.
+
+select count(teacher.name),count(mobile) from teacher;
+
+Correct answer
+count(teacher..	count(mobile)
+6	3
+
+
+8.
+Use COUNT and GROUP BY dept.name to show each department and the number of staff. Use a RIGHT JOIN to ensure that the Engineering department is listed.
+
+Correct answer
+name	count(teacher..
+Computing	3
+Design	1
+Engineering	0
+
+
+9.
+Use CASE to show the name of each teacher followed by 'Sci' if the teacher is in dept 1 or 2 and 'Art' otherwise.
+
+select name,case when dept in (1,2) then 'Sci' else 'Art' end from teacher ;
+
+Correct answer
+name	case when dep..
+Shrivell	Sci
+Throd	Sci
+Splint	Sci
+Spiregrain	Art
+Cutflower	Sci
+Deadyawn	Art
+
+10.
+Use CASE to show the name of each teacher followed by 'Sci' if the teacher is in dept 1 or 2, show 'Art' if the teacher's dept is 3 and 'None' otherwise.
+
+select name,case when dept in (1,2) then 'Sci' when dept=3 then 'Art' else 'None' end from teacher;
+
+Correct answer
+name	case when dep..
+Shrivell	Sci
+Throd	Sci
+Splint	Sci
+Spiregrain	None
+Cutflower	Sci
+Deadyawn	None
+
+
+STRING FUNCTIONS:
+-----------------
+
+1)  ASCII(str)------------->The ASCII function takes one argument of any character data type. Returns an integer value, based on the first character of the argument.
+	
+	SELECT ASCII ("SQL stands for Structured Query Language") AS ASCII_S;
++---------+
+| ASCII_S |
++---------+
+|      83 |
++---------+
+
+2)  BIN(N)--------------->Returns a string representation of the binary value of N
+	
+	mysql> SELECT BIN(12);
+        -> '1100'
+
+3)  BIT_LENGTH(str)---------->Returns the length of the string str in bits. Returns NULL if str is NULL.
+
+
+mysql> SELECT BIT_LENGTH('text');
+        -> 32
+
+
+
+
+CONTRAINTS :
+----------------
+NOTHING BUT LIMITING THE TYPE OF DATA THAT IS TO BE INSERTED
+
+NOT NULL---->wont have a null value.
+
+UNIQUE-------> all the values in a column are unique
+
+PRIMARY KEY---->combionation of not null and unique constraint.
+
+FOREIGN KEY----->used to link the table
+
+CHECK---->All values in a col satisfies a specific cond.
+
+DEFAULT ------> we set a default value when no value is satisfied.
+
+INDEX---> used to create & retrive data quickly from a db.
+
+
+
+
+
+
+
+
+
+
+
+mysql> use training;
+Database changed
+mysql> create table EmployeeDetails(EmpId integer,Fullname char(70),ManagerId integer,DateOfJoining date,City char(60));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into EmployeeDetails values(121,'John Snow',321,01/31/2019,'Toronoto');
+ERROR 1292 (22007): Incorrect date value: '0.000015977248142644' for column 'DateOfJoining' at row 1
+mysql> delete table EmployeeDetails;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table EmployeeDetails' at line 1
+mysql> delete EmployeeDetails;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> delete table EmployeeDetails;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table EmployeeDetails' at line 1
+mysql> drop table EmployeeDetails;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables
+    -> ;
++---------------------+
+| Tables_in_training  |
++---------------------+
+| aadhar              |
+| company             |
+| customers           |
+| dtable              |
+| employee            |
+| employee1           |
+| imgtable            |
+| infinite2           |
+| laptop              |
+| orders              |
+| product             |
+| projectresourceinfo |
+| register            |
+| student             |
+| users               |
+| world               |
++---------------------+
+16 rows in set (0.00 sec)
+
+mysql> use training;
+Database changed
+mysql> create table EmployeeDetails(EmpId integer,Fullname char(70),ManagerId integer,DateOfJoining get_format(date,'USA'),City char(60));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'get_format(date,'USA'),City char(60))' at line 1
+mysql> create table EmployeeDetails(EmpId integer,Fullname char(70),ManagerId integer,get date_format(DateOfJoining,'USA'),City char(60));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'get date_format(DateOfJoining,'USA'),City char(60))' at line 1
+mysql> create table EmployeeDetails(EmpId integer,Fullname char(70),ManagerId integer,DateOfJoining date,City char(60));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into EmployeeDetails values(121,'John Snow',321,STR_TO_DATE('01-31-2019', '%m-%d-%Y'),'Toronto');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into EmployeeDetails values(321,'Walter White',986,STR_TO_DATE('01-30-2020', '%m-%d-%Y'),'California');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmployeeDetails values(421,'Kuldeep Rana',876,STR_TO_DATE('27-11-2021', '%m-%d-%Y'),'New Delhi');
+ERROR 1411 (HY000): Incorrect datetime value: '27-11-2021' for function str_to_date
+mysql> select EmpId,FullName,ManagerId,DateOfJoining,City from EmployeeDetails;
++-------+--------------+-----------+---------------+------------+
+| EmpId | FullName     | ManagerId | DateOfJoining | City       |
++-------+--------------+-----------+---------------+------------+
+|   121 | John Snow    |       321 | 2019-01-31    | Toronto    |
+|   321 | Walter White |       986 | 2020-01-30    | California |
++-------+--------------+-----------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> DELETE FROM EmployeeDetails;
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select EmpId,FullName,ManagerId,DateOfJoining,City from EmployeeDetails;
+Empty set (0.00 sec)
+
+mysql> insert into EmployeeDetails values(121,'John Snow',321,TO_DATE('01-31-2019', '%m-%d-%Y'),'Toronto');
+ERROR 1305 (42000): FUNCTION training.TO_DATE does not exist
+mysql> insert into EmployeeDetails values(121,'John Snow',321,STR_TO_DATE('2019-01-31', '%m-%d-%Y'),'Toronto');
+ERROR 1411 (HY000): Incorrect datetime value: '2019-01-31' for function str_to_date
+mysql> insert into EmployeeDetails values(121,'John Snow',321,STR_TO_DATE('2019-01-31', 'mm-dd-yyyy'),'Toronto');
+ERROR 1411 (HY000): Incorrect datetime value: '2019-01-31' for function str_to_date
+mysql> insert into EmployeeDetails values(121,'John Snow',321,TO_DATE('01-31-2019', 'mm-dd-yyyy'),'Toronto');
+ERROR 1305 (42000): FUNCTION training.TO_DATE does not exist
+mysql> insert into EmployeeDetails values(121,'John Snow',321,STR_TO_DATE('2019-01-31', 'mm-dd-yyyy'),'Toronto');
+ERROR 1411 (HY000): Incorrect datetime value: '2019-01-31' for function str_to_date
+mysql> insert into EmployeeDetails values(121,'John Snow',321,STR_TO_DATE('2019-01-31', '%m-%d-%Y'),'Toronto');
+ERROR 1411 (HY000): Incorrect datetime value: '2019-01-31' for function str_to_date
+mysql> insert into EmployeeDetails values(121,'John Snow',321,STR_TO_DATE('01-31-2019', '%m-%d-%Y'),'Toronto');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into EmployeeDetails values(321,'Walter White',986,STR_TO_DATE('01-30-2020', '%m-%d-%Y'),'California');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmployeeDetails values(421,'Kuldeep Rana',876,STR_TO_DATE('27-11-2021', '%m-%d-%Y'),'New Delhi');
+ERROR 1411 (HY000): Incorrect datetime value: '27-11-2021' for function str_to_date
+mysql> insert into EmployeeDetails values(421,'Kuldeep Rana',876,STR_TO_DATE('11-27-2021', '%m-%d-%Y'),'New Delhi');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select EmpId,FullName,ManagerId,DateOfJoining,City from EmployeeDetails;
++-------+--------------+-----------+---------------+------------+
+| EmpId | FullName     | ManagerId | DateOfJoining | City       |
++-------+--------------+-----------+---------------+------------+
+|   121 | John Snow    |       321 | 2019-01-31    | Toronto    |
+|   321 | Walter White |       986 | 2020-01-30    | California |
+|   421 | Kuldeep Rana |       876 | 2021-11-27    | New Delhi  |
++-------+--------------+-----------+---------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> use training;
+Database changed
+mysql>  Create table EmployeeSalary(EmpId integer,Project varchar,Salary integer,Variable integer);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',Salary integer,Variable integer)' at line 1
+mysql>  Create table EmployeeSalary(EmpId integer,Project varchar(60),Salary integer,Variable integer);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into EmployeeSalary values(121,'P1',8000,500);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into EmployeeSalary values(321,'P2',10000,1000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into EmployeeSalary values(421,'P1',12000,0);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select EmpId,Project,Salary,Variable from EmployeeSalary;
++-------+---------+--------+----------+
+| EmpId | Project | Salary | Variable |
++-------+---------+--------+----------+
+|   121 | P1      |   8000 |      500 |
+|   321 | P2      |  10000 |     1000 |
+|   421 | P1      |  12000 |        0 |
++-------+---------+--------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select EmpId.EmployeeDeatails,Fullname from EmployeeDetails where ManagerId='986';
+ERROR 1054 (42S22): Unknown column 'EmpId.EmployeeDeatails' in 'field list'
+mysql> select EmpId.EmployeeDetails,Fullname from EmployeeDetails where ManagerId='986';
+ERROR 1054 (42S22): Unknown column 'EmpId.EmployeeDetails' in 'field list'
+mysql> select EmployeeDetails.EmpId,Fullname from EmployeeDetails LEFT JOIN FullName ON ManagerId='986';
+ERROR 1146 (42S02): Table 'training.fullname' doesn't exist
+mysql> select EmployeeDetails.EmpId,EmployeeDetails.Fullname from EmployeeDetails LEFT JOIN FullName ON ManagerId='986';
+ERROR 1146 (42S02): Table 'training.fullname' doesn't exist
+mysql> select EmployeeDetails.EmpId,EmployeeDetails.FullName from EmployeeDetails LEFT JOIN FullName ON ManagerId='986';
+ERROR 1146 (42S02): Table 'training.fullname' doesn't exist
+mysql> select EmployeeDetails.EmpId,EmployeeDetails.FullName from EmployeeDetails LEFT JOIN EmployeeDetails ON ManagerId='986';
+ERROR 1066 (42000): Not unique table/alias: 'EmployeeDetails'
+mysql> select EmployeeDetails.EmpId,EmployeeDetails.FullName from EmployeeDetails LEFT JOIN EmployeeSalary ON ManagerId='986';
++-------+--------------+
+| EmpId | FullName     |
++-------+--------------+
+|   121 | John Snow    |
+|   321 | Walter White |
+|   321 | Walter White |
+|   321 | Walter White |
+|   421 | Kuldeep Rana |
++-------+--------------+
+5 rows in set (0.05 sec)
+
+
+
+mysql> select MIN(EmployeeSalary.Salary) from EmployeeSalary;
++----------------------------+
+| MIN(EmployeeSalary.Salary) |
++----------------------------+
+|                       8000 |
++----------------------------+
+1 row in set (0.02 sec)
+
+mysql> select MAX(EmployeeSalary.Salary) from EmployeeSalary;
++----------------------------+
+| MAX(EmployeeSalary.Salary) |
++----------------------------+
+|                      12000 |
++----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select AVG(EmployeeSalary.Salary) from EmployeeSalary;
++----------------------------+
+| AVG(EmployeeSalary.Salary) |
++----------------------------+
+|                 10000.0000 |
++----------------------------+
+1 row in set (0.00 sec)
+
+

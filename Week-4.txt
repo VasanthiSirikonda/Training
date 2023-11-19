@@ -1,0 +1,1044 @@
+MAVEN:
+------
+- build tool/ automation build tool
+
+- Spring Boot   
+- Spring Core    }---> these can be build with/without maven----> but without maven, we get the below features issues.
+- Spring MVC
+- Spring TX
+
+- VERSIONS OF MAVEN------> Maven 1.x/2.x/3.x --> 3.5 is mostly used
+- Maven only meant for java.
+- Eclipse has its own maven
+
+FEATURES OF MAVEN:
+---------------------
+- package your application
+	jar --> java archeive -- desktop applications --- here it is called as dependency
+	war --> web archeive---web,servlets
+	ear --> ejb--enterprise archeive
+
+- Repository management
+	- repository means collection of jars.
+	- Public repository are prone to Attacks
+	- TYPES OF REPOSITORY:
+	  -------------------
+		- Public -- created by vendors for public use -- internet---not secure----EG: https://mvnrepository.com/
+		- Local -- in our machine created by maven --- secure but not distributable( medium secure )
+		- Remote 
+		- corporate -- in our organization created by IT team or devops team -- accessed by n no. of people(intranet)
+			- available in either pom.xml or setting.xml
+			- to create the corporate repository we use nexus sonatype or JFrog
+			- More secure
+	
+	
+- Dependency management
+	- maven will download dependencies automatically.
+	- Dependency means .jar files
+
+- Transitive dependency mgmt
+	- COMPOSITION IN OOPS:
+	  --------------------
+	It enables you to reuse code by modeling a association between objects.
+	i.e., when parent is called, child will go
+	      In reverse, it is not possible
+	Eg: wedding invitation.
+
+- plugin mgmt
+	- plugin is extension to existing feature.
+	- maven has may plugins, using this plugin mgmt we can add extra plugins.
+
+
+
+- Maven uses 2 config file---> Pom.xml, setting.xml
+	- Pom.xml
+		- created by architech 
+		- POM- Project Object Model
+		- local setting file for maven
+		- We have inheritance concept called as pom level inheritance
+	- setting.xml
+		- created by either client or architech.
+		- global setting file for maven
+
+	- Every project has only one pom.xml file
+	- every workspace has only one setting.xml
+
+
+============================================
+
+<<<<<<<<<<<<<<<<<<DAY-15>>>>>>>>>>>>>>>>>>>>
+
+
+IF WE GET THIS ISSUE:1
+-----------------------
+org.apache.maven.plugins:maven-resources-plugin:2.6 or one of its dependencies could not be resolved: Failed to read artifact descriptor for org.apache.maven.plugins:maven-resources-plugin:jar:2.6
+
+Plugin org.apache.maven.plugins:maven-resources-plugin:2.6
+
+SOLUTION:
+----------
+right click on maven project------->go to maven--->update project---> check the force update of snapshots/releases ---> finish.
+
+
+WHILE CREATION OF MAVEN PROJECT:
+---------------------------------
+GroupId: package name==> either com or org
+
+Artifact Id: project name
+
+NOTE:
+-----
+> VERSIONS: V1,V2,V3
+	We are using Maven v2 in eclipse
+
+ISSUE:2
+------ 
+If we get error related to compilation i.e., you are maybe working on jre not on jdk:
+
+SOLUTION:
+---------
+window menu--------> preferences------>search for installed jres------>select jre and edit---> choose jdk path---> click ok
+
+
+> By default when we create project, maven will create a local repository. Its name is ".M2".
+
+open filemanager-->local disk C --->Users----->vasanthis---->.M2(it is the repository created by maven automatically)
+
+> Effective pom cant be modified.
+
+> whenever we want to add dependencies go to pom.xml
+
+
+
+
+
+> to create piecharts in java , we can use JFreechart
+	- transitive dependency for JFreeChart is Jcommon
+
+
+
+TO ADD DEPENDICES:
+--------------------
+
+> Go to https://mvnrepository.com/
+
+> Search for Spring 
+( when searching for repository dont include versions)
+
+> Spring core
+
+> version 3.2.16
+
+> copy the dependency 
+
+> paste it in dependency of pom.xml 
+
+
+5 LAYERS IN SOFTWARE ARCHITECTURE:
+----------------------------------
+>> Presentation layer
+	HTML.
+	CSS.
+	JavaScript.
+	jQuery.
+
+>> Application layer
+	The application layer consists of an API gateway. Front-end developers write code to pass the data from the presentation layer to the business logic 	layer where it is processed. Data will pass to APIs and get stored in the database, depending on the feature it is utilized in the business layer 	for application logic and to perform certain actions.
+
+>> Business layer
+	This layer has all implementation of application logic. Data from the application layer gets utilized here for example in a lead generation 	application a form is submitted in the presentation layer and data travels through APIs and is then used to send out emails or to perform any action 	on the lead before getting stored in the database.
+
+>>Persistence layer.
+
+	Hibernate
+	Spring's HibernateTemplate
+	Spring's JdbcTemplate
+	Spring-data JPA
+>> Data base layer
+	PostgreSQL, MariaDB, Oracle Database, MySQL, Microsoft SQL Server, Amazon Aurora, or Amazon RDS
+	NoSQL database such as Amazon DynamoDB, MongoDB, or Apache Cassandra.
+
+
+
+>> In case of maven ,dependencies means jar file
+
+>> In case of spring, dependencies means related to class and functionalities.
+
+****Inversion of control(IOC) container injects dependencies(class/functions) to the class through the configuration files to avoid tight coupling.****
+
+Contructor based Injection==> To pass dependencies through constructor as arguments.
+
+Function Based Injection===> To pass dependencies through functions.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=====================================================================================
+
+
+SPRING:(https://spring.io/)
+-------
+>> In olden days we have EJB---> which is used in all banks like hdfc,sbi etc
+
+DISADV of EJb:
+-------------
+- understanding is difficult
+- not more flexible
+- huge code
+
+>> Due to above disadv of EJB --> people shiffted to Spring
+
+>> Spring is not a part of java
+
+>> Spring is framework ---> 3rd party framework
+	A framework is a set of classes and interfaces 
+
+>> Spring uses either mavnen(used in spring and spring boot) or gradle( used in microservices ).
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SPRING CORE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+DOCUMENTATION==>spring.io------> goto projects->spring framework
+
+snapshots--- its a testing--> are not used in projects 
+only GA(general availability) is used in projects
+
+pivotol cloud-------> given by sumo logic
+vmware------> it has its own cloud
+
+SPRING CORE:
+------------
+>> we need to know 
+	- CONSTRUCTORS
+	- FUNCTIONS
+	- DEPENDENCY INJECTION
+	- CONFIGURATIONS---> XML,JSON,Java class,properties, Annotations
+
+
+
+>> Tightly couple--- dependency is more
+   Loosely couple--- no dependency
+
+
+
+ANNOTATIONS:
+-------------
+before annotations we have xml based config
+
+drawback of xml:
+----------------
+- more time for parsing  
+- impact the performance of the application.
+- heavy weight
+
+
+>> From servlets 3.0v we have Annotations
+>> Symbol for annotation==> "@"
+>> From jdk 1.5v we have annotations.
+>> 2 Types of Annotation
+	- Predefined
+	- Userdefined(2 types)
+		- Compile time
+		- Runtime
+
+
+>> Annotations will hide the xml and decreases the code.
+>> for product based project, annotations are predefined.
+>> @WebServlet is written in annotations
+	In xml==>  <servlet>...</servlet>
+
+ADV OF ANNOTATION:
+------------------
+- readability of the code increases
+- less parsing time
+- no impact on performance
+
+DEPENDENCY INJECTION:
+-------------------------
+> Adding the xml,java class based config ,annotations --->(for spring)
+> it is a technique.
+
+> Dependency Injection------->Dependency Injection Container(DI Container)----> life cycle-------->lifecycle methods(for this we need to download spring dependencies).
+	
+
+
+>> In Spring we use , name of the config file is "applicationcontext.xml"
+
+
+<?xml version="1.0" encoding="UTF-8"?>---called as prolog
+
+- dtd===> Doc Type Definition
+	- majority of xml will have "dtd"
+- In configurations we will have java beans tags.
+
+
+Every bean has attributes and properties
+
+
+
+
+
+XSI
+XMLNS
+
+
+PASTE THE BELOW CODE IN DEPENDENCIES OF POM.XML:
+-------------------------------------
+ <dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-core</artifactId>
+<version>${spring.version}</version>
+</dependency>
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-context</artifactId>
+<version>${spring.version}</version>
+</dependency>
+<dependency>
+<groupId>javax.annotation</groupId>
+<artifactId>jsr250-api</artifactId>
+<version>1.0</version>
+
+PASTE THE BELOW CODE IN  PROPERTIES:
+-------------------------------------
+<spring.version>3.1.0.RELEASE</spring.version>
+
+
+
+>> instead applicationcontext.xml,we can give any name to configuration file
+
+
+STEPS:
+------
+1)Create a Maven project.
+2)Add spring dependencies to pom.xml.
+3)clean install the maven: under goals: clean install
+4)create a java package and a new bean class
+5)create a applicationcontext.xml file under source/resources----creating a file i.e, Sample.xml
+6)fill the xml files as per the requirements.
+	<bean id="ab" class="">
+	<property name="aa" value=22/>
+	</bean>
+7)create testclass or main class
+8)initiate IOC container in mainclass using "ClassPathXMLApplicationcontext"
+9)get the bean and call the required getter methods
+10)container shld be shutdowned for which we are calling "shutdownHook".
+
+For LOC/IOC issues==> Remove .M2
+
+
+XMLNS:
+------
+- used for providing uniquely named elements and attributes in an XML doc.
+- XML Name Space
+-  Name conflicts in XML can be solved using a prefix.
+- When using prefixes in XML, a namespace for the prefix must be defined.
+- Syntax:  xmlns:prefix="URI"
+	i.e., <h:table xmlns:h="http://www.w3.org/TR/html4/">
+(NOTE:A URI aims to identify a resource and differentiate it from other resources by using the name of the resource or location of the resource. A URL aims to find the location or address of a resource on the web.)
+
+EG:
+---
+XML Table:
+----------
+<table>
+<name>Coffee table</name>
+<width> 10< /width>
+</table>
+
+HTML Table:
+-----------
+<table>
+<tr>
+<td>Apples</td>
+</tr>
+</table>
+
+MODIFIED XML Table:
+-----------------------
+<f:table>
+<f:name>Coffee table</f:name>
+<f:width> 10< /f:width>
+</f:table>
+
+MODIFIED HTML Table:
+---------------------
+<h:table>
+<h:tr>
+<h:td>Apples</h:td>
+</h:tr>
+</h:table>
+
+- A ns can be defined by an xmlns attribute in the start tag of the element.
+- All child elements with same prefix are associated with the same ns.
+- Ns can also be declared in the xml root element.
+	i.e., <root xmlns:h="http://www.w3.org/TR/html4/"
+xmlns:f="http://www.w3.org/furniture">
+
+EG:
+---
+<root>
+<h:table xmlns:h="http://www.w3.org/TR/html4/">
+<h:tr>
+<h:td>Apples</h:td>
+</h:tr>
+</h:table>
+
+</root>
+
+DEFAULT NAMESPACES:
+-------------------
+- Defining a default ns for an element saves us from using prefixes in all child elements.
+- Syntax:  xmlns="namespace URI"
+	i.e.,< table xmlns="http://www.w3.org/TR/html4/"
+
+- if the child element needs another ns, then they can add.
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<DAY-16 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+
+
+For primitive data------Scannar class is ok for passing i/p's
+
+For objects as parameter, we use XML for passing i/p's
+
+POJI---Plain Old Java Interface-----> it has no relation with spring.
+
+
+int===datatype, integer== Wapper class(every datatype has equivalent class).
+
+
+COLLECTIONS SUPPORTED BY SPRING:
+--------------------------------
+- map
+- list
+- set
+
+>>> SINGLETON is a scope.----> default scope in spring.
+
+
+TYPES OF ARCHETYPE:
+--------------------
+WEBAPP-------creates a dynamic web project
+					 	}======Scaffolding--> process of creating the structure of the project.
+QUICKSTART-------creates a java project
+
+
+SETTING.XML:
+-----------
+In this, we provide 
+- proxy info--ipaddr,portno,username,password
+- common dependencies info
+- corporate info---repository ipaddress,username,password
+- plugging info etc..
+
+ShutdownHook():
+---------------
+called through context object.
+
+IOC --------> memory will be allocate dto every bean
+
+If we use ShoutdownHooks, force shutdown is avoided and release the memory/clean up the resources in proper way.
+
+
+
+
+>>  ${key}---->to give dynamic values to dependency tag
+	eg: <version>${spring.version}</version>
+
+TYPES OF SCOPES IN SPRING:
+--------------------------
+- SINGLETON 
+	- go to sample.xml
+	- at the end of the bean tag-- give space and type scope=(click on ctrl+space) bar 
+- REUEST
+- SESSION
+- PROTOTYPING
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<context:annotation-config />
+	<bean id="custAddress1" class="com.infinite.beans.Address" scope="singleton">
+		<property name="doorNo" value="190/AA" />
+		<property name="streetName" value="West Avvenue" />
+		<property name="city" value="Chennai" />
+	</bean>
+	<bean id="const" class="com.infinite.beans.Constructorinjection"
+		scope="singleton">
+		<constructor-arg name="firstname" value="Vasanthi" />
+		<constructor-arg name="lastname" value="Sirikonda" />
+	</bean>
+</beans>
+
+
+============================================
+
+GOALS IN MAVEN:
+----------------
+MAVEN CLEAN-------all the old files which are generated by maven will be pushed to target.
+
+MAVEN INSTALL-----------downloads the dependencies.
+
+DEPLOY
+
+
+
+HOW TO GET JAR FILES IN TARGET:
+--------------------------------
+
+go to project----> right click on it--->run as---->maven--> maven build---> in goals give clean install---> finish.
+
+then refresh the target
+
+
+PROJECT LOCATION:
+-----------------
+right click on proj------> properties---->resources---->click on system explorer
+
+
+PROJECT VALIDATION:
+------------------
+right click on project------> validate
+
+
+to build proj--------jdk is needed
+to run-------> jre
+
+HOW TO RUN MAVEN THROUGH CMD:
+--------------------------------
+open env----->env var---> new(UV)--->Var:MAVEN_HOME------>VAL:C:\Java_Backend\JAVA Training for Trainee\JAVA Training for Trainee\apache-maven-3.9.4-bin\apache-maven-3.9.4--> OK --> ok---> ok
+
+
+
+
+
+
+
+
+
+go to filemanager------->location of apache maven---> bin----->mvn--->cmd
+
+copy the pom.xml loaction
+
+type mvn clean install---->enter
+
+
+
+2 PATHS:
+---------
+ABSOLUTE PATH--- WITH ROOT location
+RELATIVE PATH-----only destination
+
+======================================================================================================================================================
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DAY- 16 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+>Write a servlet program to upload only pdf files to server.(without web.xml)---wednesday----collections
+
+>Hikari connection pool mechanism using Spring core(Dependency injection).---Thursday--maven,helper classes
+
+>Write a java program to read an csv file.---Hint:file io package---Wednesday
+
+>E-R diagram--->self learning---friday
+
+> assume we have jdk 1.8,annotations--1.5
+
+bean factory ----->is a root interface of applicationcontext(child interface)------>
+
+
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/support/ClassPathXmlApplicationContext.html#%3Cinit%3E(java.lang.String)
+
+
+"-source" *"-target"-----------> by using these we can perform backward compatibility.
+	
+
+
+
+** Only with springcore we can't design complete application**---> so, we use SpringCore+ Spring MVC(core capabilities with nadditional java capabilities), SpringCore+ SpringJDBC.
+
+================================================
+
+9 WAYS OF CREATING OBJECT:
+***************************
+
+1)USING NEW():
+--------------
+A ob= new A();
+
+2) USING FACTORY METHODS:
+-------------------------
+
+
+
+
+
+============================================
+
+SPRING MVC:
+------------
+M---Model(JDBC/Hibernate)
+V--- View(html/jsp)
+C---Controller(JSP/Filter/Servlet)
+
+>> it follows MVC architecture/ Design pattern
+
+>> always it start from view--> controller--->model
+ 
+>> Used to design web applications.
+
+>> Weblogic,pramati etc servers are used.---process remains same for every server.
+
+WE NEED:
+--------
+>> html(mandatory),JS,CSS/SAAS are used.---pack
+
+>> JSP/ASP/PHP/JSF/Struts--anything is used.
+
+>> before struts we have corba and ejb.
+
+>> SpringCore(mantadory)
+
+MVC has 2 Architecture:
+----------------------
+- MVC1:
+	- Controller will be JSP.
+
+- MVC2:
+	- Controller will be Filter/Servlet--( we will never use Filter becoz we will use Servlet).
+
+
+
+- Only one root Dispatcher servlet controller will be there, we can have any no. of child controller
+- Dispatcher servlet is also called as Front Controller/Front runner.
+- Dispatcher servlet follows MVC2 architecture.
+
+
+SPEING MVC FLOW:
+-----------------
+1)Client requests for a page by specifying the Web URL for the page. E.g. https://skolaparthi.com
+
+2)Client request is intercepted(pass through) by the Dispatcher Servlet(predefined--given by spring) also known as Front Controller. Dispatcher Servlet is a servlet specified in Web.XML file (for XML Based configurations) or in the Web Configuration class (for java based configurations).
+
+3)Dispatcher Servlet uses URL Mapping Handler to find out the relevant controller class to which request should be passed for subsequent processing. For example, If you have a Controller defined for all requests by specifying “/” in the URL, all requests will be entertained by that controller.
+
+4)Once Dispatcher Servlet has identified the Controller to be considered, it passes the client request to the controller(given by client).
+
+5)The controller class is the main class controlling the business logic flow once request has been dispatched it it by dispatcher servlet. This class will implement the methods for different type of http requests (e.g. GET, POST) and all logic to call Service layer methods will reside in this controller class.
+
+6)The controller class will also be responsible for returning the ModelAndView object back to the dispatcher servlet after getting all business logic executed and any data returned from DAO layer. ModelAndView object returned by the controller back to the controller specified both view and model objects.
+
+Controller class is annotated by @Controller annotation.
+
+7)After receiving ModelAndView object from the controller, Dispatcher Servlet now sends model object to view resolver to get the name of the view which needs to be rendered(displaying/pushing to browser).
+
+8)Once the view to be rendered has been identified, Dispatcher Servlet passes model object to the view. Model object contains the data which needs to be displayed in the view. View will be rendered with the model data. Views can be designed in any front-end technology.
+
+9)This view is returned to the client and client can see the view and associated data on his browser.
+
+
+
+EG:
+----
+1) URL: "https://localhost:8080/App/infinite"------"FirstExample.java" class
+2) URL moves to dispatcher servlet.
+3) <context:component-scan base-package="com.infinite.web" /> ---- here we have the location of controller.
+4) reqmapping--executes the display method.
+5) 
+
+
+
+Annotations are written at class level-----------before the class.
+
+
+HOW TO CREATE SPRINGMVC:
+------------------------
+file------> maven  proj------>org.apache.maven-- web app---->give group id and artifact id---> finish
+
+
+Note:
+---- 
+if we not see main and test in project, then we have to go to build path------> orders & export--------> enable jre System library------>apply---> ok
+
+
+STEPS:
+------
+1)pom.xml---->add the required dependencies
+	POM>XML:
+	--------
+	<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-webmvc</artifactId>
+	<version>5.1.1.RELEASE</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
+	<dependency>
+	<groupId>org.apache.tomcat</groupId>
+	<artifactId>tomcat-jasper</artifactId>
+	<version>9.0.12</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	<dependency>  
+	<groupId>javax.servlet</groupId>  
+	<artifactId>servlet-api</artifactId>  
+	<version>3.0-alpha-1</version>  
+	</dependency>    
+
+2)web.xml--->
+	WEB.XML:
+	---------
+	<servlet>  
+	<servlet-name>spring</servlet-name>  
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
+	<load-on-startup>1</load-on-startup>    
+	</servlet>  
+	<servlet-mapping>  
+	<servlet-name>spring</servlet-name>  
+	<url-pattern>/</url-pattern>  
+	</servlet-mapping>  
+3)Create a class, name it as FirstExample
+
+4)create a spring-servlet xml file in web-inf and paste the following the code in it.
+
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- Provide support for component scanning -->
+	<context:component-scan base-package="com.infinite.web" />
+	<!--Provide support for conversion, formatting and validation -->
+	<mvc:annotation-driven />
+</beans>
+
+
+5) run the code on server.
+
+6) adding view resolver
+	- type of view resolver: InternalResourceViewResolver
+
+>> paste the below code in spring-servlet under the "<mvc:annotation-driven />"
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+		<property name="order" value="1" />
+	</bean>
+
+
+>>> prefix--- package name
+>> suffix--->extension
+==========================================================================================================================================================
+
+>> @controller-----------stereo type component of spring.
+
+>> View Resolver ---- is a class in spring.
+
+>> In spring we never use "_". Instead of "_" , we use "-".
+
+
+>> loadonstartup----------> to say order of the loading the program to memory.
+	<load-on-startup>1</load-on-startup>  -------> always it should be one.
+
+>> whenever server fails===> i.e., config issue
+	delete tomcat server and add it back
+		click on add in server---> location of server without bin--->apply-->ok
+
+
+
+
+TASK:
+------
+1)Login Form: username,password,submit and reset
+2)When u click submit,validation should occur and then page should display
+Welcome <username>
+3)if invalid,display you "credentials are not valid"
+
+ use servlets
+
+Note: db validation.Spring mVC
+
+ 
+
+ 
+
+invalid.jsp
+login.html
+
+ 
+
+hint:*
+http://localhost:8080/LoginMvc/login
+
+
+
+
+
+
+
+
+
+
+
+<context:annotation-config/> 
+The above  annotation-config activates following annotations in bean classes.
+1. Spring @Required and @Autowired annotations.
+2. JSR 250 @PostConstruct, @PreDestroy and @Resource annotations.
+3. JAX-WS @WebServiceRef annotation.
+4. EJB 3 @EJB annotation.
+5. JPA @PersistenceContext and @PersistenceUnit annotations.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- Provide support for component scanning -->
+	<context:component-scan base-package="com.infinite.web" />
+	<!--Provide support for conversion, formatting and validation -->
+	<mvc:annotation-driven />
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+		<property name="order" value="1" />
+	</bean>
+</beans>
+
+
+
+
+************************************************************************************************************************************************************
+
+
+
+CONNECTION POOLING:
+--------------------
+POOLING------> group of resources
+Connection Pooling--------> group of connection objects.
+
+In development, connection pooling is called as middleware service.
+
+2 types:
+--------
+- server side
+	- all servers by default give connection pooling as middleware service.
+	
+
+- client side/vendor
+	- 3rd party jars
+	- hikari is used in training
+	- C3PO, DBCP
+
+WHY WE NEED TO GO WITH CP:
+--------------------------
+> to automate the connection opening, closing.
+> to increase the resourse utilization.
+
+- the no. of connection objects/size of connection pooling is depended on db vendor.
+- old technology but in trend.
+- to work on CP, datasource is manidatory.(source==origin point)
+	- datasource== where the data is present
+	- web service acts an datasource
+
+- we use in 
+	- spring boot
+	- microservices
+	- spring AOC
+
+>>>>>>>>>atomic databytes in java------used to know no. of visitors for websites.
+
+
+Jmeter tool:
+------------
+- By using this we can do
+	- load testing
+	- db testing
+	- web service testing
+	- n/w testing
+- open source
+- J for java
+- even it is designed in jre-----we can use this tool.
+
+- in case of cp, datasource is a class--predefined
+	- so we initialise to null
+	- datasource is nothing but a db
+
+ISSUE-1 : Failed to execute goal on project HikariCPExample:
+-------------------------------------------------------------
+>> Could not resolve dependencies for project com.infinite.springcp:HikariCPExample:jar:0.0.1-SNAPSHOT: Failure to find hikari-cp:hikari-cp:jar:1.3.0 in https://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+	- Maybe it has its own repository.
+	- we can go with manual approach
+
+
+>> Whenever we get error while we are using the dependencys of mvn repository
+	- go to the official website and get the dependency from there.
+
+
+CONNECTION POOLING STEPS:
+--------------------------
+1) CREATE A MAVEN PROJECT ( NOT A WEB PROJECT)
+
+2) Add Hikari dependencies to pom.xml
+
+3) create a hikari config object and provide necessary meta data
+
+4) pass config as parameter to datasource
+
+
+
+
+>>> [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project HikariPharmaWeb: Compilation failure: Compilation failure:
+SOLUTION:
+---------
+Clean your tomcat working directory
+
+
+>>> ISSUE:If we get an error related to the path not found in pom xml
+SLOUTION: just refresh the project
+
+
+Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'insertController' method 
+public java.lang.String com.infinite.hikariweb.InsertController.insert(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/insert],methods=[POST]}: There is already 'deleteController' bean method
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table Pharma(MCode integer,MNmame varchar(80),Expiry date,Cost integer,Quality integer);
+
+
+
+
+************************************************************************************************************************************************************
+
+Note:
+-----
+- If there is no submit button---don't use form.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

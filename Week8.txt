@@ -1,0 +1,751 @@
+SPRINGBOOT DEV TOOLS:
+(https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties.devtools)
+---------------------
+- Whenever, we made any changes to code, we need to restart the server and run the code==> it is a tidious job 
+- for this purpose we use dev tools.
+- LiveReload==> heavy weight component
+	- to automate the refreshing the browser and restarting the server
+	- Not Recommended
+	- We need to enable liveReload plugin for chrome
+	- Disadv
+		- Sometimes our browsers may crash.
+		- Sometimes our browser doent respond 
+	- spring.devtools.livereload.enabled: true
+	- Common Issue: LiveReload is unable to connect
+- RemoteApplications
+	-
+- spring.devtools.restart.enabled= true
+	- No need to restart the server
+	- the server will automatically restsrted.
+	
+DOCKER:
+--------
+- While we are working on docker with springboot, we need to configure several parameters in springboot
+- otherwise,
+
+SPRINGBOOTAWS:
+--------------
+- goto aws acc--> type bean stack---> click on elastic beanstack--> create---> 
+	select webserver---> naem it is springboot-->choose platform-->java-->
+	platform branch( go with default one--linux 64 bit)--> give the version label also)--> local file--> 
+	choose file and upload the war file of your project.
+	
+create and use new service role--->ec2 key pair-->
+
+
+
+SCHEDULING IN SPRING:
+----------------------
+- In Banking, these scheduling is used
+	- used to perform a task based on event.
+- Whenever an event occurs, an action should be performed.
+	- On the last working , salary should be credited to our accounts.
+- All the banks , will never use spring boot scheduling capabilities--> instaed they use 3rd party tools
+	- Quartz (https://www.quartz-scheduler.org/)--> market leader
+		- Quartz is used for better output.
+		- We need to add Quartz libraries in to springboot
+- @Scheduler
+
+
+LINKS:
+------
+1) https://swagger.io/
+2) https://docs.pivotal.io/pivotalcf/2-6/concepts/overview.html
+3) https://spring.io/tools
+4) https://marketplace.eclipse.org/release/sample/1.0 
+5) https://aws.amazon.com/eclipse
+	help menu--> install new s/w-->paste the link--> select the all core--> click on next
+
+
+STS:
+-----
+- Dont open your eclipse when you are using sts tool.
+- We can't install springtoolsuite4 for windows 32 bit OS.
+- Groovy 
+	- is mainly used for servers
+	- Similar to java
+	- For devOps tools we use either python or Groovy
+	- for pipeline crearion we use groovy.
+	
+WHITELABEL ERROR:
+------------------
+- How to disable the whitelabel error
+	- server.error.whitelabel.enabled
+
+
+
+
+HOW TO RUN IN CMD:
+-------------------
+- Copy the path of project 
+	- right click on project--> properties-->copy the location
+- goto cmd and paste the loaction
+	- if the project is in d drive
+		- the type "d:"
+	- then paste the loaction of project
+	- type "mvnw clean install" - if you are unable to run then do below process
+- goto user env variables
+	- new-->type var name="JAVA_HOME" and var_value=location of jdk(C:\Program Files\Java\jdk1.8.0_121)	
+	- apply
+- open new cmd and do above 2 steps ==> build success
+	- type cd target
+	- type "java -jar SpringDemo-0.0.1-SNAPSHOT(Type the war file first letter and click tab button).war
+	
+- Press ctrl+c ==> to stop cmd
+
+
+HOW TO RUN PROFILES IN SPRINGBOOT APPLICATION THROUGH CMD:
+----------------------------------------------------------
+
+- java -Dspring.profiles.active=production -jar my-application.jar 
+	==> "-D"--> is used in some special cases like
+		- I want to increase heapsize of JVM at runtime
+		- I want to add additional parameters or values to JVM at runtime
+	- RULE:- always we recommend you to use "-D" before jar files.
+- when you want to activate one profile at a time==> use "--" instead of "-D"
+	i.e., java -jar my-application.jar --spring.profiles.active=production
+	
+	"java -jar SpringBootProfiling-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev"
+
+
+YAML VS PROPERTIES:
+--------------------
+- @PropertySource
+	- supported in yaml
+	- not supported in .properties
+- Hierarchical
+	- Yaml is hierarchical
+	- .properties is non-hierarchical
+- Support
+	- yaml is universally supported
+	- .properties supported in java 
+- Indendation issues are there in yaml
+- both are human readable
+
+
+YAML:
+----
+"---" ==> SECTION
+
+CREATING A SPRING PROJECT USING CLI FROM CMD:
+---------------------------------------------
+- spring init --dependencies=web
+(https://docs.spring.io/spring-boot/docs/current/reference/html/cli.html#cli.using-the-cli.initialize-new-project)
+
+-  Command to create a project using cli from cmd
+	- "spring init --build=maven --java-version=8 --dependencies=web --packaging=war sample-app.zip"
+
+DEPLOYING PROJECTS IN AWS:
+--------------------------
+choose platform(java)--->upload your code---> 1.0.0--> local file==choose file-->(STS Workspace->select your war file)--> next-->
+ create new service role-->click on previous button-->
+
+
+
+
+
+
+
+
+
+
+ISSUES IN STS:
+---------------
+1) IF THE PROJECT IS NOT CREATED COMPLETELY
+	- just do force update
+
+WEBSERVICES:
+--------------
+- 2 Types/approaches to design webservices
+	- SOAP
+		- Slow, becoz it uses xml
+		- Tight Security--> we can design secure applications
+		- Supports diff protocols-- like sntp
+		- Uses WSDL
+		- JAX-WS-- to design soupfull webservices
+		- Heavy weight
+		- In legacy projects, we see SOAP full services
+	- REST
+		- Fast
+		- Moderate security
+			- we can make it more secure using OAKTA framework,SSO techniques like Json token, Oauth1.0, Oauth2.x,LDAP authentication,SAML
+		- Supporst http and https protocols
+		- New Projects are not adapting SOAP, instead they are using REST
+		- Doesnt use WSDL
+		- JAX-RS,RESTEASY,SPRING,SPRINGBOOT,GROOVY,Jersey --> To design RESTFULL WEBSERVICES
+- To work on webservices
+	- Producer(if everything is done from scratch)
+		- Job is to generate data
+	
+	- Consumer
+		- Job is to read/fetch the data from producer using Http/Https
+		- Consumer should know the Endpoint URL.
+- We make API calls using url---https
+-  A software system that 
+	supports interoperable machine-to-machine interaction over a network.
+- https://visual-crossing-weather.p.rapidapi.com/forecast
+- An api is a code snippet or program with set of rules and regulations used 
+	for transferring the data between 2 parties. or in simple it is a mediator.
+
+
+MICROSERVICE:
+--------------
+https://martinfowler.com/articles/microservices.html
+- It is a way to create loosley coupled components
+- MONOLITHIC ARCHITECTURE
+	- all the components are tightly coupled
+	- Centralized system
+	- Components are dependend on one another.
+	- For 5 features and there is no further development--> we can use Monolithic
+	- No need of more servers-- as it is centralized system.
+- MICROSERVICE ARCHITECTURE
+	- Microservices used to make our application Loosely coupled==>by default tightly coupled
+	- Disadv:--Microservice development needs more man power and infrastructure.
+	- Even if one componet doent work, it will not effect on another components.
+	- Components are independent but communication should be done.
+	- We need to know more tools and technologies to design microservices.
+	- Fallback means alternative
+	- For every microservice, we will have independent db?==yes
+		- Db per service design pattern
+		- Db per shared microservice design pattern(common db for 2 or more microservices)
+		- Circuitbreaker design pattern---> eg: MCB in our homes
+- 2 types of Microservices
+	- Greenfield Microservice
+		- Means microservice that we create from scratch
+	- Brownfield Microservice
+		- Means microservice that we extend from the existing project
+
+FOR DESIGNING MICROSERVICE, WE NEED TO CROSS CHECK THESE BELOW THINGS:
+-----------------------------------------------------------------------
+- 12 factor rules
+- How do you handle transactions in Microservices?
+- How do you aggregate Logs from multiple Microservices?
+- Do we have Admin dashboard to monitor all microservices in project?
+
+
+
+
+
+
+
+
+
+
+
+2 Components communicate using:
+--------------------------------
+- Rest API
+- Active MQ
+- Rabbitmq or Kafka
+- Java .Net packages
+
+Uber:
+------
+- https://www.uber.com/en-IN/blog/engineering/
+- Before it uses monolithetic architecture
+- but now it uses microservice architecture
+
+TWELVE FACTOR APP:
+------------------
+-  To design any microservice--> we need to follow 12nfactor rules
+
+I. Codebase
+	One codebase tracked in revision control, many deploys--> nothing but git
+II. Dependencies
+	Explicitly declare and isolate dependencies
+III. Config
+	Store config in the environment
+IV. Backing services
+	Treat backing services as attached resources
+V. Build, release, run
+	Strictly separate build and run stages
+VI. Processes
+	Execute the app as one or more stateless processes
+VII. Port binding
+	Export services via port binding
+VIII. Concurrency
+	Scale out via the process model
+IX. Disposability
+Maximize robustness with fast startup and graceful shutdown
+X. Dev/prod parity
+Keep development, staging, and production as similar as possible
+XI. Logs
+Treat logs as event streams
+XII. Admin processes
+Run admin/management tasks as one-off processes
+
+
+TOOLS:
+======
+- TO RUN/ DEPLOY MICROSERVICES:
+	- Docker,Kubernates, Openshift
+- CODE QUALITY TESTING:
+	- SonarQube, PMD
+- DATABASES:
+	- RDBMS db `or NoSQL dbs
+- LOGGINGS:
+	- Loggly, AWS log Feature, ELK Stack,Splunk,Sentry Server
+- MONITORING:
+	- New Relic/ AppDynamics
+- CLOUD:
+	- AWS/ Heroku/Azure/GCP/Alibaba/PCF
+- CODE REPOSITORY
+	- Git/Github/BitBucket/GitLab
+- TESTING TOOL:
+	- Junit/TestNG
+- CI/CD TOOL:
+	- Jenkins/Teamcity
+- ISSUE TRACKING:
+	- Jira/Service Now
+- DEPENDENCY MANAGEMENT:
+	- Maven, Gradle
+- GLOBAL DASHBOARD:
+	- SpringBoot Admin Dashoard
+- LOOKUP SERVER:
+	- Eureka/PCF/Netflix 3rd party servers
+- CORPORATE/ARTIFACTORY REPOSITORY:
+	- JFROG/Sonatype nexus
+- REST DOCUMENTATION:
+	- Swagger
+- API DESIGNING:
+	- Swagger/Open API,Mulesoft RAML
+- INTEGRATIONS:
+	- Apache Camel/Mulesoft/Tibco ESB/Jboss ESB
+- BROWSER COMPATIBILITY TESTING:
+	- Selenium
+- LOAD/DB/WEBSERVICE TESTING:
+	- Jmeter
+- TECHNOLOGIES
+	- SpringBoot,SpringCloud
+
+
+- With the help of Spring Acutator--> we can find the status of server 
+	i.e., whether the server is up/active or down/inactive
+
+
+ACUTATOR:
+---------
+- To know whether the microservice is running or not
+http://localhost:8081/details/metrics
+	- {"mem":373308,"mem.free":96490,"processors":12,"instance.uptime":429425,
+	"uptime":434558,"systemload.average":-1.0,"heap.committed":320512,"heap.init":258048,
+	"heap.used":224021,"heap":3657728,"nonheap.committed":55168,"nonheap.init":2496,
+	"nonheap.used":52796,"nonheap":0,"threads.peak":36,"threads.daemon":33,
+	"threads.totalStarted":43,"threads":36,"classes":6601,"classes.loaded":6601,
+	"classes.unloaded":0,"gc.ps_scavenge.count":4,"gc.ps_scavenge.time":49,"gc.ps_marksweep.count":1,
+	"gc.ps_marksweep.time":41,"httpsessions.max":-1,"httpsessions.active":0,
+	"gauge.response.unmapped":18.0,"gauge.response.star-star":3.0,
+	"counter.status.404.star-star":2,"counter.status.401.unmapped":1}
+
+
+
+SpringBoot----> 1.5.2.RELEASE
+1)INFO:
+--------
+http://localhost:8081/details/info
+	- {"app":{"description":"Spring Actu","name":"Spring Actuator Example"}}
+
+2)SERVER:
+----------
+http://localhost:8081/details/server
+	- ["Server IP Address : 10.4.33.56","Server OS : windows 10"]
+
+3)HEALTH:
+--------
+http://localhost:8081/details/health
+	- {"status":"UP","diskSpace":{"status":"UP","total":243673329664,"free":241385762816,"threshold":10485760}}
+	
+4)CONFIGROUPS
+5)BEANS
+5)TRACE:----------->  []
+
+Virtual Machines:
+------------------
+- Heavy weight
+- for 5000 microservices, we need 5000 servers-->To overcome this , VMs came into picture
+- Instead of VMs, Containers are recommended to ude
+- Containers==>
+	
+DESIGN PATTERNS:
+==================
+	
+API GATEWAY DESIGN PATTERN:
+---------------------------
+- Comes under External gateway design pattern
+- Single entry point--> all req shld pass through this gateway
+- Netflix, PCF
+
+CLIENT SIDE SERVICE DISCOVEY DESIGN PATTERN: 
+----------------------------------------------
+- Service Discovery
+	- like a collection(IP addr+name)
+	- consists of all the info about the services present
+- Service Discovery-Eureka(3rd party tool),
+
+
+RED-GREEN DEPLOYMENTS/ BLUE-GREEN DEPLOYMENTS DESIGN PATTERN:
+-------------------------------------------------------------
+- If one service is down, then we have replicas for that services
+	- Mapping shoild be b/w the service and its replica service
+	- if the service is down==> even we hit the service url, it will redirect to replica service only
+		- No need to know replica service's url
+		- Different ip address 
+	- this redirection is called RED-GREEN DEPLOYMENTS/ BLUE-GREEN DEPLOYMENTS
+
+
+APP DYNAMICS:
+---------------
+- To know whether the db is in working state or not
+	- consistent or not
+- Work for servers, applications and dbs
+- Monitoring device
+- alternative neurilic
+
+NOTE:
+------
+- Google map
+	- Composite Microservice-- the otput one microserviceis given as input to the another microservice.
+- Communication b/w services can be done by	
+	- REMOTE PROCEDURE CALL(RPC)
+	- Http Protocol
+	- RMI
+	- GRPC-- Advanced version of RPC
+	- Messaging queues--Kafka--apache kafka tool
+- Replica service is maintained by devops team.
+
+CQRS DESIGN PATTERN:
+---------------------
+- Used to run same query across all the databases.
+- https://microservices.io/patterns/data/cqrs.html
+- Event Deligation Mechanism:
+	- Publisher-- push a message to queue-event
+	- Receiver-- pop a message from that queue-event
+	- Here the the receiver know whether the message is pushed or not by the signal sent freom the publisher.
+- CQRS internally uses Event Sourcing Pattern
+
+CORS:(Cross Origin Resource Sharing)
+---------------------------------------
+- enabled at server side
+- if data should be shared b/w 2 domains then we use CORS
+- Comes under security layer
+- Used at payment gateways
+
+LOAD BALANCER:
+---------------
+- It is a software
+- Earlier, load balancer is a h/w device 
+
+
+NOTE:
+----
+- BDD(Behaviour Driven Development)
+	- Given,when,then-- seen in doc of project
+	- Cucumber and Junit tool is used
+
+
+
+
+Spring Boot rest controller
+Design Simple Microservice app with 2 services
+Syncronous and Asyncronous communication
+Asyncronous Communication in SpringBoot
+Swagger
+
+MICROSERVICE APPLICATION DEMO:
+------------------------------
+Green-Field approach
+1)Create a Spring starter project
+	Include-->Spring web,eureka server,cloud
+2)Add dependencies
+	<dependency>
+<groupId>org.springframework.cloud</groupId>
+<artifactId>spring-cloud-dependencies</artifactId>
+<version>Camden.SR3</version>
+<type>pom</type>
+<scope>import</scope>
+</dependency>
+3)CREATE MICROSERVICE1 AND 2
+
+
+
+ISSUES:
+--------
+1)There was a problem with the instance info replicator
+	- Change the port number
+
+2)EMERGENCY! EUREKA MAY BE INCORRECTLY 
+CLAIMING INSTANCES ARE UP WHEN THEY'RE NOT.
+ RENEWALS ARE LESSER THAN THRESHOLD AND HENCE
+ THE INSTANCES ARE NOT BEING EXPIRED JUST 
+ TO BE SAFE.
+	- we see this msg, whenever the server is up and now it is terminated.
+
+*********************************************************************************************************
+
+HTML:
+====
+- HTML 4x or HTML 5x
+- Use latest Chrome/Updated browsers
+	- https://html5test.com/
+- Used to design static web pages
+- Using pure html, we cant design full pludged Web application
+- We need to integrate java script
+- HTML+JavaScript => dynamic web pages can be designed
+- If we use validations in webpages, it can give responses==> which is dynamic pages
+- HTML can be understood by browser,http/https
+- Plain web pages==CSS 3.0
+- For adustments== Responsive Web Designing
+
+
+h1,h2,h3,h4,h5
+bold
+italic
+font
+image tags
+anchor tags
+input tags
+marquee and marquee images--left to right and right to left ,bottom to top and top to bottom.
+
+Input tag:
+----------
+- Name is used for DOM operations
+- id is used for Dom operations and css
+
+
+
+Tasks:
+--------
+1) Span vs div 
+2) favicon 
+3) chatbot integration -- incometax website
+
+
+<link rel="stylesheet" type="text/css" href="mystyle.css">  
+ 
+CSS:
+====
+
+1)Inline CSS:
+-----------
+- For small size projects we can use inline scc
+- For large scale projects it's not recommended.
+<!DOCTYPE html>  
+<html>  
+<head>  
+<style>  
+body {  
+    background-color: linen;  
+}  
+h1 {  
+    color: red;  
+    margin-left: 80px;  
+}   
+</style>  
+</head>  
+</head>  
+<body>  
+<h1>The internal style sheet is applied on this heading.</h1>  
+<p>This paragraph will not be affected.</p>  
+</body>  
+</html>
+2) External css
+	- using link tag we link the .css file to html
+	
+SELECTOR:
+----------
+- css has a concept called selector
+h1--selector
+{
+	background-color(property):blue(value)
+}
+
+CANVAS:
+-------
+Also called as glyfhs or content area
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************
+
+SWAGGAR:
+--------
+- Tool---gives us tool to test restfull service and it gives tool to-machine	
+	design document for restfull service
+- We can design API Specification
+- Swaggar helps you to write and verify the documentation for the microservices that you have designed
+- Swaggar helps you to do testing of microservice temperorily
+- Swagger is part of Open API
+- Before Swaggar and Open API are different
+- Wherever there is a Microservice there is a Swagger
+- For microservice, server is mandatory
+- @RestController= SpringRest + SpringbootRest
+- To attain Interoperability--- we use web services
+- Visual Representation(In built in swaggar)== graphs with buttons
+- We can do dummy testing using visual representation
+	- If i want to access the 300th service out of 5000, visual representation is used
+- We need add swaagr starter in dependencies
+
+OPEN AI:
+--------
+- API== used to communicate b/w two entities/components
+- API is to perform functionality
+- Open API Specification--> it has set of rules and guidelines
+	- it tells you to how design a microservice
+- Open API Specification ==> 3.0,2.0,1.0 specifications are available
+	- To test this specification, there are some tools
+		- Editors
+- Open API gives codegen,cloud,swaggar
+- Codegen
+	- Used to convert the specification into code/implementation(i.e.,java,python or any language) within seconds.
+	- Business logic is not created for Codegen
+	- Only skeleton of the project is created.
+- Open APi also have a cloud
+- Competitor for Open Api== Mulesoft,Apigee
+- In SAP also, we can create the Open API Specification
+
+API LifeCycle Phases:
+---------------------
+- REQUIREMENTS
+- DESIGN
+- DEVELOP
+- CONFIGURE
+- TEST
+- PUBLISH
+- DEPLOY
+
+
+
+SWAGGER IN SPRINGBOOT:
+------------------------
+- dependencies of swagger
+
+<dependency>
+<groupId>io.springfox</groupId>
+<artifactId>springfox-swagger2</artifactId>
+<version>2.2.2</version>
+</dependency>
+ 
+<dependency>
+<groupId>io.springfox</groupId>
+<artifactId>springfox-swagger-ui</artifactId>
+<version>2.2.2</version>
+</dependency>
+
+- http://localhost:8080/swagger-ui.html--documentation 
+	- given by swagger
+	- always when we use restfull services method name mandatory otherwise it gives all the methods
+
+Docket:
+=======
+- To customize the things appear on the screen
+	- Public-api:which is accessable for all
+	- Private-api:which is designed for u organization
+
+
+
+
+
+RESTful API is a type of web service that uses HTTP methods 
+and URIs to interact with resources, while Open API is a specification for designing and documenting RESTful APIs.
+
+SWAGGER:
+-------
+swagger.io-->create new--> create api
+	-->open api 3.0x-->petstore-->name (petstore1)--> public--> create 
+	-->open in explore
+- Schma== description of how the output should be displayed
+
+
+
+
+https://github.com/kolaparthi34k/Infinite_JavaBackend/tree/main/React/Html
+
+
+@CONDITIONAL:
+-------------
+- If there are multiple dbs in the layered architecture,
+	to call the required db we use this @ConditiononProperty(name="db",value="mysql")
+- types available
+	- @ConditionalOnProperty
+	- @ConditionalOnBean
+- Used only in beanstack
+- will decide whether the bean to be loaded into memory or not.
+
+OBJECT GRAPH:
+-------------
+- available in java
+- licensed tool
+- spring boot uses object grapgh to load bean into the memory.
+
+
+
+HTML
+Springboot Rest Controller
+Spring boot DEVTools
+Springboot Actuator
+
+SPRINGBOOT DEVTOOLS:
+----------------------
+- Available from Spring 1.3 onwards
+- Developer only need to focus on business logic and rest is taken care by Springboot Framework.
+- Features provided by SpringBoot dev tools:
+	- Property Defaults
+		- By default enable mode
+		- At the time of development if you want to disable them for quick outputs
+			- you can disable them.
+	- Automatic Restart
+		- You need not to manually restart the server, if you make any changes to the existing code.
+	- Live Reload
+	- Global Settings
+	- Remote Applications
+
+
+
+
+
+
+<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+
+
+
+
+https://github.com/kolaparthisrini/ErrorApps
+
+
+
+
+
+
+
+
+
+

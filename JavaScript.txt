@@ -1,0 +1,785 @@
+- JavaScript
+- Ajax
+- TypeScript
+- CSS
+- DOM
+
+
+- Threadpool
+- Synchrounous and Asynchronous
+- DB locking
+
+Synchrounous and Asynchronous:
+--------------------------------
+- Synchrounous
+	- Sending a bow line by line
+	- My first request's response is input to the second request, then we use synchoronous
+	- Disadv
+		- Time consuming
+		- Waiting time for getting response is more
+- Asynchronous
+	- Sending multiple requests without considering the responses
+	- Cartoon Network-->uses Ascynchronous 
+		- uses 24 frames
+	- There is no waiting time
+	- Adv
+		- consumes less time
+	- Disadv
+		- Data may lost 
+		- Data Integrity should be in consistent state
+			- It is inconsistent
+	- Composite Microservices
+		- Networking		
+		- Microservices
+	
+THREAD:
+-------
+- For performing the multiple tasks at a time we need thread
+- thread is under the control of processor which is a h/w
+- processor(h/w)----->OS--->process-->threads
+- Every processor has memory
+- works on Asynchronous mode.
+- every processor can have any no. of child threads.
+	- Based on the memory size of process we can create threads
+- Process creation is heavy weight -- difficult
+- Threads creation is light weight -- very easy 
+- 2 types
+	- Predefined
+		- Under the control of JVM
+	- Userdefined
+		- Under the control of developer
+- Thread can be created in 2 ways
+	- Using extends thread
+	- Implements runnable
+		- also called functional interface
+			- an interface with only one abstract method.
+- Once the session is created to db, one thread is created.
+- Any class which has main method --> called as main thread	
+- Daemon Threads	
+	- threads which are running in the backend
+	- also called as background threads
+	- Daemon-->Disk and Execution Monitor
+- Threads can be assigned will priorities like
+	- High
+	- Low --> there is guarentee that they will run on time and for sure.
+	- Medium
+	- Normal=5
+	  Min=1
+	  max=10
+- All the threads are under the control of objects
+- methods ===> sleep, notify, notifyall and wait
+- Wherever the tx--> ther is a thread
+- No two process can have same processid
+- Threadpool	
+	- Is a pool of thread objects which can be configured as a dynamic pool or fixed pool
+	- Controlled by thread executor or executor class
+	- Pool shouldnt exceed the capacity of the processor
+- Reflection or Introspection in java
+	- ability to fetch a metadata of a class is called  Reflection or Introspection in java
+	- used to display nonstatic methods also
+		- sops
+		
+		
+class MyExample extends Thread
+{
+	public void display()
+	{
+		
+		System.out.println(this.getState());
+	}
+}
+ 
+public class ThreadExample1 {
+	
+	public static void main(String...a)
+	{
+		try {
+			Thread.sleep(8876);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		new MyExample().display();
+	}
+ 
+}
+
+
+	
+LOCKING:
+--------
+- If one thread is utilizing/accessing the resource, other should wait--locking
+- If 2 threads want to access/modify the same resource-- it leads to deadlock/race condition
+	- it violates ACID properties and integrity issues if we are using dbs
+	- leads to dirty reads and phantom reads
+- 2 types of locking mechanisms for db
+	- Optimistic
+		- 
+		
+		
+	- Pessimistic
+		- 
+		
+- helps you to avoid dirtyreads and phantom reads in the projects.
+	
+Note:
+-----
+- By default, Springboot/Spring is synchoronous
+	- By adding @Async , it will be Ascynchronous
+	- For restfull services, we need to use Ascynchronous
+- Commit & Flush
+	- both do same works	
+	- Commit:
+		Once commit is given, the data is pushed to db
+	- Flush:
+		- Once flush is given, the data is pushed to session object and then to db.
+	- When you call session.flush(), the statements are executed in database but it will not committed.
+		- If you don’t call session.flush() and if you call session.commit() , internally commit() method executes the statement and commits.
+	- commit()= flush+commit.
+ - Multi-Threading
+	- We have locking mechanism  
+	
+HTML IN ECLIPSE:
+----------------
+1) file-->new-->static web project-->name your project->finish
+2) for running--> click on run on server--> basic-->http server
+
+TASK:
+-----
+placeholder in html
+date picker
+Drop downlist---Single and Multiselect
+submit vs button tag
+html validations----required
+image-
+audio and video using html---manual controll and automatic control----audio/video control
+flash screen--discount image
+horizontal bar and vertical bar
+frames in html
+
+****************************************************************************************************************************************
+
+JAVASCRIPT:
+----------
+- Java and JavaScript are different.
+- JavaScript is a Object based Scripting language used to design dynamic web pages.
+- We can design even mobile applications usings JavaScript languages.
+	- Eg: Kony Mobile Framework
+		- it can convert into 32 OS
+	- Eg:Phonegap
+- Webservice can also be created using JavaScript and some 3rd party libaries
+- Disadv(ES8 can overcome some of the below )
+	- JS is not secure
+		- Can be handled by using JSON tokens and other security mechanisms
+	- Doesnt support all OOPS features
+		- Can be handled by Upgrade your JS to ES7 or ES8 version
+	- Multithreading is not supported
+		- Can be handled by integrating JS with NodeJs 
+	- Doesnt support NIO Operations
+		- Can be handled by integrating JS with NodeJs
+	- Cant create n/w based apps
+		-Can be handled by integrating JS with NodeJs
+	- JS doesnt support dbs directly
+		- db operations==>CURD operations
+		- Can be handled by integrating JS with NodeJs
+	- JS doesnt support desktop apps development
+- Before JavaScript, we have lua
+	- lua is a scripting language
+	- but it wont work for all types of platforms
+		- as it is platform dependent
+- JavaScript is platform independent
+- But now, lua is a compitetor for JavaScript
+	- Market trend is JavaScript only
+- extension==> ".js"
+- In java -- JVM, In JavaScript--JavaScript VMs--browser
+- Every browser will have inbuilt javascript engine which takes the responsibility of running your script code
+	- Chrome---V8 engine==>mainly it is used for ReactJS
+	- IE/Edge---Chakra
+	- Rhino,JavaScriptCore(Nitro)----Safari
+	- Firefox--- SpiderMonkey
+- JS follows ECMA standars
+	- European Computer Manufacturers Association
+- Versions of JS
+	- ES5,ES6,ES7,ES8
+	- ES6 is best for learning
+- JS engine designed in C/C++
+- JVM cdesigned in C/C++
+- For frontend 
+	- ReactJS,Reactnative,Angular,Backbone,VueJS...etc
+		- The above framework uses NodeJS capabilities to perform Scaffolding and for writing/running the code
+- For dependency management
+	- In Java, we use Maven
+	- In JS, we use NPM(Node Package Manager)
+		- NPM is a part of NodeJs
+	- To create a corporate repo, we use Nexus Sonatype or JFrog.
+- For Code quality testing for JS-- Sonarqube
+- IDE--- VS Code
+- For Unit testing
+	- In java--> JUnit
+	- In JS---> Protractor
+- JS is Ascynchronous
+	- Because JS is single threaded
+- Ways to run JS code	
+	- Using browser console
+	- IDE is like VSCode, ECLIPSE
+	- Create a Html file with JS Code as inline
+	- Using JS playground
+		- JSFiddle(online Editor==>cloud environment)
+		- Not secure
+		- Meant for running the JS code on cloud directly
+		- It can run Html and CSS code also
+	- Using NodeJs 
+- Best brwser to run JS ==> Internet Explorer
+- No datatypes in JS.
+	- Syntax: var <var_name>
+- Syntax for Function:
+	- There are 8 ways to create JS Functions
+		- Traditional way
+		  Function <function_name>
+		  {
+			//body
+		  }
+- Compatible testing
+	- http://wiki.ecmascript.org/doku.php?id=harmony:arrow_function_syntax
+	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#browser_compatibility
+
+- Can we run JS without browser?
+	- Using NodeJs
+		- becoz it have V8 engine in built.
+- JS supports few collections
+	- like Array,List
+- For CI/CD server
+	- we use Jenkins/Team City
+- Browser testing--selenium
+- Base Object-->Window
+- NodeJs
+	- Opensouce
+	- Built on V8
+	- meant for JS
+	- we cant directly use NodeJs in java---indirectly can be used
+	- It is jst a platform to overcome the disadv in JS
+	- JS framework or environment
+- Always write your JS code in head tag of HTML
+	<html>
+		<head>
+			<title>Java Script</title>
+		<script>
+			document.write("Hi JavaScript!!!!!!!!!!!!!!!!!!!!!!")
+		</script>
+		</head>
+	<body>
+	</body>
+	</html>
+- alert("JavaScript"); // outdated feature instead popups are used
+- becarefull while using "eval"
+Note:
+------
+- C can be run on
+	- Turbo C/Turbo C++/Borland C++/GC++ by linux/VC++ by Microsoft
+- C++ then C thrn java for embedded system 
+- PegaSys
+	- purely C++
+	- Iseral scam
+	- Testing weapons like AK47..
+- Console.log ==> similarly like sops
+	- Not recommended to use multipletimes
+	- available in browser-->inspect-->console
+	- Used display the output in console
+- document.write()
+	- Used display output in browser
+- Can java to JS communication possible?
+	- Java had a JS package-->Rhino as a JS Engine
+	- DWR(Direct Web Remoting) framework is used for java to JS and vice-versa communication
+		- https://docs.huihoo.com/dwr/DWR.pdf
+		- 3rd paty library
+- LWS(Lager Web Screens)
+	- Airports, malls
+
+- If any browser is not supporting Htm5 feature on specific versions of browser
+	- then we need to use "POLYFILLS"
+	- POLYFILLS gives work around/ code which can work on older versions
+	- POLYFILLS for IE2--not available
+	- POLYFILLS is a set of JS program/instructions provided by 3rd party vendor to achieve
+		a specific requirement on specified version
+	- We need to download a specific feature that is not available in particular browser 
+		- Eg:abcd feature in particular browser needs to be downloaded
+		
+JS:
+---
+<!-- var a=10;-->
+	var b=20;
+	var c=["Vasanthi",123];
+	var d=[];<!-- for array we use "[]" -->
+	document.write(c);
+	document.write(a+b);
+	
+	d.push(45);	<!-- to push a value into array which is predefined -->
+	c.pop(123);  <!-- pop the element from existing array -->
+	document.write(c);
+	document.write(d);
+	document.write("Hi JavaScript!!!!!!!!!!!!!!!!!!!!!!")
+	alert("JavaScript");  <!-- outdated feature instead popups are used -->-->
+	
+**********************  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map   ************************************
+	
+1) Reverse:
+------------
+<!-- reverse -->
+	const a1=['vasanthi','sirikonda','jan'];
+	document.write('a1:',a1);
+	const reversed=a1.reverse();
+	document.write('reversed:',reversed);
+	document.write('a1:',a1);
+O/P:
+----
+a1:vasanthi,sirikonda,jan
+reversed:jan,sirikonda,vasanthi
+a1:jan,sirikonda,vasanthi
+
+2) Filter:
+-----------
+<!-- filter -->
+	const a2=['water','bottle','phone','laptop'];
+	const result=a2.filter((a)=>a.length>5);
+	document.write(result);
+O/P: bottle,laptop
+
+3) Keys:
+---------
+<!-- keys -->
+	const a1=['b','c','d','e'];
+	const iterator= a1.keys();
+	for (const key of iterator)
+	{
+		document.write(key);
+	}
+O/P:  0123
+
+4) Concat:
+-----------
+<!-- concat() -->
+const a1=['b','c','d','e'];
+const a2=['h','i','j','e'];
+const a3=a1.concat(a2);
+document.write(a3);
+
+O/P: b,c,d,e,h,i,j,e
+
+5) slice():
+------------
+<!-- slice() -->
+const c=['blue','green','yellow','pink','peach'];
+document.write(c.slice(2));
+document.write("<br>");
+
+document.write(c.slice(2,4));
+document.write("<br>");
+
+document.write(c.slice(0));
+document.write("<br>");
+
+document.write(c.slice(-1));
+document.write("<br>");
+
+document.write(c.slice(-2));
+document.write("<br>");
+
+document.write(c.slice(2,-1));
+document.write("<br>");
+
+document.write(c.slice(-2,-1));
+document.write("<br>");
+
+document.write(c.slice(4,-3));
+document.write("<br>");
+
+document.write(c.slice());
+document.write("<br>");
+
+O/P:
+----
+yellow,pink,peach
+yellow,pink
+blue,green,yellow,pink,peach
+peach
+pink,peach
+yellow,pink
+pink
+           //if there is null pointer exception the we get nothing but space
+blue,green,yellow,pink,peach
+
+6) Splice():
+-------------
+Syntax:
+-------	
+		splice(start)
+		splice(start, deleteCount)
+		splice(start, deleteCount, item1)
+		splice(start, deleteCount, item1, item2)
+		splice(start, deleteCount, item1, item2, /* …, */ itemN)
+
+Eg:
+---
+<!-- splice() -->
+const d=['blue','green','yellow','pink','peach'];
+d.splice(1,0,'RoyalBlue');
+document.write(d);
+document.write("<br>");
+
+d.splice(2,1,'PoweredBlue');
+document.write(d);
+document.write("<br>");
+
+d.splice(2,3);
+document.write(d);
+document.write("<br>");
+
+O/P:
+----
+blue,RoyalBlue,green,yellow,pink,peach
+blue,RoyalBlue,PoweredBlue,yellow,pink,peach
+blue,RoyalBlue,peach
+
+7) Maps:
+---------
+<!-- map() -->
+const a4=[1,2,4,5,6,9,0];
+const map1=a4.map((x)=>x*4);
+document.write(map1);
+
+O/P: 4,8,16,20,24,36,0
+
+DOM(Document Object Model):
+---------------------------
+- Window---Document---Form
+- Using DOM	
+	- Can do validations ---> JS comeup with "JS DOM API"
+	- We can change values of the components dynamically.
+- whenver we load a page into browser	
+	- browser will create a DOM structure in the backend
+- DOM is available for html and xml
+	- but not for JSON
+
+- Methods of DOM API
+	- document.getElementById()
+	- document.getElementsByName()
+	- document.getElementsByClass()
+- If you want access the components/widgets in a webpage 
+	- we cn use JS DOM API
+
+
+Note:
+-------
+- 	"=" -->assigning values
+	"==" ---> comparing values
+	"===" ---> Compares values and datatypes
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+- whenever there are multiple counters-- leads to dirty reads
+
+
+@Async in SpringBoot:
+----------------------
+- wherever there is a @Async, we use CompletableFuture
+- return type is CompletableFuture
+- flow of Async 
+	- Front Controller-->Custom Controller--->Service
+		- async methods-- execute logic in async mode--custom methods shld return completableFuture obj to controller
+	
+	
+The @EnableAsync annotation switches on Spring’s ability to run @Async methods in a background thread pool.
+
+
+TYPESCRIPT:
+-----------
+- Similarly like java
+- Competitor to JS
+- For defining constants
+	- In java, we use "final"
+	- In TypeScript, we use "const"
+
+
+
+TASKS:
+-------
+- SPA
+- can i disable js in browser
+
+
+
+
+
+
+
+
+**********************************************************************
+
+JAVASCRIPT:
+--------------
+- It is a high level,interpreted language used to make webpages more interactive.
+- 1995
+- Used for the look alive of webpages by adding motion to it
+-  Used in
+	- Web applications
+	- Smart Watches
+	- Games
+	- Websites
+- Where can we run JS
+	- Console
+		- Using console.log()
+	- VSCode
+- Benefits of JS
+	- Easy to learn and simple to implement
+	- Weak type programming language
+		- Which doent have any strict rules for coding
+	- Fast
+		- As it is clientside programming language
+			- It doent need to contact with the servers and ait for the response
+			
+	- Platform Independent
+	- Rich Framework
+		- Angular JS
+		- ReactJS
+	- Interactive Websites
+- IDE environments
+	- VSCode
+	- Sublime text
+	- Atom
+	
+Fundamentals of JS:
+---------------------
+1) Variables
+	- Holds data value and it can be changed anytime
+	- It uses a reserved keyword "var" to declare a variable
+	- Rules 
+		- Cnat be a reserved keyword
+		- meaningful name
+		- Cant start with number
+		- No spaces or hyphen
+		- Case sensitive
+
+2) Constants
+	- Once constant is declared, it cant be modified or assigned a new value
+	
+3) Datatypes
+	- data that can be used and manipulated in a pgm.
+	- In JS, we have 2 dkinds of data: 
+		- Primitives
+		- Objects
+- 2 Type
+	- Primitive or Value types
+		- Numbers
+		- Strings
+		- Boolean
+		- Undefined
+		- Null
+	- Reference types
+		- We have objects
+		- Eg:How to create obj 
+			let girl={
+			name:'chakri',
+			age:23
+			};
+		- How to change the name of a object
+			- Using Dot notation
+				- girl.name='Sirikonda';
+			- Using bracket notation
+				- girl['name']='Sam';
+- To check the type of the var ==> use "typeof"	
+
+4) Arrays in JS:
+-----------------
+- Js Array obj is a global obj
+	- Used in construction of arrays,which are high level and list-like objects.
+	
+Eg:
+---
+//arrays in js
+let items=['color','paintbrush','plate'];
+items[3]='spray';
+items[4]=100;
+console.log(items);
+console.log(items[3]);
+console.log(items.length);
+console.log(items.pop());--->removes the last element
+console.log(items.push());--->add the element to array
+console.log(items.reverse());---->the last element will print first in the array list
+console.log(items.shift());----> removes the first value and prints that value
+console.log(items.toString());----->converts all the elements into strings in the array
+console.log(items.unshift());------> adds the elements and returns the no. of elements in the array
+console.log(items.join());-----> same as "toString()",joins them into a string
+
+5)  Functions in JS:
+--------------------
+- It is a subpgm designed to perform a particular task
+- Values can be passed into fns and used within the fn.
+- 2 types
+	- Predefined
+	- User Defined 
+Eg:
+---
+//functions in js
+function view(name){
+    console.log('Welcome to Infinite'+' '+name);
+}
+view('Computer Solutions');
+
+
+6) Conditional Statements in JS:
+---------------------------------
+
+//conditional stmt=>if in js
+let  number=[];
+number=[1,3,4,5,2,4,0];
+if(number[2]==number[5])
+{
+    console.log("yes");
+}
+
+//conditional stmt=>if-else in js
+let  number=[];
+number=[1,3,4,5,2,4,0];
+if(number[2]==number[4])
+{
+    console.log("yes");
+}
+else{
+    console.log("No")
+}
+
+7) Loops:
+-----------
+- While Loop:
+	- //while loops in js
+		let i=0;
+		while(i<5){
+		console.log("number is"+ i);
+		i++;
+		}
+
+- DoWhile loop:
+	- //Dowhile loop in js
+		let j=0;
+		do{
+		console.log("number is"+ j);
+		j++;
+	}
+	while(j<6);
+
+- For Loop
+	- //for loop on js
+		for(let k=0;k<5;k++){
+		console.log("Num:"+k);
+		}
+	-  eg-2 
+		var itr;
+		var characteristic={first:"Name", second:"Age", third:"eye-color",fourth:"height"};
+		for(itr in characteristic)
+		console.log(characteristic[itr]);
+
+8) Switch Statement:
+---------------------
+//switch stmt in js
+let game="cricket";
+switch(game){
+    case "football":
+        console.log("I dont want to watch football");
+        break;
+    case "Hockey":
+        console.log("I dont play hockey");
+        break;
+    case "cricket":
+        console.log("I love to play cricket");
+        break;
+    default:
+        console.log("match not found");
+}
+
+
+JS SubString:
+-------------
+- It is a subset of another string
+- It is a contiguous sequence of characters within a string.
+- Syntax:
+	//JS substring
+	String.substring(index A, [index B]);
+- Substring method and length property are used to extract the last character of your paticular string.
+	- //length of the string and subtring method
+		var string1="Infinite";
+		var string2= string1.substring(string1.length-5);
+		console.log(string2);
+
+Substring Vs Substr Vs Slice:
+-----------------------------
+- All the methods are used to extract the parts of the string  and return the extracted parts in a new string.
+- Substring:
+	- Returns the part of the string b/w startindex and endindex
+	- It excludes the endindex character or up to the end of the string.
+	
+- Substr:
+	- Returns part of the string starting from an index 
+		and no. of characters after the start index.
+	- It has 2 parameters 
+		- startIndex
+		- Length
+
+- Slice	
+	- Similar to substring
+	- It returns partial string b/w start index and end index
+	- It excludes end index character or 
+		up to the end of the string if end index not provided.
+
+
+Predefined Functions in JS:
+----------------------------
+- Eval
+	- Evaluates a string and returns a value
+- ParseInt
+	- Parses a string argument and returns an integer of the specified radix or base
+- ParseFloat
+	- Parse a string argument and returns a floating point number
+- Escape
+	- Returns the hexadecimal encoding of an argument
+-Unescape
+	- Returns the ASCII string for the specified value.
+
+
+
+JavaScript Regex/Regular Expressions in JS:
+---------------------------------------------
+- It is a sequenceof characters that constructs a search pattern.
+- Syntax:
+	var <varname> = new RegExp(pattern,attributes);
+	              or
+	var <varname> = /pattern/attributes;
+	
+Modifiers:
+----------
+- Used to perform any case insensitive or global searches in JS.
+- 3 different modifiers
+	- g modifier
+		- It performs any sort of global match in our string
+		- Eg: Suppose you are looking for a word in a string
+			- This g-modifier searches globally and finds that particular word.
+		- Eg:
+			var str="welcome to infinite computer solutions";
+			var part1= /to/g;
+			
+	- i modifier
+		- It performs case-insensitive matching
+		- Eg: Suppose you have a word which contains both upper and lower case letters
+			- This i-modifier performs case insensitve matching
+	
+	- m modifier
+		- It performs multiline matching
+		- Eg: If you have 3 or more lines in a string  
+			- This m-modifier searches the particular or charcter in those lines present in string
+		
+		
+		
+
+
+
+
+

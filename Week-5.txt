@@ -1,0 +1,732 @@
+CONNECTION POOLING:
+--------------------
+POOLING------> group of resources
+Connection Pooling--------> group of connection objects.
+
+In development, connection pooling is called as middleware service.
+
+2 types:
+--------
+- server side
+	- all servers by default give connection pooling as middleware service.
+	
+
+- client side/vendor
+	- 3rd party jars
+	- hikari is used in training
+	- C3PO, DBCP
+
+WHY WE NEED TO GO WITH CP:
+--------------------------
+> to automate the connection opening, closing.
+> to increase the resourse utilization.
+
+- the no. of connection objects/size of connection pooling is depended on db vendor.
+- old technology but in trend.
+- to work on CP, datasource is manidatory.(source==origin point)
+	- datasource== where the data is present
+	- web service acts as datasource
+
+- we use in 
+	- spring boot
+	- microservices
+	- spring AOC
+	- Hibernate
+
+- in case of cp, datasource is a class--predefined
+	- so we initialise to null
+	- datasource is nothing but a db
+
+>>>>>>>>>atomic databytes in java------used to know no. of visitors for websites.
+
+
+Jmeter tool:
+------------
+- By using this we can do
+	- load testing
+	- db testing
+	- web service testing
+	- n/w testing
+- open source
+- J for java
+- even it is designed in jre-----we can use this tool.
+
+
+ISSUE-1 : Failed to execute goal on project HikariCPExample:
+-------------------------------------------------------------
+>> Could not resolve dependencies for project com.infinite.springcp:HikariCPExample:jar:0.0.1-SNAPSHOT: Failure to find hikari-cp:hikari-cp:jar:1.3.0 in https://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+	- Maybe it has its own repository.
+	- we can go with manual approach
+
+
+>> Whenever we get error while we are using the dependencys of mvn repository
+	- go to the official website and get the dependency from there.
+
+
+CONNECTION POOLING STEPS:
+--------------------------
+1) CREATE A MAVEN PROJECT ( NOT A WEB PROJECT)
+
+2) Add Hikari dependencies to pom.xml
+
+3) create a hikari config object and provide necessary meta data
+
+4) pass config as parameter to datasource
+
+
+
+
+>>> [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project HikariPharmaWeb: Compilation failure: Compilation failure:
+SOLUTION:
+---------
+Clean your tomcat working directory
+
+
+>>> ISSUE:If we get an error related to the path not found in pom xml
+SLOUTION: just refresh the project
+
+
+Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping': Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'insertController' method 
+public java.lang.String com.infinite.hikariweb.InsertController.insert(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+to {[/insert],methods=[POST]}: There is already 'deleteController' bean method
+
+
+
+
+
+
+
+
+
+
+
+
+
+create table Pharma(MCode integer,MNmame varchar(80),Expiry date,Cost integer,Quality integer);
+
+
+
+
+************************************************************************************************************************************************************
+
+Note:
+-----
+- If there is no submit button---don't use form.
+
+Spring JDBC------>we need to know spring core & Connection Pooling(CP)
+
+CP-- uses internally JDBC
+
+Spring JDBC + DAO
+
+Hibernate internally uses CP and CP internally uses JDBC
+
+INTEGRATIONS :
+---------------
+1) Spring MVC + Hibernate + Log4j + Junit
+2) Spring mvc + HIbernate +jsp+ server side connection pooling
+3) Spring boot + Hibernate
+4) Spring boot + Thyleaf + Hibernate 
+5) Spring MVC + Thyleaf + Hibernate + Junit + log4j
+6) Spring MVC + Connection Pooling
+
+DAO(Data Access Object):
+---------------------------
+- It is a design pattern
+- It follows CURD operations
+- Used to make our code flexible, Adaptable and loosely coupled
+- design pattern-->related to best practice to follow in order to achieve smthing
+- it is related to backend(db)
+- designed by industry experts
+- create,update,select,delete,insert,insertall,selectall,dbConnection helper methods are available--(public)
+- business logic i.e., db related logic can written
+- always make sure, your connection objs are resuable.
+- DAO related files should be in diff packages.
+
+
+CURD OPERATIONS:
+----------------
+C--- Create --- i.e., insertion
+U--- Update
+R--- Read--- i.e., select
+D--- Delete
+
+*********************************************************** SPRING JDBC + DAO************************************************************************************
+
+SPRING JDBC CAN OVERCOME:
+-------------------------
+- writing more code
+- we need to perform manual exception handling code on db.
+- we need to handle trasaction
+- Repetition of code from one to another db logic is time consuming
+
+TYPES OF JDBC TEMPLATES/TILES:
+-------------------------------
+- JDBC template---- It can handle exceptions automatically. It doesn't throw exceptions.
+- NamedParameterJdbcTemplate
+- SimpleJdbcTemplate
+- SimpleJdbcInsert and SimpleJdbcCall
+
+STEPS:
+------
+1) Create a maven project without archetype.
+2) add dependencies in pom.xml
+
+
+<properties>
+<spring.version>3.1.0.RELEASE</spring.version>
+</properties>
+
+<dependencies>
+
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-core</artifactId>
+<version>${spring.version}</version>
+</dependency>
+
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-context</artifactId>
+<version>${spring.version}</version>
+</dependency>
+
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-jdbc</artifactId>
+<version>${spring.version}</version>
+</dependency>
+
+<dependency>
+<groupId>javax.transaction</groupId>
+<artifactId>transaction-api</artifactId>
+<version>1.1</version>
+</dependency>
+
+<dependency>
+<groupId>mysql</groupId>
+<artifactId>mysql-connector-java</artifactId>
+<version>5.1.26</version>
+<scope>compile</scope>
+</dependency>
+
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-beans</artifactId>
+<version>${spring.version}</version>
+</dependency>
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-orm</artifactId>
+<version>${spring.version}</version>
+</dependency>
+<dependency>
+<groupId>org.slf4j</groupId>
+<artifactId>slf4j-log4j12</artifactId>
+<version>1.4.2</version>
+</dependency>
+<dependency>
+<groupId>commons-transaction</groupId>
+<artifactId>commons-transaction</artifactId>
+<version>1.1</version>
+</dependency>
+
+
+
+
+</dependencies>
+
+
+>>>>>>>>>> clean install and update the project
+
+3) Create the packages in src/main/java
+	- dao,pojo,interfaces,helper,main
+
+4) 
+
+
+
+
+
+
+NOTE:
+-----
+In Jdbc template, we use
+	- Execute is for creation of table
+	- Update is for insertion of record
+	- Query is for retriving all the details of all employees.
+
+- In jdbc we have "ResultSet", in spring we have "RowMapper"---> it is used to diaplay the result
+
+- If we want to create 30 tables then we need to create 30 pojo classess
+
+- Common things we see in every spring jdbc+ dao integration
+	- TransactionManager,Datasource,beans 
+	
+VALIDATIONS :
+-------------
+- 2 types
+	- Client/Browser Side--(technology-JS, Html5)
+	- Server Side
+		- db level validation---hibernate
+
+		- Server level validation---servlet	
+
+
+
+
+html5test.com------- used to test the compatability of the browser
+
+
+XML ViewResolver:------------------>Only checks for xml files
+
+- For pdf files creation, modification --> we use "iText"
+  For creating,updating,deleting Ms Office files---> "Apache POI"
+
+Model is used to hold the data temporarily till the session is closed.
+
+
+${message}----Expression language
+
+
+
+if we see matches in code, it means we are using regular expressions
+
+Area Code---->
+
+
+Whenever we need want to validate anything in projects, then we use ConstraintValidator 
+
+
+> For Spring mvc validator, we use--->validation-api
+
+> For hibernate --> hibernate-validator
+
+
+
+
+
+
+
+
+
+TASKS:
+------
+FreeMarkerViewResolver and Velocity view resolver
+ACID properties
+
+Apache POI
+
+ACID PROPERTIES IN DB:
+----------------------
+- In order to maintain the consistency in db, before or after transaction certain properties are followed by transaction.-----> i.e., ACID properties 
+- In order to ensure the accuracy, completeness and data integrity.  
+- ATOMACITY:
+  ----------
+	- atomic---> all transactions should be complete or doesnt do anthing.
+	- transaction must be atomic
+	- All or nothing rule
+	- If one trasaction fails, the entire transactions in db fails.---> i.e., before whatever the changes made to db will remain same.
+	- 2 operations
+		- Abort--->changes made to db are not visible.
+		- Commit---> changes made to db are visible
+			- after completion of transaction only we use commit
+			- when you make transaction as commit then only changes to db will be visible.
+EG:
+---
+	T1 & T2 are 2 transactions 
+	A sends 100/- to B
+i.e., A=500 & B=200===>700
+T1		T2
+read(A)		read(B)
+A=A-100		B=B+100
+Write(A)	Write(B)
+Now, A=400	B=300=======>700
+
+If the money before and after transaction are equal then we can say that it is maintaining consistency.
+
+If the trasaction occur i.e., A sends to B but there is a system failure or power failure ==> the ammount is deducted from A but not added in B which leads to Inconsistency.
+
+ 
+
+- Consistency:
+	- means correctness
+	- that the integrity constraint must be maintained so that db is in consistency state before/after transaction.
+EG:
+---
+	Before Sum(A,B)= After Sum(A,B)
+		500+200=400+300
+		700=700
+- Isolation:
+	-means it indicates the actions performed by the transactions are isolated or hidden from outside the transactions until it terminates.
+EG:
+---
+	T1		T2
+	Read(A)		 
+	A-100
+	Write(A)
+	R(B)
+	B+100
+	Write(B)
+
+- Another transaction cant use the transaction which is in progress.
+
+- Durability:
+	- All updates done by transaction must become permenant
+	- it uses commit stmt
+	- until you change the values in db will not be eraised or removed. 
+
+
+In short, ACID 
+
+Atomicity means either all successful or none.
+
+ 
+
+Consistency ensures bringing the database from one consistent state to another consistent state
+
+ 
+
+Isolation ensures that transaction is isolated from other transaction.
+
+ 
+
+Durability means once a transaction has been committed, it will remain so, even in the event of errors, power loss etc.
+
+
+************************************************************
+
+<<<<<<<<<<<<<< SPRING + AOP >>>>>>>>>>>>>>>>>
+
+
+https://docs.spring.io/spring-framework/reference/core/aop.html
+
+**Spring AOP supports method execution.**
+
+Aspect-oriented Programming (AOP) complements Object-oriented Programming (OOP) by providing another way of thinking about program structure.
+
+- AOP is not a programming language
+- AOP is a methodology-- way of writing the code.
+- AOP is an Approach to design loosely coupled components.--> we are going to apply AOP capabilities in spring.
+- AOP is not part of spring, but AOP can be used in spring.
+- AOP can be used or merged with other OOP languages.
+- Midleware services---AOP,Transaction mgmt,loggings,connection pooling,notification management,authentication,security.
+
+
+*** AOP is responsible to inject the middleware services to code through AOP via common class and AOP configuration file.***
+- Aop is implemented in java.
+
+- Boilerplate means repetition 
+
+PILLERS OF AOP:
+--------------
+- ASPECT:
+	- Implemented using RE or regular classes annotated with @aspect
+	- common/central class in our example
+
+
+- JoinPOint:
+ 	- a point  where we inject the AOP aspects
+- ADVICE:
+	- 3 types---around,before,after
+
+- POINTCUT:
+	- Nothing but a matching---> RE, expression language	
+	- eg: ad -- see in book
+
+========================
+Advice name==> AdviceTest
+pointcut id-->selectAll()
+businesslogic--->testing method
+execution--->predefined
+
+==========================
+
+STEPS:
+------
+1) POM.xml
+2) Create applicationcontext.xml----write the AOP aspect
+3) Create a common class with ur middleware method.
+4) Create an aspect class i.e, @Aspect
+5) Create a TestClass
+
+
+StEPS:
+------
+1) create a maven project with arche type
+
+2) paste the below dependencies in pom.xml
+
+<properties>
+
+ 
+
+		<java.version>1.8</java.version>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+ 
+
+		<!-- Spring -->
+<spring-framework.version>4.0.2.RELEASE</spring-framework.version>
+
+ 
+
+		<!-- Logging -->
+<logback.version>1.0.13</logback.version>
+<slf4j.version>1.7.5</slf4j.version>
+
+ 
+
+		<!-- Test -->
+<junit.version>4.11</junit.version>
+
+ 
+
+		<!-- AspectJ -->
+<aspectj.version>1.7.4</aspectj.version>
+
+ 
+
+	</properties>
+
+ 
+
+	<dependencies>
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-context</artifactId>
+<version>${spring-framework.version}</version>
+</dependency>
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-tx</artifactId>
+<version>${spring-framework.version}</version>
+</dependency>
+
+ 
+
+		<!-- Logging with SLF4J & LogBack -->
+<dependency>
+<groupId>org.slf4j</groupId>
+<artifactId>slf4j-api</artifactId>
+<version>${slf4j.version}</version>
+<scope>compile</scope>
+</dependency>
+<dependency>
+<groupId>ch.qos.logback</groupId>
+<artifactId>logback-classic</artifactId>
+<version>${logback.version}</version>
+<scope>runtime</scope>
+</dependency>
+
+ 
+
+		<!-- AspectJ dependencies -->
+<dependency>
+<groupId>org.aspectj</groupId>
+<artifactId>aspectjrt</artifactId>
+<version>${aspectj.version}</version>
+<scope>runtime</scope>
+</dependency>
+<dependency>
+<groupId>org.aspectj</groupId>
+<artifactId>aspectjtools</artifactId>
+<version>${aspectj.version}</version>
+</dependency>
+</dependencies>
+
+
+do clean install and update project---even the build is success/failure do the process below ,then we won't face any issues further.
+
+3) create a class with name "CommonClass" without main in src/main/java
+
+create a class with name "MyAdviceClass" without main in src/main/java
+
+create a class with name "TestClass" with main in src/main/java
+
+4) create a xml file from project with name "applicationcontext.xml"
+
+And paste the below code
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<aop:config>
+		<aop:aspect id="log" ref="MadviceTest">
+			<aop:pointcut id="selectAll"
+				expression="execution(* com.infinite.springaop.*.*(..))" />
+			<aop:before pointcut-ref="selectAll" method="beforeAdvice" />
+			<aop:after pointcut-ref="selectAll" method="afterAdvice" />
+			<aop:after-returning pointcut-ref="selectAll"
+				returning="retVal" method="afterReturningAdvice" />
+			<aop:after-throwing pointcut-ref="selectAll"
+				throwing="ex" method="afterThrowingAdvice" />
+		</aop:aspect>
+	</aop:config>
+	<bean id="businessLogic" class="com.infinite.springaop.CommonClass" />
+	<bean id="adviceTest" class="com.infinite.springaop.MyAdviceClass" />
+</beans>
+
+
+
+
+even we change the id name in applicationcontext.xml it doesnt effect the output===> becoz id name can be anything
+
+
+
+
+
+NOTE:
+-----
+if we see apptest.java then remove it from the scr/test/java and at folders also 
+then do clean install and update project.
+
+Becoz, then only our project will work without any issues.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NOTE:
+-----
+- For OS we write min 1crore code
+- push notifications, cant be stored
+- sms--- can be stored
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<< TRANSACTION MANAGEMENT >>>>>>>>>>>>>>>>>>>>>>>>.
+
+- Transaction is a collection of changes/events that occur on db.
+- Transactions are 2 types
+	- Local Tx
+		- any tx which you perform on only local datasource/db--- in centralized systems.
+	- Global Tx
+		- any tx which you perform on multiple datasource/db-- in distributed systems. 
+- wherever we see tx mgmt we will have AOP
+- Tx has 2 state	
+	- Commit
+	- Rollback----ex:--- payments
+- Tx manager helps to initiate and close the txs that occur in any db.
+
+- if the n/w is changed while the transaction is going on , that persons tx will rollback in race case.
+
+DIRTY READS:
+-------------
+if the tx is not committed at required locations properly it leads to dirty reads.
+
+PHANTOM READ:
+-------------
+Same tx doing multiple times without committing the db leads to phantom read.
+- For example, suppose transaction T1 retrieves a set of rows that satisfy some search criteria. Now, Transaction T2 generates some new rows that match the search criteria for transaction T1.
+
+TX ISOLATION LEVELS:
+----------------------
+we need to maintain the tx isolation level, so that our tx will be free from dirty and phantom reads.
+
+Spring TX Mgmt:
+--------------
+is a sequence of actions that are treated as one unit of work.
+
+
+Transactional:---> the code is committed manually.
+
+Non-Trasactional:---> the code is committed automatically.
+
+SAVEPOINTS:
+-----------
+- It is a class
+- SavepointManager is a interface.
+EG:
+---
+	3:53--db---emp,std---savepoint name is Vasanthi
+	3:55--db---emp,std,std1---savepoint name is Sirikonda
+	3:59--->rollback to savepoint Vasanthi
+- we have SavepointManager
+
+TransactionDefination defines the following properties of the spring tx:
+------------------------------------
+- propagation
+- Isolation
+- TimeOut
+- Read-only status
+
+Transaction Managers:
+----------------------
+- DataSource
+- Hibernate
+- Jms
+- Jpa
+
+
+
+JSTL Language:
+--------------
+- It is present in JSP
+- It is a tag based language.
+- By knowing JSTL language, we can write db code without the knowledge of java
+- Only disadv is it is not complete 
+EG:
+----
+<form:from></form:form>---JSTL
+<form></form>---html/jsp
+- CommandName--> name of the form in JSTL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TASK:
+-----
+Title:
+1)Welcome page--->Registration page,Login page,
+In database,dont use String for date.
+Note: dont use html or js validations.Use Spring MVC validation
+2)Registration is done---->login page
+3)After success full login---->Homepage
+4)Enter Train No----Text box-->Search option
+5)Train info shld be displayed in same Page.
+6)Place an option in same page for redirecting to "irctc.co.in" website.
+Note:Irctc shld be opened in new window.
+7)Enter source and destination-->search--->display the train list in table format.
+Use drop downlist.
+8)Add Signout with httpsessions.
+
+ 
+
+Note:Wednesday 5pm

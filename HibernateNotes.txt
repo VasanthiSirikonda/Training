@@ -1,0 +1,528 @@
+<<<<<<<<<<Week-6>>>>>>>>>>>>>>>>>
+Note:
+----
+1)ISSUE: If we get " invalid LOC header(if the files are crashed then we will get this error)------> we have to remove the ".m2" file.
+
+2) ISSUE: If we get Dispatcher Servlet issue evethough maven is perferct,jars are present then go with the below process.
+
+rightclick on project--->properties--->deployment assembly(if there no maven)---> build add the maven dependencies manually
+
+3) Graddle fixes the maven issues--> becoz, it internally uses maven repository.
+
+> To fetech the values from the properties files, we use @Value
+> Instead of @Controller-------> we use @Repository, @Service.
+
+
+PROPERTIES STEPS:
+------------------
+1) create maven project with simple proj
+2) add dependencies to pom.xml
+3)
+
+note:
+----- window--> preferences-> 
+
+HOW TO CONVERT DESKTOP APP TO WEB APP:
+-------------------------------------
+
+Right click on project--->properties------>search for proj facets-----> click on dynamic web project v3.0-----> apply --> ok
+
+
+
+
+ISSUES:
+-------
+1) appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+
+2)Illegal access: this web application instance has been stopped already. Could not load []. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+
+
+Concpts to Learn:
+------------------------
+ACID Properties
+Primary Key, Foreign Key Creations
+Sequence
+Check,not null constrainsts
+Transaction Isolation Levels and Propogations
+Relationships----->one to one,one to many,many to many
+
+
+**************************************
+
+HIBERNATE:
+----------
+
+- SQL is db dependent.
+- Cache
+	- Used for faster retrival of data.
+	- Cache is present in RAM(temporary memory).
+
+- 1 Petabyte=one quadrillion (1,000,000,000,000,000) bytes, 1,000,000 GBs, or 1,000 TBs.
+
+- Open cmd==> type "tree"--> we get the structure of our C drive
+
+- select * from emp;
+	- this command is splitted into parts--->parsing
+	- SQL will understand the parsing and give output.
+	- SQL will store the parsing data in cache.
+	- If the query/command is executed then SQL retrives fast than before.
+- SQL commands are time consuming(utilizes the CPU processing time)
+
+- There are no cache capabilities in JdbcTemplate.
+- In higher versions of , there are CachedRowsets and CachedResultSet
+
+- SQL Query Execution Plan/Query Parsing Plan:
+
+JPA(Java Specification Standards):
+----------------------------------
+- It is a sepecification
+- we have set of rules and regulations.
+- Its like a interface
+- Use JPA to acheive below features
+	- cache
+	- sql
+	- ORM(Object Relation Mapping)
+	- Cascading rules
+	- Relationships
+	- Table creation should be automatic
+	- PK/Sequence Creation Types-->i.e,Auto Increment 
+
+- JdbcTemplate/DAO--> we are creating the table manually.
+
+ORM(Object Relation Mapping):
+------------------------------
+- ORM can convert pojo class to table and vice-versa.
+- ORM is also available in Python(library--SQL Alchemy) and .Net
+
+HIBERNATE:
+---------
+- It is implementor for JPA Specification.
+- Ibatis, Toplink==competitors for hibernate.
+- Ibatis, Toplink, Hibernate-->these tools follows JPA Specifications.
+- Not programming language.
+- It is like a vendor.
+- Opensource
+- It's like class.
+- Supports Only RDBMS dbs---->HSQL Database Engine,DB2/NT,MySQL,PostgreSQL,FrontBase,Oracle,Microsoft SQL,Server Database,Sybase SQL Server.
+- Supports NoSQL dbs--> through hibernate OGM(Object/Grid Mapper)
+- Hibernate has its HQL( Hibernate query Language)
+	- HQL is like SQL.
+	- Hiberanate is db independent, becoz it supports HQL.
+	- it provides cache
+		- 1st level
+		- 2nd level caching-->3rd party caching-->memcache,EHcache,Swarn Cache,(Hazelcat,Reddis--> trending)..etc)
+- provides good feature for handling the keys.
+- does't require apache tomat server.
+- Needs db server.
+- Supports Collections,HQL,Cache,Relationships,keys,ORM 
+- To work on Hibernate( 2 ways)
+	-  through XML
+		- we use hibernate cfg(configuration) xml file
+		- pojo class 
+		- Mapping file-- XML format
+		- for testing --> TestClass
+	- through Annotations
+	
+
+
+NOTE:
+------
+- Apache --> it has its own API-->Apache Persistance API.
+
+- Testng and Junit==> we need this for selenium(automating testing across many web browsers)
+
+STEPS:
+----
+1) create a maven proj by skipping arche type
+	- but use org.infinite.hexample
+2) create a file with name==> hibernate.cfg.xml
+3) goto pom.xml and add below dependencies
+
+<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.5.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
+	</dependencies>
+
+4) paste the below code in  hibernate.cfg.xml
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration SYSTEM
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/training</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">mysql123@</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="hbm2dll.auto">update</property>
+		<mapping resource="student.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
+
+
+
+5) create a file with name "student.hbm.xml" and below code
+
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.infinite.pojo.Student" table="Student">
+		<id name="studentId" type="int" column="Student_Id">
+			<generator class="native"></generator>
+		</id>
+		<property name="firstName" column="First_Name" type="string"></property>
+		<property name="lastName" column="Last_Name" type="string"></property>
+		<property name="className" column="Class" type="string"></property>
+		<property name="rollNo" column="RollNo" type="string"></property>
+		<property name="age" column="Age" type="int"></property>
+	</class>
+</hibernate-mapping>
+
+
+6) create a pojo class with name student.
+
+7) create a testclass with name TestClass
+
+
+8) create a package with name org.infinite.dbutils
+	- create class with name ==> HibernateUtils
+
+
+
+Persistence Object:---->nothing but pojo class
+
+<property name="hbm2ddl.auto">update</property> ===> dont use everytime.
+
+<property name="show_sql">true</property> ===> used to display the query that being executed.
+
+<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property> =======>  wherever we see dialect, that means we are working on hibernate.
+
+
+DIALECT:
+-------
+provides the way to identify the language used by db for communication.
+
+
+HBM:
+----
+- THE ABOVE CODE IS FOR PRIMARY KEY
+	<class name="org.infinite.pojo.Login" table="Login">
+		<id name="Id" type="int" column="Id">
+			<generator class="native"></generator>
+		</id>
+
+
+
+native===> similar like auto increment,which is given by hibernate.
+
+SessionFactory===> it is a pool of session objects
+
+
+save() stores the data in the database.===> insertion
+
+commit() makes it visible to others
+
+delete()
+
+update()
+
+saveorupdate()
+
+
+STEPS TO CREATE TABLE & PERFORM CURD OPERATIONS :
+--------------------------------------------------
+1)Create a config object and load cfg metadata into memory.
+2)Using config object,get session factory object.
+3)from sessionfactory object,fetch session and open that
+session with database.
+4)Once connection is established,initiate tx.
+5)perform db operations
+6)tx shld be commited
+7)close session with db.
+
+
+- In hiberate, every record is a object.
+- Hibernate deals with objects. ( objs are 2 types)
+	- persistent obj
+	- transient obj
+
+- row alo called as tuple
+- Connection Provides---> related to connection pooling
+
+===========================================================================================================================================================
+- For installing JBoss ,only install these 
+jBoss maven integration
+hibernate tools
+- Multi module maven project in eclipse.
+- https://www.youtube.com/watch?v=Dzvbz36Hqu0
+
+
+
+********************************************************
+
+- For hibernate object is treated as object, for db obj is a record/tuples.
+
+- when we want to insert multiple objects at a time weuse 
+	- collections+hibernate
+	- loops +hibernate
+	- batch insertion operations
+
+
+HIBERNATE OBJECT LIFECYCLE:
+---------------------------
+Used to remove the obj from memory
+1) Transient
+	- Transient entities exist in heap memory as normal java objs
+	- hibernate not manage transient entities.it is managed by JVM
+2) Persistence or Managed
+	- we get persient entity in 2 ways 
+		- load	
+		- get
+3) Detached-- meaning is seperation
+	- any changes to a detached entity will not be reflected in db.
+4)Removed
+	- it will not remove from hibernate session, jst mark for deletion
+
+- we cant rollback the obj that is being removed from memory.
+- garbage collector-- it is used to mark the the garbage 
+
+- transaction doesnt exist without Hibernate session
+
+SERIALIZATION:
+--------------
+- Process of saving SBI(State Behaviour Identity) of an object to storage medium is called as serialization.
+
+
+EG: Roadrash game, network issue
+
+- Pause the game ---> serialization occurs
+- Resume the game -->deserialization occurs (the state of the object will rollback
+)
+- the state the game is stored in temp files 
+	- in laptops/systems --> temp files are created.
+	- in mobiles--> cache
+
+DESERIALIZATION:
+----------------
+- Process of restoring SBI(State Behaviour Identity) of an object to actual state is called as Deserialization.
+
+NAMED QUERIES:
+----------------
+- to access the same query from different class we use named queries.
+
+i.e., the below is disadvantage--> debugging is difficult, repeatable code
+- A.java
+	String queries=" Select * from infinite";
+
+- B.java
+	String queries=" Select * from infinite";
+
+- B.java
+	String queries=" Select * from infinite";
+
+
+so, named quries came into picture
+- A.java
+	@NamedQuery(infiselect="select * from infinite")
+
+- B.java
+	queries
+
+- C.java
+	queries
+
+CRITERIA API(feature given by hibernate):
+----------------------------
+- Criteria api is an approach to pull the data from db using programatic way.
+- Criteria API simplifies the select queries in hibernate.
+	- Select * from employee where salary>50000;---sql
+	- In hibernate---> we can use the below code for only select
+i.e., from employee where salary>50000;
+
+- select types--->where,having,between,in,like,orderby,group by,rollup,cube
+rollup and cube-----Data Analytics,pivotal chart creations
+
+criteria api--> sql
+gt--->greaterthan
+restriction-->like
+
+
+- there is no nested transactions concept in hibernate.
+
+TYPES OF QUERIES:
+-----------------
+1) NESTED SUBQUERIES
+2) CORRELATED SUBQUERIES
+
+
+
+Task:(friday)
+--------------
+write a Spring MVC app,which shld allow you to upload only pdf files to db table.
+
+Note:Spring MVC+Hibernate+commons/apache poi
+
+For other file formats,It shld display "This types of file is not supported"
+file size shld not exceed > 1mb.
+
+
+*****************************************
+
+
+SONARQUBE:
+----------
+sonar qube---on primesis server
+sonar cloud---cloud server
+
+to work on sonarcloud---- we need github,bitbucket,gitlab,azure devops
+
+STEPS:
+------
+right click on proj-->team---> share--->enable use or create--->click the check box of your project-->create repository---->finish
+
+Again right click on project--->team--->commit--->drag all the files in unstaged to staged--->in commit message text box type sonar qube ----> commit.
+
+open git hub in browser--->create a new repository-->copy the ssh url and paste it in notepad
+
+after that open eclipse-->add another sop in code-->drag all the files in unstaged to staged--->in commit message text box type sonar cloud commit2 ---->push and commit.-->give the details of user (username and password)--->ok
+
+
+generate new token-->generate new token classic-->note:type anything(sonarcloudtest)-->repo click-->generate token-->copy the token and use as password-->go to eclipse-->give the password-->ok-->finish--->again it asks for lohin(give your username and token as password)--> ok 
+
+goto sonarcloud-->import organization from github--> install.
+
+free plan--> create org-->sonar cloud test-->setup-->setup no. of days-->create project.
+
+
+
+HQL (Hibernate Query Language):
+------------------------------
+- dp independent.
+- In prepareded stmt, we use ? but here we use ":"---> to get runtime inputs
+
+https://docs.jboss.org/hibernate/core/3.3/reference/en/html/queryhql.html
+
+NOTE:
+-----
+If we try to change the data,then there is no effect on the db--> check for the below are correct or not:
+1) Table col and pojo col count should match.
+2) If names are not matching in HQL then it will throw error messages.
+3) If there is parent child relationships, then dml operations will fail.
+4) check for the imports whether they correct or not
+5) check for the location of cfg.
+6) Seperate packages should be different for pojo and test classes.
+
+
+
+
+HQL From: HQL From is same as select clause in SQL . We can also create alias such as from Employee emp or from Employee as emp.
+
+HQL Join : HQL supports inner join, left outer join, right outer join and full join. For example, select e.name, a.city from Employee e INNER JOIN e.address a. In this query, Employee class should have a variable named address. We will look into it in the example code.
+
+Aggregate Functions: HQL supports commonly used aggregate functions such as count(*), count(distinct x), min(), max(), avg() and sum().
+
+Expressions: HQL supports arithmetic expressions (+, -, *, /), binary comparison operators (=, >=, <=, <>, !=, like), logical operations (and, or, not) etc.
+
+HQL also supports ordre by and group by clauses.
+
+HQL also supports sub-queries just like SQL queries.
+
+HQL supports DDL, DML and executing store procedures too.
+
+CACHE:
+-----
+- doent require any dependencies , as it is feature of a hibernate.
+- If we are using any 3rd party vendors---> then use ehcache
+
+
+
+ISSUES:
+-------
+1) No row with the given identifier exists: [org.infinite.pojo.Employee#10]
+	check the db==>if the row is not available, we will get this error.
+
+
+
+
+
+- In second level chache i.e, ecchache, even the data is deleted after the execution of the program, cache helps to store that data in cache--> this is the adv of the 3rd party caches (second level cache)
+
+
+HIBERNATE + DAO:
+-----------------
+- v4.3.6==>hibernatre core
+
+
+HIBERNATE COLLECTIONS:
+----------------------
+- Hibernate collections are used to defining the relationships among tables i.e., one to many,many to one
+- Collections supported by hibernate:
+	- Set---- Hashset
+	- list----ArrayList
+	- Map---hashMap,treeMap
+	- Bag 
+
+- Join Column is used to join two tables.
+
+DISCRIMINATOR:
+--------------
+To differentiate the parent and child table values we use a 
+discriminator for differentiation of columns.
+
+
+
+
+
+
+
+
+hIBERNATE introduction
+object lifecycle
+dao with impl
+Spring MVC+Hibernate
+criteria API
+cache
+HQL
+Collections
+
+
+
+
+
+
+
+
+
+
+CONCEPTS TO EXPLORE:
+----------------------
+descriminator
+cascading
+primary key
+foriegn
+composite primary key
+handling null in db
+nullif
+case in mysql
+
+
+
+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
